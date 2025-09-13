@@ -1,4 +1,4 @@
-import React from 'react';
+import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -61,7 +61,8 @@ const achievements = [
 
 export default function Learning() {
   return (
-    <div className="space-y-6">
+    <DashboardLayout userRole="entrepreneur">
+      <div className="space-y-6">
       {/* Header */}
       <div>
         <h1 className="text-3xl font-bold text-foreground">Learning Center</h1>
@@ -214,5 +215,6 @@ export default function Learning() {
         </CardContent>
       </Card>
     </div>
+    </DashboardLayout>
   );
 }

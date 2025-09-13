@@ -18,6 +18,23 @@ import Learning from "./pages/dashboard/entrepreneur/Learning";
 import Analytics from "./pages/dashboard/entrepreneur/Analytics";
 import Settings from "./pages/dashboard/Settings";
 
+// Admin Dashboard Pages
+import AdminUsers from "./pages/dashboard/admin/Users";
+import AdminCompanies from "./pages/dashboard/admin/Companies";
+import AdminContent from "./pages/dashboard/admin/Content";
+import AdminAnalytics from "./pages/dashboard/admin/AdminAnalytics";
+import AdminCompliance from "./pages/dashboard/admin/AdminCompliance";
+
+// Mentor Dashboard Pages
+import MentorMentees from "./pages/dashboard/mentor/Mentees";
+import MentorSessions from "./pages/dashboard/mentor/Sessions";
+import MentorProgress from "./pages/dashboard/mentor/Progress";
+
+// Company Dashboard Pages
+import CompanyPartnerships from "./pages/dashboard/company/Partnerships";
+import CompanyFunding from "./pages/dashboard/company/CompanyFunding";
+import CompanyImpact from "./pages/dashboard/company/Impact";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -39,12 +56,28 @@ const App = () => (
           <Route path="/dashboard/entrepreneur/learning" element={<Learning />} />
           <Route path="/dashboard/entrepreneur/analytics" element={<Analytics />} />
           
+          {/* Admin Dashboard Routes */}
+          <Route path="/dashboard/admin" element={<AdminDashboard />} />
+          <Route path="/dashboard/admin/users" element={<AdminUsers />} />
+          <Route path="/dashboard/admin/companies" element={<AdminCompanies />} />
+          <Route path="/dashboard/admin/content" element={<AdminContent />} />
+          <Route path="/dashboard/admin/analytics" element={<AdminAnalytics />} />
+          <Route path="/dashboard/admin/compliance" element={<AdminCompliance />} />
+          
+          {/* Mentor Dashboard Routes */}
+          <Route path="/dashboard/mentor" element={<MentorDashboard />} />
+          <Route path="/dashboard/mentor/mentees" element={<MentorMentees />} />
+          <Route path="/dashboard/mentor/sessions" element={<MentorSessions />} />
+          <Route path="/dashboard/mentor/progress" element={<MentorProgress />} />
+          
+          {/* Company Dashboard Routes */}
+          <Route path="/dashboard/company" element={<CompanyDashboard />} />
+          <Route path="/dashboard/company/partnerships" element={<CompanyPartnerships />} />
+          <Route path="/dashboard/company/funding" element={<CompanyFunding />} />
+          <Route path="/dashboard/company/impact" element={<CompanyImpact />} />
+          
           {/* Generic settings route for all roles */}
           <Route path="/dashboard/:role/settings" element={<Settings />} />
-          
-          <Route path="/dashboard/admin" element={<AdminDashboard />} />
-          <Route path="/dashboard/mentor" element={<MentorDashboard />} />
-          <Route path="/dashboard/company" element={<CompanyDashboard />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
