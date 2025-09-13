@@ -1,4 +1,5 @@
 import React from 'react';
+import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { LineChart, Line, AreaChart, Area, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
@@ -39,7 +40,8 @@ const topProducts = [
 
 export default function Analytics() {
   return (
-    <div className="space-y-6">
+    <DashboardLayout userRole="entrepreneur">
+      <div className="space-y-6">
       {/* Header */}
       <div>
         <h1 className="text-3xl font-bold text-foreground">Business Analytics</h1>
@@ -248,5 +250,6 @@ export default function Analytics() {
         </TabsContent>
       </Tabs>
     </div>
+    </DashboardLayout>
   );
 }
