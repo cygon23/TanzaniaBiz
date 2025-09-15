@@ -121,9 +121,11 @@ export const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Button variant="hero" size="sm">
-              <LogIn className="w-4 h-4 mr-2" />
-              Get Started
+            <Button variant="hero" size="sm" asChild>
+              <Link to="/auth">
+                <LogIn className="w-4 h-4 mr-2" />
+                Get Started
+              </Link>
             </Button>
           </div>
 

@@ -4,10 +4,10 @@ import { useParams } from 'react-router-dom';
 // Import role-specific settings components
 import EntrepreneurSettings from './entrepreneur/Settings';
 
-// You can create similar settings components for other roles
-const AdminSettings = () => <div>Admin Settings Component</div>;
-const MentorSettings = () => <div>Mentor Settings Component</div>; 
-const CompanySettings = () => <div>Company Settings Component</div>;
+// Import role-specific settings components
+import AdminSettings from './admin/AdminSettings';
+import MentorSettings from './mentor/MentorSettings';
+import CompanySettings from './company/CompanySettings';
 
 export default function Settings() {
   const { role } = useParams();

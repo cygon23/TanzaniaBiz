@@ -5,6 +5,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import Auth from "./pages/Auth";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 import EntrepreneurDashboard from "./pages/dashboard/EntrepreneurDashboard";
 import AdminDashboard from "./pages/dashboard/AdminDashboard";
 import MentorDashboard from "./pages/dashboard/MentorDashboard";
@@ -44,43 +47,87 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          
+          <Route path='/' element={<Index />} />
+
           {/* Dashboard Routes */}
-          <Route path="/dashboard/entrepreneur" element={<EntrepreneurDashboard />} />
-          <Route path="/dashboard/entrepreneur/ai" element={<AIAssistant />} />
-          <Route path="/dashboard/entrepreneur/business-plan" element={<BusinessPlan />} />
-          <Route path="/dashboard/entrepreneur/compliance" element={<Compliance />} />
-          <Route path="/dashboard/entrepreneur/mentorship" element={<Mentorship />} />
-          <Route path="/dashboard/entrepreneur/funding" element={<Funding />} />
-          <Route path="/dashboard/entrepreneur/learning" element={<Learning />} />
-          <Route path="/dashboard/entrepreneur/analytics" element={<Analytics />} />
-          
+          <Route
+            path='/dashboard/entrepreneur'
+            element={<EntrepreneurDashboard />}
+          />
+          <Route path='/dashboard/entrepreneur/ai' element={<AIAssistant />} />
+          <Route
+            path='/dashboard/entrepreneur/business-plan'
+            element={<BusinessPlan />}
+          />
+          <Route
+            path='/dashboard/entrepreneur/compliance'
+            element={<Compliance />}
+          />
+          <Route
+            path='/dashboard/entrepreneur/mentorship'
+            element={<Mentorship />}
+          />
+          <Route path='/dashboard/entrepreneur/funding' element={<Funding />} />
+          <Route
+            path='/dashboard/entrepreneur/learning'
+            element={<Learning />}
+          />
+          <Route
+            path='/dashboard/entrepreneur/analytics'
+            element={<Analytics />}
+          />
+
           {/* Admin Dashboard Routes */}
-          <Route path="/dashboard/admin" element={<AdminDashboard />} />
-          <Route path="/dashboard/admin/users" element={<AdminUsers />} />
-          <Route path="/dashboard/admin/companies" element={<AdminCompanies />} />
-          <Route path="/dashboard/admin/content" element={<AdminContent />} />
-          <Route path="/dashboard/admin/analytics" element={<AdminAnalytics />} />
-          <Route path="/dashboard/admin/compliance" element={<AdminCompliance />} />
-          
+          <Route path='/dashboard/admin' element={<AdminDashboard />} />
+          <Route path='/dashboard/admin/users' element={<AdminUsers />} />
+          <Route
+            path='/dashboard/admin/companies'
+            element={<AdminCompanies />}
+          />
+          <Route path='/dashboard/admin/content' element={<AdminContent />} />
+          <Route
+            path='/dashboard/admin/analytics'
+            element={<AdminAnalytics />}
+          />
+          <Route
+            path='/dashboard/admin/compliance'
+            element={<AdminCompliance />}
+          />
+
           {/* Mentor Dashboard Routes */}
-          <Route path="/dashboard/mentor" element={<MentorDashboard />} />
-          <Route path="/dashboard/mentor/mentees" element={<MentorMentees />} />
-          <Route path="/dashboard/mentor/sessions" element={<MentorSessions />} />
-          <Route path="/dashboard/mentor/progress" element={<MentorProgress />} />
-          
+          <Route path='/dashboard/mentor' element={<MentorDashboard />} />
+          <Route path='/dashboard/mentor/mentees' element={<MentorMentees />} />
+          <Route
+            path='/dashboard/mentor/sessions'
+            element={<MentorSessions />}
+          />
+          <Route
+            path='/dashboard/mentor/progress'
+            element={<MentorProgress />}
+          />
+
           {/* Company Dashboard Routes */}
-          <Route path="/dashboard/company" element={<CompanyDashboard />} />
-          <Route path="/dashboard/company/partnerships" element={<CompanyPartnerships />} />
-          <Route path="/dashboard/company/funding" element={<CompanyFunding />} />
-          <Route path="/dashboard/company/impact" element={<CompanyImpact />} />
-          
+          <Route path='/dashboard/company' element={<CompanyDashboard />} />
+          <Route
+            path='/dashboard/company/partnerships'
+            element={<CompanyPartnerships />}
+          />
+          <Route
+            path='/dashboard/company/funding'
+            element={<CompanyFunding />}
+          />
+          <Route path='/dashboard/company/impact' element={<CompanyImpact />} />
+
+          {/* Auth route */}
+          <Route path='/auth' element={<Auth />} />
+          {/* <Route path="/about" element={<About />} /> */}
+          <Route path='/contact' element={<Contact />} />
+
           {/* Generic settings route for all roles */}
-          <Route path="/dashboard/:role/settings" element={<Settings />} />
-          
+          <Route path='/dashboard/:role/settings' element={<Settings />} />
+
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
