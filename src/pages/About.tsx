@@ -38,29 +38,33 @@ const About = () => {
 
   const team = [
     {
-      name: "Amina Hassan",
+      name: "",
       role: "Founder & CEO",
-      description: "Former McKinsey consultant with 15+ years of experience building businesses across East Africa.",
-      image: "AH"
+      description:
+        "Former McKinsey consultant with 15+ years of experience building businesses across East Africa.",
+      image: "AH",
     },
     {
-      name: "John Mwalimu",
+      name: "",
       role: "CTO",
-      description: "AI engineer and entrepreneur who previously scaled tech solutions across 10+ African markets.",
-      image: "JM"
+      description:
+        "AI engineer and entrepreneur who previously scaled tech solutions across 10+ African markets.",
+      image: "JM",
     },
     {
-      name: "Grace Kimani",
+      name: "",
       role: "Head of Partnerships",
-      description: "Former BRELA official with deep expertise in Tanzanian business regulations and compliance.",
-      image: "GK"
+      description:
+        "Former BRELA official with deep expertise in Tanzanian business regulations and compliance.",
+      image: "GK",
     },
     {
-      name: "David Mollel",
+      name: "",
       role: "Head of Product",
-      description: "Product strategist focused on creating intuitive experiences for emerging market entrepreneurs.",
-      image: "DM"
-    }
+      description:
+        "Product strategist focused on creating intuitive experiences for emerging market entrepreneurs.",
+      image: "DM",
+    },
   ];
 
   return (
