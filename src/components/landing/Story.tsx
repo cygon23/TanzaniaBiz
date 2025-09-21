@@ -19,7 +19,7 @@ const Story = () => {
 
   const timelineData = [
     {
-      year: "2021",
+      year: "2024",
       title: "The Vision Born",
       description:
         "A team of economists, technologists, and entrepreneurs identified the gap in Tanzania's business ecosystem.",
@@ -27,26 +27,26 @@ const Story = () => {
       color: "from-blue-500 to-cyan-500",
     },
     {
-      year: "2022",
+      year: "2025 late",
       title: "Platform Launch",
       description:
-        "Launched with AI-powered tools and local compliance automation for Tanzanian businesses.",
+        "Expect to  Launched with AI-powered tools and local compliance automation for Tanzanian businesses.",
       icon: Building2,
       color: "from-purple-500 to-pink-500",
     },
     {
-      year: "2023",
+      year: "2026/27",
       title: "Rapid Growth",
       description:
-        "Reached 10,000+ entrepreneurs with 90% success rate in business goal achievement.",
+        " Expect to Reached 10,000+ entrepreneurs with 90% success rate in business goal achievement.",
       icon: TrendingUp,
       color: "from-green-500 to-emerald-500",
     },
     {
-      year: "2024",
+      year: "2028/29",
       title: "Market Leader",
       description:
-        "15,000+ businesses served with 95% success rate, becoming Tanzania's #1 business platform.",
+        " Expect to  reach 15,000+ businesses served with 95% success rate, becoming Tanzania's #1 business platform.",
       icon: Award,
       color: "from-orange-500 to-red-500",
     },
@@ -56,7 +56,7 @@ const Story = () => {
     { number: "15,000+", label: "Entrepreneurs Served", icon: Users },
     { number: "95%", label: "Success Rate", icon: Award },
     { number: "26", label: "Regions Covered", icon: MapPin },
-    { number: "500M+", label: "TSh Revenue Generated", icon: TrendingUp },
+    { number: "5M+", label: "TSh Revenue Generated", icon: TrendingUp },
   ];
 
   useEffect(() => {
