@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Auth from "./pages/Auth";
+import Features from "./pages/Features";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import EntrepreneurDashboard from "./pages/dashboard/EntrepreneurDashboard";
@@ -37,101 +38,129 @@ import MentorProgress from "./pages/dashboard/mentor/Progress";
 import CompanyPartnerships from "./pages/dashboard/company/Partnerships";
 import CompanyFunding from "./pages/dashboard/company/CompanyFunding";
 import CompanyImpact from "./pages/dashboard/company/Impact";
+import React, { useState, useEffect } from "react";
+
+import MagicalSiteLoader from "./components/MagicalSiteLoader";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Index />} />
+const App = () => {
+  const [loading, setLoading] = useState(true);
 
-          {/* Dashboard Routes */}
-          <Route
-            path='/dashboard/entrepreneur'
-            element={<EntrepreneurDashboard />}
-          />
-          <Route path='/dashboard/entrepreneur/ai' element={<AIAssistant />} />
-          <Route
-            path='/dashboard/entrepreneur/business-plan'
-            element={<BusinessPlan />}
-          />
-          <Route
-            path='/dashboard/entrepreneur/compliance'
-            element={<Compliance />}
-          />
-          <Route
-            path='/dashboard/entrepreneur/mentorship'
-            element={<Mentorship />}
-          />
-          <Route path='/dashboard/entrepreneur/funding' element={<Funding />} />
-          <Route
-            path='/dashboard/entrepreneur/learning'
-            element={<Learning />}
-          />
-          <Route
-            path='/dashboard/entrepreneur/analytics'
-            element={<Analytics />}
-          />
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2000); // simulate load
+    return () => clearTimeout(timer);
+  }, []);
 
-          {/* Admin Dashboard Routes */}
-          <Route path='/dashboard/admin' element={<AdminDashboard />} />
-          <Route path='/dashboard/admin/users' element={<AdminUsers />} />
-          <Route
-            path='/dashboard/admin/companies'
-            element={<AdminCompanies />}
-          />
-          <Route path='/dashboard/admin/content' element={<AdminContent />} />
-          <Route
-            path='/dashboard/admin/analytics'
-            element={<AdminAnalytics />}
-          />
-          <Route
-            path='/dashboard/admin/compliance'
-            element={<AdminCompliance />}
-          />
+  if (loading) return <MagicalSiteLoader />;
 
-          {/* Mentor Dashboard Routes */}
-          <Route path='/dashboard/mentor' element={<MentorDashboard />} />
-          <Route path='/dashboard/mentor/mentees' element={<MentorMentees />} />
-          <Route
-            path='/dashboard/mentor/sessions'
-            element={<MentorSessions />}
-          />
-          <Route
-            path='/dashboard/mentor/progress'
-            element={<MentorProgress />}
-          />
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Index />} />
 
-          {/* Company Dashboard Routes */}
-          <Route path='/dashboard/company' element={<CompanyDashboard />} />
-          <Route
-            path='/dashboard/company/partnerships'
-            element={<CompanyPartnerships />}
-          />
-          <Route
-            path='/dashboard/company/funding'
-            element={<CompanyFunding />}
-          />
-          <Route path='/dashboard/company/impact' element={<CompanyImpact />} />
+            {/* Dashboard Routes */}
+            <Route
+              path='/dashboard/entrepreneur'
+              element={<EntrepreneurDashboard />}
+            />
+            <Route
+              path='/dashboard/entrepreneur/ai'
+              element={<AIAssistant />}
+            />
+            <Route
+              path='/dashboard/entrepreneur/business-plan'
+              element={<BusinessPlan />}
+            />
+            <Route
+              path='/dashboard/entrepreneur/compliance'
+              element={<Compliance />}
+            />
+            <Route
+              path='/dashboard/entrepreneur/mentorship'
+              element={<Mentorship />}
+            />
+            <Route
+              path='/dashboard/entrepreneur/funding'
+              element={<Funding />}
+            />
+            <Route
+              path='/dashboard/entrepreneur/learning'
+              element={<Learning />}
+            />
+            <Route
+              path='/dashboard/entrepreneur/analytics'
+              element={<Analytics />}
+            />
 
-          {/* Auth route */}
-          <Route path='/auth' element={<Auth />} />
-          {/* <Route path="/about" element={<About />} /> */}
-          <Route path='/contact' element={<Contact />} />
+            {/* Admin Dashboard Routes */}
+            <Route path='/dashboard/admin' element={<AdminDashboard />} />
+            <Route path='/dashboard/admin/users' element={<AdminUsers />} />
+            <Route
+              path='/dashboard/admin/companies'
+              element={<AdminCompanies />}
+            />
+            <Route path='/dashboard/admin/content' element={<AdminContent />} />
+            <Route
+              path='/dashboard/admin/analytics'
+              element={<AdminAnalytics />}
+            />
+            <Route
+              path='/dashboard/admin/compliance'
+              element={<AdminCompliance />}
+            />
 
-          {/* Generic settings route for all roles */}
-          <Route path='/dashboard/:role/settings' element={<Settings />} />
+            {/* Mentor Dashboard Routes */}
+            <Route path='/dashboard/mentor' element={<MentorDashboard />} />
+            <Route
+              path='/dashboard/mentor/mentees'
+              element={<MentorMentees />}
+            />
+            <Route
+              path='/dashboard/mentor/sessions'
+              element={<MentorSessions />}
+            />
+            <Route
+              path='/dashboard/mentor/progress'
+              element={<MentorProgress />}
+            />
 
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path='*' element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+            {/* Company Dashboard Routes */}
+            <Route path='/dashboard/company' element={<CompanyDashboard />} />
+            <Route
+              path='/dashboard/company/partnerships'
+              element={<CompanyPartnerships />}
+            />
+            <Route
+              path='/dashboard/company/funding'
+              element={<CompanyFunding />}
+            />
+            <Route
+              path='/dashboard/company/impact'
+              element={<CompanyImpact />}
+            />
+
+            {/* Public Pages */}
+            <Route path='/auth' element={<Auth />} />
+            <Route path='/features' element={<Features />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/contact' element={<Contact />} />
+
+            {/* Generic settings route for all roles */}
+            <Route path='/dashboard/:role/settings' element={<Settings />} />
+
+            {/* Catch-all */}
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
+
 
 export default App;

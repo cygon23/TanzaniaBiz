@@ -1,18 +1,22 @@
-import { Header } from "@/components/layout/Header";
-import { Hero } from "@/components/landing/Hero";
-import { Features } from "@/components/landing/Features";
-import { Testimonials } from "@/components/landing/Testimonials";
-import { CTA } from "@/components/landing/CTA";
-import { Footer } from "@/components/landing/Footer";
+import Header from "@/components/layout/Header";
+import Hero from "@/components/landing/Hero";
+import Story from "@/components/landing/Story";
+import Features from "@/components/landing/Features";
+import Partnership from "@/components/landing/Partnership";
+import Testimonials from "@/components/landing/Testimonials";
+import FinalCTA from "@/components/landing/FinalCTA";
+import Footer from "@/components/landing/FooterV";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className='min-h-screen bg-background'>
       <Header />
       <Hero />
+      <Story />
       <Features />
+      <Partnership />
       <Testimonials />
-      <CTA />
+      <FinalCTA />
       <Footer />
     </div>
   );
