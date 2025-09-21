@@ -1,224 +1,218 @@
-import { useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { 
-  Menu, 
-  X, 
-  User, 
-  LogIn, 
-  Globe,
-  Building2
-} from "lucide-react";
+import React, { useState, useEffect } from "react";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+  Menu,
+  X,
+  Globe,
+  Building2,
+  User,
+  LogIn,
+  ArrowRight,
+  Search,
+  Bell,
+} from "lucide-react";
 
-export const Header = () => {
+const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [currentPath, setCurrentPath] = useState("/");
 
-  const handleDemoLogin = (role: 'entrepreneur' | 'admin' | 'mentor' | 'company') => {
-    // Store demo user role in localStorage
-    localStorage.setItem('demoUser', JSON.stringify({ role, email: `demo-${role}@example.com` }));
-    navigate(`/dashboard/${role}`);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navigation = [
+    { name: "Home", href: "/", active: true },
+    { name: "Features", href: "/features" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
+  ];
+
+  const handleDemoLogin = () => {
+    window.location.href = "/auth";
   };
 
-  const isActive = (path: string) => location.pathname === path;
-
   return (
-    <header className="sticky top-0 z-50 glass-effect border-b border-border/50">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gradient-hero rounded-lg flex items-center justify-center">
-              <Building2 className="w-5 h-5 text-white" />
+    <>
+      {/* Main Navbar */}
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/50"
+            : "bg-transparent"
+        }`}>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='flex items-center justify-between h-20'>
+            {/* Logo Section */}
+            <div className='flex items-center space-x-4'>
+              <div className='relative group cursor-pointer'>
+                <div className='absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300' />
+                <div
+                  className={`relative w-12 h-12 rounded-2xl flex items-center justify-center transition-colors duration-300 ${
+                    isScrolled ? "bg-gray-900" : "bg-white/10 backdrop-blur-sm"
+                  }`}>
+                  <Building2
+                    className={`w-6 h-6 ${
+                      isScrolled ? "text-white" : "text-white"
+                    }`}
+                  />
+                </div>
+              </div>
+              <div className='hidden sm:block'>
+                <h1
+                  className={`text-2xl font-bold transition-colors duration-300 ${
+                    isScrolled ? "text-gray-900" : "text-white"
+                  }`}>
+                  <span className='bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent'>
+                    TanzaniaBiz
+                  </span>
+                </h1>
+                <p
+                  className={`text-xs font-medium ${
+                    isScrolled ? "text-gray-600" : "text-blue-200"
+                  }`}>
+                  Business Innovation Platform
+                </p>
+              </div>
             </div>
-            <span className="font-bold text-xl text-gradient">TanzaniaBiz</span>
-          </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            <Link 
-              to="/" 
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                isActive('/') ? 'text-primary' : 'text-muted-foreground'
-              }`}
-            >
-              Home
-            </Link>
-            <Link 
-              to="/features" 
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                isActive('/features') ? 'text-primary' : 'text-muted-foreground'
-              }`}
-            >
-              Features
-            </Link>
-            <Link 
-              to="/about" 
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                isActive('/about') ? 'text-primary' : 'text-muted-foreground'
-              }`}
-            >
-              About
-            </Link>
-            <Link 
-              to="/contact" 
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                isActive('/contact') ? 'text-primary' : 'text-muted-foreground'
-              }`}
-            >
-              Contact
-            </Link>
-          </nav>
+            {/* Desktop Navigation */}
+            <div className='hidden lg:flex items-center space-x-1'>
+              {navigation.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 relative overflow-hidden ${
+                    item.active
+                      ? isScrolled
+                        ? "text-blue-600 bg-blue-50"
+                        : "text-white bg-white/20"
+                      : isScrolled
+                      ? "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+                      : "text-white/90 hover:text-white hover:bg-white/10"
+                  }`}>
+                  <span className='relative z-10'>{item.name}</span>
+                  {item.active && (
+                    <div className='absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-20 rounded-xl' />
+                  )}
+                </a>
+              ))}
+            </div>
 
-          {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center space-x-4">
-            {/* Language Selector */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm">
-                  <Globe className="w-4 h-4 mr-2" />
-                  EN
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>English</DropdownMenuItem>
-                <DropdownMenuItem>Kiswahili</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            {/* Desktop Actions */}
+            <div className='hidden lg:flex items-center space-x-4'>
+              <button
+                className={`flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                  isScrolled
+                    ? "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+                    : "text-white/80 hover:text-white hover:bg-white/10"
+                }`}>
+                <Globe className='w-4 h-4 mr-2' />
+                EN
+              </button>
 
-            {/* Demo Login Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="sm">
-                  <User className="w-4 h-4 mr-2" />
-                  Demo Login
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-48">
-                <DropdownMenuItem onClick={() => handleDemoLogin('entrepreneur')}>
-                  <User className="w-4 h-4 mr-2" />
-                  Entrepreneur
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => handleDemoLogin('mentor')}>
-                  <User className="w-4 h-4 mr-2" />
-                  Mentor
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => handleDemoLogin('company')}>
-                  <Building2 className="w-4 h-4 mr-2" />
-                  Company
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => handleDemoLogin('admin')}>
-                  <User className="w-4 h-4 mr-2" />
-                  Admin
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+              <button
+                className={`p-2 rounded-lg transition-all duration-300 ${
+                  isScrolled
+                    ? "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+                    : "text-white/80 hover:text-white hover:bg-white/10"
+                }`}>
+                <Search className='w-5 h-5' />
+              </button>
 
-            <Button variant="hero" size="sm" asChild>
-              <Link to="/auth">
-                <LogIn className="w-4 h-4 mr-2" />
-                Get Started
-              </Link>
-            </Button>
+              <button
+                className={`relative p-2 rounded-lg transition-all duration-300 ${
+                  isScrolled
+                    ? "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+                    : "text-white/80 hover:text-white hover:bg-white/10"
+                }`}>
+                <Bell className='w-5 h-5' />
+                <div className='absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full animate-pulse' />
+              </button>
+
+              <button
+                onClick={handleDemoLogin}
+                className='group relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105'>
+                <div className='absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300' />
+                <div className='relative flex items-center'>
+                  <LogIn className='w-4 h-4 mr-2' />
+                  Get Started
+                  <ArrowRight className='w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200' />
+                </div>
+              </button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className={`lg:hidden p-2 rounded-lg transition-all duration-300 ${
+                isScrolled
+                  ? "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+                  : "text-white hover:bg-white/10"
+              }`}>
+              {isMenuOpen ? (
+                <X className='w-6 h-6' />
+              ) : (
+                <Menu className='w-6 h-6' />
+              )}
+            </button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="lg:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </Button>
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-border/50">
-            <nav className="space-y-4">
-              <Link 
-                to="/" 
-                className="block text-sm font-medium text-muted-foreground hover:text-primary"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Home
-              </Link>
-              <Link 
-                to="/features" 
-                className="block text-sm font-medium text-muted-foreground hover:text-primary"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Features
-              </Link>
-              <Link 
-                to="/about" 
-                className="block text-sm font-medium text-muted-foreground hover:text-primary"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                About
-              </Link>
-              <Link 
-                to="/contact" 
-                className="block text-sm font-medium text-muted-foreground hover:text-primary"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contact
-              </Link>
-              
-              <div className="pt-4 space-y-3">
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className="w-full justify-start"
-                  onClick={() => handleDemoLogin('entrepreneur')}
-                >
-                  <User className="w-4 h-4 mr-2" />
-                  Demo: Entrepreneur
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className="w-full justify-start"
-                  onClick={() => handleDemoLogin('mentor')}
-                >
-                  <User className="w-4 h-4 mr-2" />
-                  Demo: Mentor
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className="w-full justify-start"
-                  onClick={() => handleDemoLogin('company')}
-                >
-                  <Building2 className="w-4 h-4 mr-2" />
-                  Demo: Company
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className="w-full justify-start"
-                  onClick={() => handleDemoLogin('admin')}
-                >
-                  <User className="w-4 h-4 mr-2" />
-                  Demo: Admin
-                </Button>
-                <Button variant="hero" size="sm" className="w-full">
-                  <LogIn className="w-4 h-4 mr-2" />
+        <div
+          className={`lg:hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen
+              ? "max-h-screen opacity-100"
+              : "max-h-0 opacity-0 overflow-hidden"
+          }`}>
+          <div className='bg-white/95 backdrop-blur-md border-t border-gray-200/50'>
+            <div className='px-4 py-6 space-y-4'>
+              {navigation.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className={`block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-gray-100 transition-colors duration-200 ${
+                    item.active ? "bg-blue-50 text-blue-600" : ""
+                  }`}>
+                  {item.name}
+                </a>
+              ))}
+
+              <div className='pt-4 border-t border-gray-200 space-y-4'>
+                <div className='flex items-center justify-between'>
+                  <button className='flex items-center px-4 py-2 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors duration-200'>
+                    <Globe className='w-4 h-4 mr-2' />
+                    English
+                  </button>
+                  <div className='flex gap-2'>
+                    <button className='p-2 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors duration-200'>
+                      <Search className='w-5 h-5' />
+                    </button>
+                    <button className='relative p-2 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors duration-200'>
+                      <Bell className='w-5 h-5' />
+                      <div className='absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full animate-pulse' />
+                    </button>
+                  </div>
+                </div>
+                <button
+                  onClick={handleDemoLogin}
+                  className='w-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white font-semibold px-6 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center'>
+                  <LogIn className='w-5 h-5 mr-2' />
                   Get Started
-                </Button>
+                  <ArrowRight className='w-5 h-5 ml-2' />
+                </button>
               </div>
-            </nav>
+            </div>
           </div>
-        )}
-      </div>
-    </header>
+        </div>
+      </nav>
+    </>
   );
 };
+
+export default Header;

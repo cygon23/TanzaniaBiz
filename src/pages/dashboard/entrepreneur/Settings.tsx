@@ -1,4 +1,5 @@
 import React from 'react';
+import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -14,7 +15,8 @@ import { User, Building, Bell, Shield, Globe, CreditCard, Trash2 } from "lucide-
 
 export default function Settings() {
   return (
-    <div className="space-y-6">
+    <DashboardLayout userRole="entrepreneur">
+      <div className="space-y-6">
       {/* Header */}
       <div>
         <h1 className="text-3xl font-bold text-foreground">Settings</h1>
@@ -395,5 +397,6 @@ export default function Settings() {
         </TabsContent>
       </Tabs>
     </div>
+    </DashboardLayout>
   );
 }
