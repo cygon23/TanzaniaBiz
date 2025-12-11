@@ -16,7 +16,6 @@ import {
   Sparkles,
   ArrowRight,
 } from "lucide-react";
-import avatar from "@/assets/user.jpeg";
 
 const Testimonials = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,7 +23,6 @@ const Testimonials = () => {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [hoveredStat, setHoveredStat] = useState(null);
   const sectionRef = useRef(null);
-  
 
   const testimonials = [
     {
@@ -33,7 +31,9 @@ const Testimonials = () => {
       title: "CEO & Founder",
       company: "Kilimanjaro Tech Solutions",
       location: "Moshi, Tanzania",
-      rating: 4,
+      avatar:
+        "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+      rating: 5,
       testimonial:
         "TanzaniaBiz transformed my tech startup from an idea to a TSh 50M revenue company in just 18 months. The AI-powered market insights helped me identify the perfect niche, and their compliance automation saved me months of paperwork.",
       results: {
@@ -51,6 +51,8 @@ const Testimonials = () => {
       title: "Managing Director",
       company: "Safari Logistics Ltd",
       location: "Dar es Salaam, Tanzania",
+      avatar:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
       rating: 5,
       testimonial:
         "The funding network feature connected me with the perfect investor within 3 months. TanzaniaBiz didn't just help me find capital – they prepared me with the right pitch, financial projections, and business strategy.",
@@ -69,6 +71,8 @@ const Testimonials = () => {
       title: "Founder",
       company: "Zanzibar Spice Co.",
       location: "Stone Town, Zanzibar",
+      avatar:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
       rating: 5,
       testimonial:
         "From a small spice shop to exporting across East Africa! TanzaniaBiz's market intelligence showed me untapped opportunities, and their compliance tools made international trade documentation effortless.",
@@ -87,6 +91,8 @@ const Testimonials = () => {
       title: "CEO",
       company: "AgriTech Tanzania",
       location: "Arusha, Tanzania",
+      avatar:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
       rating: 5,
       testimonial:
         "TanzaniaBiz connected me with agricultural experts, investors, and technology partners. What started as a farming consultation idea is now Tanzania's leading AgriTech platform serving 5,000+ farmers.",
@@ -105,6 +111,8 @@ const Testimonials = () => {
       title: "Founder & CEO",
       company: "EduCare Solutions",
       location: "Dodoma, Tanzania",
+      avatar:
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
       rating: 5,
       testimonial:
         "The mentorship network introduced me to education industry veterans who guided my EdTech startup to success. TanzaniaBiz's AI recommendations helped me pivot at the right time, leading to explosive growth.",
@@ -136,14 +144,14 @@ const Testimonials = () => {
     },
     {
       icon: Building2,
-      number: "15+",
+      number: "15,000+",
       label: "Businesses Launched",
       description: "Across all 26 regions",
       color: "text-blue-400",
     },
     {
       icon: Users,
-      number: "1M+",
+      number: "500M+",
       label: "TSh Revenue Generated",
       description: "By our entrepreneur community",
       color: "text-purple-400",
@@ -364,9 +372,9 @@ const Testimonials = () => {
                   <div className='relative mb-6'>
                     <div className='w-32 h-32 mx-auto md:mx-0 rounded-3xl overflow-hidden border-4 border-white/20'>
                       <img
-                        src={avatar}
-                        alt="User Avatar"
-                        className="h-10 w-10 rounded-full object-cover"
+                        src={currentTestimonial.avatar}
+                        alt={currentTestimonial.name}
+                        className='w-full h-full object-cover'
                       />
                     </div>
                     <div className='absolute -top-2 -right-2 w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center'>
@@ -490,11 +498,11 @@ const Testimonials = () => {
                 }>
                 <div className='flex items-center gap-4 mb-4'>
                   <div className='w-16 h-16 rounded-2xl overflow-hidden border-2 border-white/20'>
-                  <img
-                     src={avatar}
-                     alt="User Avatar"
-                     className="h-10 w-10 rounded-full object-cover"
-                   />
+                    <img
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                      className='w-full h-full object-cover'
+                    />
                   </div>
                   <div className='flex-1'>
                     <h4 className='font-bold text-white group-hover:text-blue-300 transition-colors duration-300'>

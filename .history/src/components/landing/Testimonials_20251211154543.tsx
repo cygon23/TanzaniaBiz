@@ -16,7 +16,7 @@ import {
   Sparkles,
   ArrowRight,
 } from "lucide-react";
-import avatar from "@/assets/user.jpeg";
+import avatar from "@/assets/avatar.png";
 
 const Testimonials = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -136,7 +136,7 @@ const Testimonials = () => {
     },
     {
       icon: Building2,
-      number: "15+",
+      number: "15,000+",
       label: "Businesses Launched",
       description: "Across all 26 regions",
       color: "text-blue-400",
@@ -490,11 +490,11 @@ const Testimonials = () => {
                 }>
                 <div className='flex items-center gap-4 mb-4'>
                   <div className='w-16 h-16 rounded-2xl overflow-hidden border-2 border-white/20'>
-                  <img
-                     src={avatar}
-                     alt="User Avatar"
-                     className="h-10 w-10 rounded-full object-cover"
-                   />
+                    <img
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                      className='w-full h-full object-cover'
+                    />
                   </div>
                   <div className='flex-1'>
                     <h4 className='font-bold text-white group-hover:text-blue-300 transition-colors duration-300'>

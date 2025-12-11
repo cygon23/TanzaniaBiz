@@ -136,7 +136,7 @@ const Testimonials = () => {
     },
     {
       icon: Building2,
-      number: "15+",
+      number: "15,000+",
       label: "Businesses Launched",
       description: "Across all 26 regions",
       color: "text-blue-400",

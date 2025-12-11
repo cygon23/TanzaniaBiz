@@ -16,7 +16,7 @@ import {
   Sparkles,
   ArrowRight,
 } from "lucide-react";
-import avatar from "@/assets/user.jpeg";
+import avatar from "@/assets/avatar.png";
 
 const Testimonials = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -136,7 +136,7 @@ const Testimonials = () => {
     },
     {
       icon: Building2,
-      number: "15+",
+      number: "15,000+",
       label: "Businesses Launched",
       description: "Across all 26 regions",
       color: "text-blue-400",
