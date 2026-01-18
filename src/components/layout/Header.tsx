@@ -50,33 +50,7 @@ const Header = () => {
             {/* Logo Section */}
             <div className='flex items-center space-x-4'>
               <div className='relative group cursor-pointer'>
-                <div className='absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300' />
-                <div
-                  className={`relative w-12 h-12 rounded-2xl flex items-center justify-center transition-colors duration-300 ${
-                    isScrolled ? "bg-gray-900" : "bg-white/10 backdrop-blur-sm"
-                  }`}>
-                  <Building2
-                    className={`w-6 h-6 ${
-                      isScrolled ? "text-white" : "text-white"
-                    }`}
-                  />
-                </div>
-              </div>
-              <div className='hidden sm:block'>
-                <h1
-                  className={`text-2xl font-bold transition-colors duration-300 ${
-                    isScrolled ? "text-gray-900" : "text-white"
-                  }`}>
-                  <span className='bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent'>
-                    TanzaniaBiz
-                  </span>
-                </h1>
-                <p
-                  className={`text-xs font-medium ${
-                    isScrolled ? "text-gray-600" : "text-blue-200"
-                  }`}>
-                  Business Innovation Platform
-                </p>
+                <img src="/logo.png" alt="TanzaniaBiz" className="h-12 w-auto" />
               </div>
             </div>
 
