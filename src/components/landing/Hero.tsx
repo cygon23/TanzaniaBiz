@@ -47,7 +47,7 @@ const Hero = () => {
   };
 
   return (
-    <section className='relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary via-secondary/95 to-secondary/90'>
+    <section className='relative min-h-screen flex items-center justify-center overflow-hidden bg-white'>
       {/* Dynamic cursor follower */}
       <div
         className='fixed w-6 h-6 bg-primary/30 rounded-full pointer-events-none z-50 transition-all duration-300 ease-out mix-blend-screen'
@@ -100,14 +100,14 @@ const Hero = () => {
         <div className='max-w-6xl mx-auto text-center'>
           {/* Revolutionary Badge */}
           <div
-            className={`inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-8 py-4 mb-12 border border-white/20 transition-all duration-1000 ${
+            className={`inline-flex items-center gap-3 bg-primary/5 backdrop-blur-sm rounded-full px-8 py-4 mb-12 border border-primary/20 transition-all duration-1000 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             } mt-16`}>
             <div className='w-3 h-3 bg-green-400 rounded-full animate-pulse' />
-            <span className='text-white font-medium'>
-              Tanzania's #1 Business Transformation Platform
+            <span className='text-secondary font-medium'>
+              Africa's #1 Business Transformation Platform
             </span>
             <div className='flex gap-1'>
               {[...Array(3)].map((_, i) => (
@@ -123,7 +123,7 @@ const Hero = () => {
           {/* Revolutionary Headline */}
           <div className='mb-12'>
             <h1
-              className={`text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight transition-all duration-1000 delay-300 ${
+              className={`text-5xl md:text-7xl lg:text-8xl font-bold text-secondary mb-8 leading-tight transition-all duration-1000 delay-300 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
@@ -146,7 +146,7 @@ const Hero = () => {
                 {dynamicWords[currentWord]}
               </span>{" "}
               <span
-                className='inline-block animate-bounce text-white/90'
+                className='inline-block animate-bounce text-secondary'
                 style={{ animationDelay: "0.4s" }}>
                 Into
               </span>
@@ -159,7 +159,7 @@ const Hero = () => {
             </h1>
 
             <p
-              className={`text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed transition-all duration-1000 delay-500 ${
+              className={`text-xl md:text-2xl text-slate-700 max-w-4xl mx-auto leading-relaxed transition-all duration-1000 delay-500 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
@@ -202,9 +202,9 @@ const Hero = () => {
               <div
                 key={index}
                 className={`group flex items-center gap-3 bg-gradient-to-r ${feature.color} p-[1px] rounded-full hover:scale-105 transition-all duration-300 cursor-pointer`}>
-                <div className='flex items-center gap-3 bg-secondary/80 backdrop-blur-sm rounded-full px-6 py-3'>
-                  <feature.icon className='w-5 h-5 text-white group-hover:animate-pulse' />
-                  <span className='text-white font-medium'>{feature.text}</span>
+                <div className='flex items-center gap-3 bg-white backdrop-blur-sm rounded-full px-6 py-3'>
+                  <feature.icon className='w-5 h-5 text-primary group-hover:animate-pulse' />
+                  <span className='text-secondary font-medium'>{feature.text}</span>
                 </div>
               </div>
             ))}
@@ -229,15 +229,15 @@ const Hero = () => {
               </div>
             </Button>
 
-            <div className='group flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-2xl px-8 py-6 border border-white/20 hover:bg-white/20 transition-all duration-300 cursor-pointer'>
-              <div className='w-16 h-16 bg-white/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300'>
-                <Play className='w-8 h-8 text-white ml-1' />
+            <div className='group flex items-center gap-4 bg-primary/5 backdrop-blur-sm rounded-2xl px-8 py-6 border border-primary/20 hover:bg-primary/10 transition-all duration-300 cursor-pointer'>
+              <div className='w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300'>
+                <Play className='w-8 h-8 text-primary ml-1' />
               </div>
               <div className='text-left'>
-                <div className='text-white font-bold text-lg'>
+                <div className='text-secondary font-bold text-lg'>
                   See the Magic
                 </div>
-                <div className='text-white/80'>2-minute demo</div>
+                <div className='text-slate-700'>2-minute demo</div>
               </div>
             </div>
           </div>
@@ -278,17 +278,17 @@ const Hero = () => {
               <div key={index} className='group text-center'>
                 <div className='relative mb-4'>
                   <div
-                    className={`w-16 h-16 mx-auto rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
+                    className={`w-16 h-16 mx-auto rounded-2xl bg-primary/5 border border-primary/20 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
                     <stat.icon
                       className={`w-8 h-8 ${stat.color} group-hover:animate-pulse`}
                     />
                   </div>
                   <div className='absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/20 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg' />
                 </div>
-                <div className='text-3xl md:text-4xl font-bold text-white mb-2 group-hover:scale-105 transition-transform duration-300'>
+                <div className='text-3xl md:text-4xl font-bold text-secondary mb-2 group-hover:scale-105 transition-transform duration-300'>
                   {stat.number}
                 </div>
-                <div className='text-white/80 font-medium group-hover:text-white transition-colors duration-300'>
+                <div className='text-slate-700 font-medium group-hover:text-secondary transition-colors duration-300'>
                   {stat.label}
                 </div>
               </div>
@@ -303,14 +303,14 @@ const Hero = () => {
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}>
         <div className='group flex flex-col items-center gap-4 cursor-pointer'>
-          <div className='text-white/70 text-sm font-medium group-hover:text-white transition-colors duration-300'>
+          <div className='text-slate-600 text-sm font-medium group-hover:text-secondary transition-colors duration-300'>
             Discover More
           </div>
-          <div className='w-8 h-12 border-2 border-white/30 rounded-full flex justify-center relative overflow-hidden group-hover:border-white/50 transition-colors duration-300'>
+          <div className='w-8 h-12 border-2 border-primary/30 rounded-full flex justify-center relative overflow-hidden group-hover:border-primary/50 transition-colors duration-300'>
             <div className='w-2 h-4 bg-gradient-to-b from-primary to-primary/80 rounded-full mt-2 animate-bounce'></div>
             <div className='absolute inset-0 bg-gradient-to-b from-primary/20 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
           </div>
-          <MousePointer2 className='w-4 h-4 text-white/50 group-hover:text-white/80 group-hover:animate-bounce transition-all duration-300' />
+          <MousePointer2 className='w-4 h-4 text-slate-500 group-hover:text-secondary group-hover:animate-bounce transition-all duration-300' />
         </div>
       </div>
 

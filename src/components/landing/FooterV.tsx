@@ -135,7 +135,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className='relative bg-gradient-to-b from-black via-slate-900 to-black overflow-hidden'>
+    <footer className='relative bg-secondary overflow-hidden'>
       {/* Dynamic Background */}
       <div className='absolute inset-0'>
         {/* Subtle grid pattern */}
@@ -143,7 +143,7 @@ const Footer = () => {
           <div
             className='w-full h-full'
             style={{
-              backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)`,
+              backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)`,
               backgroundSize: "40px 40px",
             }}
           />
@@ -157,19 +157,20 @@ const Footer = () => {
             style={{
               left: `${10 + i * 12}%`,
               top: `${20 + Math.sin(i) * 30}%`,
-              animation: `footerFloat ${
-                8 + Math.random() * 4
-              }s ease-in-out infinite`,
+              animationName: 'footerFloat',
+              animationDuration: `${8 + Math.random() * 4}s`,
+              animationTimingFunction: 'ease-in-out',
+              animationIterationCount: 'infinite',
               animationDelay: `${i * 0.5}s`,
             }}>
-            <Sparkles className='w-6 h-6 text-blue-400' />
+            <Sparkles className='w-6 h-6 text-primary' />
           </div>
         ))}
 
         {/* Gradient orbs */}
-        <div className='absolute top-20 left-20 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl animate-pulse'></div>
+        <div className='absolute top-20 left-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse'></div>
         <div
-          className='absolute bottom-20 right-20 w-64 h-64 bg-purple-600/10 rounded-full blur-3xl animate-pulse'
+          className='absolute bottom-20 right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse'
           style={{ animationDelay: "2s" }}></div>
       </div>
 
@@ -177,17 +178,17 @@ const Footer = () => {
         {/* Newsletter Section */}
         <div className='py-16 border-b border-white/10'>
           <div className='max-w-4xl mx-auto text-center'>
-            <div className='inline-flex items-center gap-3 bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm rounded-full px-8 py-4 mb-8 border border-blue-500/20'>
-              <Mail className='w-5 h-5 text-blue-400 animate-pulse' />
-              <span className='text-blue-200 font-medium'>
-                Stay Connected with Tanzania's Business Revolution
+            <div className='inline-flex items-center gap-3 bg-gradient-to-r from-primary/10 to-primary/5 backdrop-blur-sm rounded-full px-8 py-4 mb-8 border border-primary/20'>
+              <Mail className='w-5 h-5 text-primary animate-pulse' />
+              <span className='text-white/90 font-medium'>
+                Stay Connected with Africa's Business Revolution
               </span>
             </div>
 
             <h3 className='text-3xl md:text-4xl font-bold text-white mb-4'>
               Get Weekly Business Insights
             </h3>
-            <p className='text-xl text-blue-100 mb-8 max-w-2xl mx-auto'>
+            <p className='text-xl text-white/80 mb-8 max-w-2xl mx-auto'>
               Join 15,000+ entrepreneurs receiving exclusive market
               intelligence, funding opportunities, and success strategies.
             </p>
@@ -202,14 +203,14 @@ const Footer = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder='Enter your email address'
-                    className='w-full px-6 py-4 bg-slate-800/50 border border-white/20 rounded-2xl text-white placeholder-blue-300 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 backdrop-blur-sm'
+                    className='w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-white/60 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 backdrop-blur-sm'
                     required
                   />
                 </div>
                 <button
                   type='submit'
                   disabled={isSubscribed}
-                  className='px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold rounded-2xl transition-all duration-300 hover:scale-105 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed'>
+                  className='px-8 py-4 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white font-bold rounded-2xl transition-all duration-300 hover:scale-105 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed'>
                   {isSubscribed ? (
                     <>
                       <Heart className='w-5 h-5' />
@@ -226,7 +227,7 @@ const Footer = () => {
               {isSubscribed && (
                 <div className='mt-4 text-green-400 text-sm flex items-center justify-center gap-2'>
                   <Heart className='w-4 h-4' />
-                  Welcome to the TanzaniaBiz community!
+                  Welcome to the RAV community!
                 </div>
               )}
             </form>
@@ -239,37 +240,37 @@ const Footer = () => {
             {/* Brand Section */}
             <div className='lg:col-span-2'>
               <div className='flex items-center gap-3 mb-6'>
-                <div className='w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center'>
+                <div className='w-12 h-12 bg-gradient-to-r from-primary to-primary/90 rounded-2xl flex items-center justify-center'>
                   <Building2 className='w-6 h-6 text-white' />
                 </div>
                 <div>
                   <div className='text-2xl font-bold text-white'>
-                    TanzaniaBiz
+                    RAV
                   </div>
-                  <div className='text-blue-300 text-sm'>
+                  <div className='text-white/80 text-sm'>
                     Business Revolution Platform
                   </div>
                 </div>
               </div>
 
-              <p className='text-blue-100 leading-relaxed mb-8 max-w-sm'>
-                Transforming Tanzania's business landscape through AI-powered
+              <p className='text-white/80 leading-relaxed mb-8 max-w-sm'>
+                Transforming Africa's business landscape through AI-powered
                 tools, expert guidance, and a thriving entrepreneur community.
               </p>
 
               {/* Contact Info */}
               <div className='space-y-4 mb-8'>
                 <div className='flex items-center gap-3'>
-                  <MapPin className='w-5 h-5 text-blue-400 flex-shrink-0' />
-                  <span className='text-blue-200'>Dar es Salaam, Tanzania</span>
+                  <MapPin className='w-5 h-5 text-primary flex-shrink-0' />
+                  <span className='text-white/80'>Dar es Salaam, Tanzania</span>
                 </div>
                 <div className='flex items-center gap-3'>
-                  <Phone className='w-5 h-5 text-blue-400 flex-shrink-0' />
-                  <span className='text-blue-200'>+255 123 456 789</span>
+                  <Phone className='w-5 h-5 text-primary flex-shrink-0' />
+                  <span className='text-white/80'>+255 123 456 789</span>
                 </div>
                 <div className='flex items-center gap-3'>
-                  <Mail className='w-5 h-5 text-blue-400 flex-shrink-0' />
-                  <span className='text-blue-200'>hello@tanzaniabiz.co.tz</span>
+                  <Mail className='w-5 h-5 text-primary flex-shrink-0' />
+                  <span className='text-white/80'>hello@rav.co.tz</span>
                 </div>
               </div>
 
@@ -279,7 +280,7 @@ const Footer = () => {
                   <a
                     key={index}
                     href={social.href}
-                    className={`w-12 h-12 bg-slate-800/50 border border-white/20 rounded-2xl flex items-center justify-center text-blue-300 ${social.color} transition-all duration-300 hover:scale-110 hover:border-white/40 backdrop-blur-sm`}
+                    className={`w-12 h-12 bg-white/10 border border-white/20 rounded-2xl flex items-center justify-center text-white/80 ${social.color} transition-all duration-300 hover:scale-110 hover:border-white/40 backdrop-blur-sm`}
                     target='_blank'
                     rel='noopener noreferrer'
                     aria-label={social.name}>
@@ -300,7 +301,7 @@ const Footer = () => {
                     <li key={linkIndex}>
                       <a
                         href={link.href}
-                        className='text-blue-200 hover:text-white transition-colors duration-300 flex items-center gap-2 group'>
+                        className='text-white/70 hover:text-white transition-colors duration-300 flex items-center gap-2 group'>
                         <span>{link.name}</span>
                         <ArrowRight className='w-3 h-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300' />
                       </a>
@@ -317,13 +318,13 @@ const Footer = () => {
           <div className='grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto'>
             {achievements.map((achievement, index) => (
               <div key={index} className='group text-center'>
-                <div className='w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-slate-700/50 to-slate-800/50 border border-white/10 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:border-blue-400/50 transition-all duration-300'>
-                  <achievement.icon className='w-8 h-8 text-blue-400 group-hover:animate-pulse' />
+                <div className='w-16 h-16 mx-auto rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:border-primary/50 transition-all duration-300'>
+                  <achievement.icon className='w-8 h-8 text-primary group-hover:animate-pulse' />
                 </div>
                 <div className='text-2xl font-bold text-white mb-1'>
                   {achievement.number}
                 </div>
-                <div className='text-sm text-blue-300'>{achievement.label}</div>
+                <div className='text-sm text-white/70'>{achievement.label}</div>
               </div>
             ))}
           </div>
@@ -332,8 +333,8 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className='py-8'>
           <div className='flex flex-col md:flex-row justify-between items-center gap-6'>
-            <div className='flex flex-wrap items-center gap-6 text-sm text-blue-300'>
-              <span>© 2024 TanzaniaBiz. All rights reserved.</span>
+            <div className='flex flex-wrap items-center gap-6 text-sm text-white/70'>
+              <span>© 2024 RAV. All rights reserved.</span>
               <a
                 href='#privacy'
                 className='hover:text-white transition-colors duration-300'>
@@ -351,10 +352,10 @@ const Footer = () => {
               </a>
             </div>
 
-            <div className='flex items-center gap-2 text-sm text-blue-300'>
+            <div className='flex items-center gap-2 text-sm text-white/70'>
               <span>Made with</span>
               <Heart className='w-4 h-4 text-red-400 animate-pulse' />
-              <span>for Tanzanian entrepreneurs</span>
+              <span>for African entrepreneurs</span>
             </div>
           </div>
         </div>
@@ -364,7 +365,7 @@ const Footer = () => {
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className='fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-2xl flex items-center justify-center shadow-2xl hover:scale-110 transition-all duration-300 z-50 backdrop-blur-sm border border-white/20'
+          className='fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white rounded-2xl flex items-center justify-center shadow-2xl hover:scale-110 transition-all duration-300 z-50 backdrop-blur-sm border border-white/20'
           aria-label='Back to top'>
           <ChevronUp className='w-6 h-6' />
         </button>
