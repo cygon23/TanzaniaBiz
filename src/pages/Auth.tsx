@@ -87,29 +87,29 @@ const Auth = () => {
       icon: <TrendingUp className='w-6 h-6' />,
       title: "Business Growth Analytics",
       description:
-        "Track your business performance with advanced analytics and insights tailored for the Tanzanian market.",
-      color: "text-blue-500",
+        "Track your business performance with advanced analytics and insights tailored for African markets.",
+      color: "text-primary",
     },
     {
       icon: <Network className='w-6 h-6' />,
       title: "Connect with Mentors",
       description:
         "Get matched with experienced mentors who understand the local business landscape and can guide your journey.",
-      color: "text-green-500",
+      color: "text-primary",
     },
     {
       icon: <Globe className='w-6 h-6' />,
       title: "Market Opportunities",
       description:
-        "Discover untapped market opportunities across Tanzania's diverse regions and growing economy.",
-      color: "text-purple-500",
+        "Discover untapped market opportunities across Africa's diverse regions and growing economy.",
+      color: "text-primary",
     },
     {
       icon: <Briefcase className='w-6 h-6' />,
       title: "Funding & Investment",
       description:
-        "Access funding opportunities from local and international investors interested in Tanzanian startups.",
-      color: "text-orange-500",
+        "Access funding opportunities from local and international investors interested in African startups.",
+      color: "text-primary",
     },
   ];
 
@@ -183,7 +183,7 @@ const Auth = () => {
       await signIn(formData.email, formData.password);
       toast({
         title: "Login Successful",
-        description: "Welcome back to TanzaniaBiz!",
+        description: "Welcome back to RAV!",
       });
       // Navigation will happen via useEffect when user is set
     } catch (error: any) {
@@ -319,45 +319,45 @@ const Auth = () => {
   };
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20 flex relative overflow-hidden'>
+    <div className='min-h-screen bg-white flex relative overflow-hidden'>
       {/* Animated Background Elements */}
       <div className='absolute inset-0 overflow-hidden pointer-events-none'>
-        <div className='absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse'></div>
+        <div className='absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full blur-3xl animate-pulse'></div>
         <div
-          className='absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-green-400/20 to-blue-400/20 rounded-full blur-3xl animate-pulse'
+          className='absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-secondary/20 to-primary/20 rounded-full blur-3xl animate-pulse'
           style={{ animationDelay: "2s" }}></div>
         <div
-          className='absolute top-1/3 left-1/4 w-32 h-32 bg-gradient-to-br from-orange-400/10 to-red-400/10 rounded-full blur-2xl animate-bounce'
+          className='absolute top-1/3 left-1/4 w-32 h-32 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-2xl animate-bounce'
           style={{ animationDelay: "1s", animationDuration: "3s" }}></div>
       </div>
 
       {/* Left Side - Information Panel */}
-      <div className='hidden lg:flex lg:w-1/2 xl:w-3/5 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 relative overflow-hidden'>
+      <div className='hidden lg:flex lg:w-1/2 xl:w-3/5 bg-gradient-to-br from-secondary via-secondary/95 to-secondary/90 relative overflow-hidden'>
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-20"></div>
 
         {/* Floating Elements */}
-        <div className='absolute top-20 left-20 w-2 h-2 bg-blue-400 rounded-full animate-ping'></div>
+        <div className='absolute top-20 left-20 w-2 h-2 bg-primary rounded-full animate-ping'></div>
         <div
-          className='absolute top-40 right-32 w-3 h-3 bg-green-400 rounded-full animate-ping'
+          className='absolute top-40 right-32 w-3 h-3 bg-primary rounded-full animate-ping'
           style={{ animationDelay: "1s" }}></div>
         <div
-          className='absolute bottom-32 left-16 w-2 h-2 bg-purple-400 rounded-full animate-ping'
+          className='absolute bottom-32 left-16 w-2 h-2 bg-primary rounded-full animate-ping'
           style={{ animationDelay: "2s" }}></div>
 
         <div className='relative z-10 flex flex-col justify-center p-12 xl:p-16 text-white'>
           {/* Header */}
           <div className='mb-12'>
             <div className='flex items-center gap-3 mb-6'>
-              <div className='w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-xl flex items-center justify-center'>
+              <div className='w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center'>
                 <Rocket className='w-6 h-6 text-white' />
               </div>
-              <h1 className='text-3xl xl:text-4xl font-bold bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-transparent'>
-                TanzaniaBiz
+              <h1 className='text-3xl xl:text-4xl font-bold text-white'>
+                RAV
               </h1>
             </div>
-            <p className='text-xl xl:text-2xl text-blue-100 leading-relaxed'>
-              Empowering entrepreneurs across Tanzania with the tools,
+            <p className='text-xl xl:text-2xl text-white/90 leading-relaxed'>
+              Empowering entrepreneurs across Africa with the tools,
               connections, and insights they need to build successful
               businesses.
             </p>
@@ -373,7 +373,7 @@ const Auth = () => {
               <h3 className='text-xl font-semibold mb-4 text-white transition-all duration-500'>
                 {features[currentFeature].title}
               </h3>
-              <p className='text-blue-100 leading-relaxed transition-all duration-500'>
+              <p className='text-white/80 leading-relaxed transition-all duration-500'>
                 {features[currentFeature].description}
               </p>
 
@@ -384,7 +384,7 @@ const Auth = () => {
                     key={index}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
                       index === currentFeature
-                        ? "bg-blue-300 w-6"
+                        ? "bg-primary w-6"
                         : "bg-white/30"
                     }`}
                   />
@@ -395,22 +395,22 @@ const Auth = () => {
 
           {/* Animated Stats */}
           <div className='mb-12'>
-            <div className='bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm rounded-2xl p-6 border border-white/20'>
+            <div className='bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20'>
               <div className='flex items-center justify-between'>
                 <div className='flex items-center gap-4'>
-                  <div className='w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-blue-300'>
+                  <div className='w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-primary'>
                     {stats[currentStat].icon}
                   </div>
                   <div>
                     <div className='text-3xl font-bold text-white'>
                       {stats[currentStat].number}
                     </div>
-                    <div className='text-blue-200 text-sm'>
+                    <div className='text-white/80 text-sm'>
                       {stats[currentStat].label}
                     </div>
                   </div>
                 </div>
-                <BarChart3 className='w-8 h-8 text-blue-300' />
+                <BarChart3 className='w-8 h-8 text-primary' />
               </div>
             </div>
           </div>
@@ -462,7 +462,7 @@ const Auth = () => {
 
           <Card className='overflow-hidden border-0 shadow-2xl bg-white/80 backdrop-blur-sm'>
             {/* Header */}
-            <CardHeader className='text-center p-8 bg-gradient-to-r from-blue-50 to-purple-50'>
+            <CardHeader className='text-center p-8 bg-gradient-to-r from-primary/5 to-primary/10'>
               <CardTitle className='text-2xl font-bold text-slate-800 mb-2'>
                 Welcome Back
               </CardTitle>
@@ -476,12 +476,12 @@ const Auth = () => {
                 <TabsList className='grid w-full grid-cols-2 mb-8 bg-slate-100'>
                   <TabsTrigger
                     value='login'
-                    className='data-[state=active]:bg-blue-500 data-[state=active]:text-white'>
+                    className='data-[state=active]:bg-primary data-[state=active]:text-white'>
                     Sign In
                   </TabsTrigger>
                   <TabsTrigger
                     value='register'
-                    className='data-[state=active]:bg-purple-500 data-[state=active]:text-white'>
+                    className='data-[state=active]:bg-secondary data-[state=active]:text-white'>
                     Create Account
                   </TabsTrigger>
                 </TabsList>
@@ -503,7 +503,7 @@ const Auth = () => {
                           onChange={(e) =>
                             handleInputChange("email", e.target.value)
                           }
-                          className='h-12 border-slate-200 focus:border-blue-400 focus:ring-blue-400'
+                          className='h-12 border-slate-200 focus:border-primary focus:ring-primary'
                           required
                         />
                       </div>
@@ -522,7 +522,7 @@ const Auth = () => {
                             onChange={(e) =>
                               handleInputChange("password", e.target.value)
                             }
-                            className='h-12 border-slate-200 focus:border-blue-400 focus:ring-blue-400 pr-12'
+                            className='h-12 border-slate-200 focus:border-primary focus:ring-primary pr-12'
                           />
                           <Button
                             type='button'
@@ -543,7 +543,7 @@ const Auth = () => {
                     <Button
                       type='submit'
                       disabled={loading}
-                      className='w-full h-12 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed'>
+                      className='w-full h-12 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed'>
                       <Sparkles className='w-4 h-4 mr-2' />
                       {loading ? "Signing In..." : "Sign In to Dashboard"}
                     </Button>
@@ -551,7 +551,7 @@ const Auth = () => {
                     <Button
                       type='button'
                       variant='link'
-                      className='w-full text-blue-600 hover:text-blue-700'
+                      className='w-full text-primary hover:text-primary/80'
                       onClick={() => setActiveTab("forgot")}>
                       Forgot your password?
                     </Button>
@@ -567,7 +567,7 @@ const Auth = () => {
                         onClick={() => handleDemoLogin("entrepreneur")}
                         variant='outline'
                         size='sm'
-                        className='h-12 border-blue-200 hover:bg-blue-50 hover:border-blue-300 transition-all duration-300'>
+                        className='h-12 border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-all duration-300'>
                         <User className='w-4 h-4 mr-2' />
                         Entrepreneur
                       </Button>
@@ -575,7 +575,7 @@ const Auth = () => {
                         onClick={() => handleDemoLogin("mentor")}
                         variant='outline'
                         size='sm'
-                        className='h-12 border-green-200 hover:bg-green-50 hover:border-green-300 transition-all duration-300'>
+                        className='h-12 border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-all duration-300'>
                         <Users className='w-4 h-4 mr-2' />
                         Mentor
                       </Button>
@@ -583,7 +583,7 @@ const Auth = () => {
                         onClick={() => handleDemoLogin("company")}
                         variant='outline'
                         size='sm'
-                        className='h-12 border-purple-200 hover:bg-purple-50 hover:border-purple-300 transition-all duration-300'>
+                        className='h-12 border-secondary/30 hover:bg-secondary/10 hover:border-secondary/50 transition-all duration-300'>
                         <Building className='w-4 h-4 mr-2' />
                         Company
                       </Button>
@@ -591,7 +591,7 @@ const Auth = () => {
                         onClick={() => handleDemoLogin("admin")}
                         variant='outline'
                         size='sm'
-                        className='h-12 border-orange-200 hover:bg-orange-50 hover:border-orange-300 transition-all duration-300'>
+                        className='h-12 border-secondary/30 hover:bg-secondary/10 hover:border-secondary/50 transition-all duration-300'>
                         <Shield className='w-4 h-4 mr-2' />
                         Admin
                       </Button>
@@ -616,7 +616,7 @@ const Auth = () => {
                             onChange={(e) =>
                               handleInputChange("firstName", e.target.value)
                             }
-                            className='h-11 border-slate-200 focus:border-purple-400 focus:ring-purple-400'
+                            className='h-11 border-slate-200 focus:border-primary focus:ring-primary'
                             required
                           />
                         </div>
@@ -633,7 +633,7 @@ const Auth = () => {
                             onChange={(e) =>
                               handleInputChange("lastName", e.target.value)
                             }
-                            className='h-11 border-slate-200 focus:border-purple-400 focus:ring-purple-400'
+                            className='h-11 border-slate-200 focus:border-primary focus:ring-primary'
                             required
                           />
                         </div>
@@ -652,7 +652,7 @@ const Auth = () => {
                           onChange={(e) =>
                             handleInputChange("email", e.target.value)
                           }
-                          className='h-11 border-slate-200 focus:border-purple-400 focus:ring-purple-400'
+                          className='h-11 border-slate-200 focus:border-primary focus:ring-primary'
                           required
                         />
                       </div>
@@ -667,7 +667,7 @@ const Auth = () => {
                           onValueChange={(value) =>
                             handleInputChange("role", value)
                           }>
-                          <SelectTrigger className='h-11 border-slate-200 focus:border-purple-400 focus:ring-purple-400'>
+                          <SelectTrigger className='h-11 border-slate-200 focus:border-primary focus:ring-primary'>
                             <SelectValue placeholder='Select your role' />
                           </SelectTrigger>
                           <SelectContent>
@@ -695,7 +695,7 @@ const Auth = () => {
                             onChange={(e) =>
                               handleInputChange("company", e.target.value)
                             }
-                            className='h-11 border-slate-200 focus:border-purple-400 focus:ring-purple-400'
+                            className='h-11 border-slate-200 focus:border-primary focus:ring-primary'
                             required
                           />
                         </div>
@@ -715,7 +715,7 @@ const Auth = () => {
                             onChange={(e) =>
                               handleInputChange("password", e.target.value)
                             }
-                            className='h-11 border-slate-200 focus:border-purple-400 focus:ring-purple-400 pr-12'
+                            className='h-11 border-slate-200 focus:border-primary focus:ring-primary pr-12'
                             required
                           />
                           <Button
@@ -746,7 +746,7 @@ const Auth = () => {
                           onChange={(e) =>
                             handleInputChange("confirmPassword", e.target.value)
                           }
-                          className='h-11 border-slate-200 focus:border-purple-400 focus:ring-purple-400'
+                          className='h-11 border-slate-200 focus:border-primary focus:ring-primary'
                           required
                         />
                       </div>
@@ -755,7 +755,7 @@ const Auth = () => {
                     <Button
                       type='submit'
                       disabled={loading}
-                      className='w-full h-12 bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed'>
+                      className='w-full h-12 bg-gradient-to-r from-secondary to-secondary/90 hover:from-secondary/90 hover:to-secondary text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed'>
                       <Sparkles className='w-4 h-4 mr-2' />
                       {loading ? "Creating Account..." : "Create Your Account"}
                     </Button>
@@ -787,7 +787,7 @@ const Auth = () => {
                           onChange={(e) =>
                             handleInputChange("email", e.target.value)
                           }
-                          className='h-12 border-slate-200 focus:border-blue-400 focus:ring-blue-400'
+                          className='h-12 border-slate-200 focus:border-primary focus:ring-primary'
                           required
                         />
                       </div>
@@ -795,14 +795,14 @@ const Auth = () => {
                       <Button
                         type='submit'
                         disabled={loading}
-                        className='w-full h-12 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed'>
+                        className='w-full h-12 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed'>
                         {loading ? "Sending..." : "Send Reset Link"}
                       </Button>
 
                       <Button
                         type='button'
                         variant='link'
-                        className='w-full text-blue-600 hover:text-blue-700'
+                        className='w-full text-primary hover:text-primary/80'
                         onClick={() => setActiveTab("login")}>
                         Back to Sign In
                       </Button>
@@ -820,8 +820,8 @@ const Auth = () => {
         <DialogContent className='sm:max-w-md'>
           <DialogHeader>
             <DialogTitle className='flex items-center gap-3'>
-              <div className='w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center'>
-                <Mail className='w-5 h-5 text-blue-600' />
+              <div className='w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center'>
+                <Mail className='w-5 h-5 text-primary' />
               </div>
               Email Sent Successfully
             </DialogTitle>
@@ -850,7 +850,7 @@ const Auth = () => {
                   description: "Please check your inbox again.",
                 });
               }}
-              className='w-full h-11 bg-gradient-to-r from-blue-500 to-purple-600 text-white'>
+              className='w-full h-11 bg-gradient-to-r from-primary to-primary/90 text-white'>
               <Mail className='w-4 h-4 mr-2' />
               Resend Email
             </Button>
