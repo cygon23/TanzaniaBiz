@@ -38,24 +38,14 @@ import MentorProgress from "./pages/dashboard/mentor/Progress";
 import CompanyPartnerships from "./pages/dashboard/company/Partnerships";
 import CompanyFunding from "./pages/dashboard/company/CompanyFunding";
 import CompanyImpact from "./pages/dashboard/company/Impact";
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-import MagicalSiteLoader from "./components/MagicalSiteLoader";
 import { AuthProvider } from "./contexts/AuthContext";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000); // simulate load
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) return <MagicalSiteLoader />;
-
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
