@@ -215,7 +215,7 @@ const About = () => {
       />
 
       {/* Hero Section */}
-      <section className='relative py-20 lg:py-32 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 overflow-hidden'>
+      <section className='relative py-20 lg:py-32 bg-white overflow-hidden'>
         {/* Animated background elements */}
         <div className='absolute inset-0'>
           <div className='absolute top-20 left-10 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse'></div>
