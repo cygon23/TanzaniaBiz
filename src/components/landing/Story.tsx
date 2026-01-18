@@ -24,7 +24,7 @@ const Story = () => {
       description:
         "A team of economists, technologists, and entrepreneurs identified the gap in Tanzania's business ecosystem.",
       icon: Lightbulb,
-      color: "from-blue-500 to-cyan-500",
+      color: "from-primary to-primary/80",
     },
     {
       year: "2025 late",
@@ -32,7 +32,7 @@ const Story = () => {
       description:
         "Expect to  Launched with AI-powered tools and local compliance automation for Tanzanian businesses.",
       icon: Building2,
-      color: "from-purple-500 to-pink-500",
+      color: "from-secondary to-secondary/80",
     },
     {
       year: "2026/27",
@@ -40,7 +40,7 @@ const Story = () => {
       description:
         " Expect to Reached 10,000+ entrepreneurs with 90% success rate in business goal achievement.",
       icon: TrendingUp,
-      color: "from-green-500 to-emerald-500",
+      color: "from-primary to-primary/90",
     },
     {
       year: "2028/29",
@@ -48,7 +48,7 @@ const Story = () => {
       description:
         " Expect to  reach 15,000+ businesses served with 95% success rate, becoming Tanzania's #1 business platform.",
       icon: Award,
-      color: "from-orange-500 to-red-500",
+      color: "from-secondary to-secondary/90",
     },
   ];
 
@@ -88,7 +88,7 @@ const Story = () => {
   return (
     <section
       ref={sectionRef}
-      className='relative py-32 bg-gradient-to-b from-slate-900 to-slate-800 overflow-hidden'>
+      className='relative py-32 bg-white overflow-hidden'>
       {/* Animated Background Elements */}
       <div className='absolute inset-0'>
         {/* Floating geometric shapes */}
@@ -103,7 +103,7 @@ const Story = () => {
               animationDelay: `${Math.random() * 5}s`,
             }}>
             <div
-              className='w-8 h-8 bg-gradient-to-r from-blue-400 to-purple-500 rotate-45'
+              className='w-8 h-8 bg-gradient-to-r from-primary/20 to-secondary/20 rotate-45'
               style={{
                 borderRadius: `${Math.random() * 50}%`,
               }}
@@ -126,8 +126,8 @@ const Story = () => {
                 y1='0%'
                 x2='100%'
                 y2='100%'>
-                <stop offset='0%' stopColor='#3B82F6' />
-                <stop offset='100%' stopColor='#8B5CF6' />
+                <stop offset='0%' stopColor='hsl(var(--primary))' />
+                <stop offset='100%' stopColor='hsl(var(--secondary))' />
               </linearGradient>
             </defs>
           </svg>
@@ -138,13 +138,13 @@ const Story = () => {
         {/* Section Header */}
         <div className='text-center mb-20'>
           <div
-            className={`inline-flex items-center gap-3 bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm rounded-full px-8 py-4 mb-8 border border-blue-500/20 transition-all duration-1000 ${
+            className={`inline-flex items-center gap-3 bg-gradient-to-r from-primary/10 to-primary/5 backdrop-blur-sm rounded-full px-8 py-4 mb-8 border border-primary/20 transition-all duration-1000 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}>
             <Heart className='w-5 h-5 text-red-400 animate-pulse' />
-            <span className='text-blue-200 font-medium'>
+            <span className='text-secondary font-medium'>
               Born from Passion, Built for Impact
             </span>
             <Sparkles
@@ -154,45 +154,45 @@ const Story = () => {
           </div>
 
           <h2
-            className={`text-4xl md:text-6xl font-bold text-white mb-6 transition-all duration-1000 delay-200 ${
+            className={`text-4xl md:text-6xl font-bold text-secondary mb-6 transition-all duration-1000 delay-200 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}>
             The{" "}
-            <span className='bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent animate-pulse'>
-              TanzaniaBiz
+            <span className='bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent animate-pulse'>
+              RAV
             </span>{" "}
             Story
           </h2>
 
           <p
-            className={`text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-400 ${
+            className={`text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-400 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}>
-            From a simple observation to Tanzania's most powerful business
+            From a simple observation to Africa's most powerful business
             transformation platform
           </p>
         </div>
 
         {/* Mission Statement */}
         <div
-          className={`bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 backdrop-blur-sm rounded-3xl p-8 md:p-12 mb-20 border border-white/10 transition-all duration-1000 delay-600 ${
+          className={`bg-gradient-to-r from-primary/10 via-primary/5 to-secondary/10 backdrop-blur-sm rounded-3xl p-8 md:p-12 mb-20 border border-primary/20 transition-all duration-1000 delay-600 ${
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
           }`}>
           <div className='text-center'>
-            <h3 className='text-3xl md:text-4xl font-bold text-white mb-6'>
-              <span className='bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent'>
-                "Tanzania has incredible entrepreneurial talent, but many
+            <h3 className='text-3xl md:text-4xl font-bold text-secondary mb-6'>
+              <span className='bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent'>
+                "Africa has incredible entrepreneurial talent, but many
                 promising businesses fail due to lack of access to the right
                 tools, knowledge, and support systems."
               </span>
             </h3>
-            <p className='text-lg text-blue-200 max-w-2xl mx-auto'>
+            <p className='text-lg text-slate-700 max-w-2xl mx-auto'>
               This powerful observation became the foundation of our mission to
-              level the playing field for Tanzanian entrepreneurs.
+              level the playing field for African entrepreneurs.
             </p>
           </div>
         </div>
@@ -200,7 +200,7 @@ const Story = () => {
         {/* Interactive Timeline */}
         <div className='mb-20'>
           <h3
-            className={`text-3xl font-bold text-white text-center mb-12 transition-all duration-1000 delay-800 ${
+            className={`text-3xl font-bold text-secondary text-center mb-12 transition-all duration-1000 delay-800 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
@@ -210,7 +210,7 @@ const Story = () => {
 
           <div className='relative max-w-4xl mx-auto'>
             {/* Timeline line */}
-            <div className='absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 opacity-30'></div>
+            <div className='absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary via-secondary to-primary opacity-30'></div>
 
             {timelineData.map((item, index) => (
               <div
@@ -238,22 +238,22 @@ const Story = () => {
                       } p-[2px] rounded-2xl hover:scale-105 transition-all duration-500 ${
                         activeTimeline === index ? "scale-105 shadow-2xl" : ""
                       }`}>
-                      <div className='bg-slate-800/90 backdrop-blur-sm rounded-2xl p-6'>
+                      <div className='bg-white backdrop-blur-sm rounded-2xl p-6 border border-slate-100'>
                         <div className='flex items-center gap-3 mb-3'>
                           <div
                             className={`w-12 h-12 rounded-xl bg-gradient-to-r ${item.color} flex items-center justify-center group-hover:rotate-6 transition-transform duration-300`}>
                             <item.icon className='w-6 h-6 text-white' />
                           </div>
                           <div>
-                            <div className='text-2xl font-bold text-white'>
+                            <div className='text-2xl font-bold text-secondary'>
                               {item.year}
                             </div>
-                            <div className='text-lg font-semibold text-blue-200'>
+                            <div className='text-lg font-semibold text-slate-700'>
                               {item.title}
                             </div>
                           </div>
                         </div>
-                        <p className='text-blue-100 leading-relaxed'>
+                        <p className='text-slate-600 leading-relaxed'>
                           {item.description}
                         </p>
                       </div>
@@ -286,24 +286,24 @@ const Story = () => {
           className={`transition-all duration-1000 delay-1400 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}>
-          <h3 className='text-3xl font-bold text-white text-center mb-12'>
-            Our Impact Across Tanzania
+          <h3 className='text-3xl font-bold text-secondary text-center mb-12'>
+            Our Impact Across Africa
           </h3>
 
           <div className='grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto'>
             {impactStats.map((stat, index) => (
               <div key={index} className='group text-center'>
                 <div className='relative mb-6'>
-                  <div className='w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500 backdrop-blur-sm'>
-                    <stat.icon className='w-10 h-10 text-blue-400 group-hover:animate-bounce' />
+                  <div className='w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 border border-primary/10 flex items-center justify-center group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500 backdrop-blur-sm'>
+                    <stat.icon className='w-10 h-10 text-primary group-hover:animate-bounce' />
                   </div>
-                  <div className='absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-400/10 to-purple-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl'></div>
+                  <div className='absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl'></div>
                 </div>
 
-                <div className='text-4xl md:text-5xl font-bold text-white mb-2 group-hover:scale-110 transition-transform duration-300'>
+                <div className='text-4xl md:text-5xl font-bold text-secondary mb-2 group-hover:scale-110 transition-transform duration-300'>
                   {stat.number}
                 </div>
-                <div className='text-blue-200 font-medium group-hover:text-white transition-colors duration-300'>
+                <div className='text-slate-700 font-medium group-hover:text-secondary transition-colors duration-300'>
                   {stat.label}
                 </div>
               </div>
@@ -316,7 +316,7 @@ const Story = () => {
           className={`text-center mt-16 transition-all duration-1000 delay-1600 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}>
-          <div className='inline-flex items-center gap-4 bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600 hover:from-blue-600 hover:via-purple-700 hover:to-pink-700 text-white font-bold px-8 py-4 rounded-2xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105 cursor-pointer group'>
+          <div className='inline-flex items-center gap-4 bg-gradient-to-r from-primary via-primary/90 to-secondary hover:from-primary/90 hover:via-primary hover:to-secondary/90 text-white font-bold px-8 py-4 rounded-2xl shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:scale-105 cursor-pointer group'>
             <span className='text-lg'>Join Our Success Story</span>
             <ArrowRight className='w-5 h-5 group-hover:translate-x-2 transition-transform duration-300' />
           </div>
