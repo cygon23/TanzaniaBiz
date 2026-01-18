@@ -1,0 +1,14 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="30" cy="30" r="25" fill="#DD762A"/>
+
+  <!-- Letter T -->
+  <path d="M22 18 H38 V22 H32 V42 H28 V22 H22 Z" fill="#23110C"/>
+
+  <!-- Letter B -->
+  <path d="M42 18 H48 C52 18 54 20 54 23 C54 25 53 26 51 27 C53 28 54 29.5 54 32 C54 35 52 37 48 37 H42 V18 Z M46 21 V26 H48 C49.5 26 50 25 50 23.5 C50 22 49.5 21 48 21 H46 Z M46 29 V34 H48 C49.5 34 50 33 50 31.5 C50 30 49.5 29 48 29 H46 Z" fill="#FFFFFF" transform="translate(0 5)"/>
+
+  <!-- Company name text -->
+  <text x="65" y="25" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#23110C">TanzaniaBiz</text>
+  <text x="65" y="42" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#DD762A">Empowering Entrepreneurs</text>
+</svg>
