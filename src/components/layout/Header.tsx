@@ -63,7 +63,7 @@ const Header = () => {
                   className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 relative overflow-hidden ${
                     item.active
                       ? isScrolled
-                        ? "text-blue-600 bg-blue-50"
+                        ? "text-primary bg-primary/10"
                         : "text-white bg-white/20"
                       : isScrolled
                       ? "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
@@ -71,7 +71,7 @@ const Header = () => {
                   }`}>
                   <span className='relative z-10'>{item.name}</span>
                   {item.active && (
-                    <div className='absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-20 rounded-xl' />
+                    <div className='absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-20 rounded-xl' />
                   )}
                 </a>
               ))}
@@ -110,8 +110,8 @@ const Header = () => {
 
               <button
                 onClick={handleDemoLogin}
-                className='group relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105'>
-                <div className='absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300' />
+                className='group relative bg-primary hover:bg-primary/90 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105'>
+                <div className='absolute inset-0 bg-primary/50 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300' />
                 <div className='relative flex items-center'>
                   <LogIn className='w-4 h-4 mr-2' />
                   Get Started
@@ -151,7 +151,7 @@ const Header = () => {
                   key={item.name}
                   href={item.href}
                   className={`block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-gray-100 transition-colors duration-200 ${
-                    item.active ? "bg-blue-50 text-blue-600" : ""
+                    item.active ? "bg-primary/10 text-primary" : ""
                   }`}>
                   {item.name}
                 </a>
@@ -175,7 +175,7 @@ const Header = () => {
                 </div>
                 <button
                   onClick={handleDemoLogin}
-                  className='w-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white font-semibold px-6 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center'>
+                  className='w-full bg-primary hover:bg-primary/90 text-white font-semibold px-6 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center'>
                   <LogIn className='w-5 h-5 mr-2' />
                   Get Started
                   <ArrowRight className='w-5 h-5 ml-2' />
