@@ -42,12 +42,12 @@ const contactMethods = [
     icon: Mail,
     title: "Email Support",
     description: "Get detailed help via email",
-    contact: "support@tanzaniabiz.com",
+    contact: "support@raisev.africa",
     response: "< 24 hours",
-    action: "mailto:support@tanzaniabiz.com",
-    color: "text-blue-600",
-    bgColor: "bg-blue-50",
-    gradient: "from-blue-500 to-cyan-500",
+    action: "mailto:support@raisev.africa",
+    color: "text-primary",
+    bgColor: "bg-primary/10",
+    gradient: "from-primary to-primary/80",
   },
   {
     icon: MessageCircle,
@@ -56,9 +56,9 @@ const contactMethods = [
     contact: "Available now",
     response: "< 2 minutes",
     action: "#",
-    color: "text-green-600",
-    bgColor: "bg-green-50",
-    gradient: "from-green-500 to-emerald-500",
+    color: "text-secondary",
+    bgColor: "bg-secondary/10",
+    gradient: "from-secondary to-secondary/80",
   },
   {
     icon: Phone,
@@ -67,9 +67,9 @@ const contactMethods = [
     contact: "+255 123 456 789",
     response: "Business hours",
     action: "tel:+255123456789",
-    color: "text-purple-600",
-    bgColor: "bg-purple-50",
-    gradient: "from-purple-500 to-pink-500",
+    color: "text-primary",
+    bgColor: "bg-primary/10",
+    gradient: "from-primary to-primary/90",
   },
   {
     icon: MapPin,
@@ -78,9 +78,9 @@ const contactMethods = [
     contact: "Dar es Salaam, Tanzania",
     response: "By appointment",
     action: "#",
-    color: "text-orange-600",
-    bgColor: "bg-orange-50",
-    gradient: "from-orange-500 to-red-500",
+    color: "text-secondary",
+    bgColor: "bg-secondary/10",
+    gradient: "from-secondary to-secondary/90",
   },
 ];
 
@@ -118,25 +118,25 @@ const stats = [
     number: "< 2min",
     label: "Average Response Time",
     icon: Clock,
-    color: "text-green-600",
+    color: "text-primary",
   },
   {
     number: "24/7",
     label: "Support Availability",
     icon: Headphones,
-    color: "text-blue-600",
+    color: "text-secondary",
   },
   {
     number: "99.9%",
     label: "Customer Satisfaction",
     icon: Star,
-    color: "text-yellow-600",
+    color: "text-primary",
   },
   {
     number: "2 Languages",
     label: "English & Swahili",
     icon: Globe,
-    color: "text-purple-600",
+    color: "text-secondary",
   },
 ];
 
@@ -217,7 +217,7 @@ const Contact = () => {
 
       {/* Dynamic cursor follower */}
       <div
-        className='fixed w-4 h-4 bg-blue-500/20 rounded-full pointer-events-none z-50 transition-all duration-300 ease-out'
+        className='fixed w-4 h-4 bg-primary/20 rounded-full pointer-events-none z-50 transition-all duration-300 ease-out'
         style={{
           left: mousePos.x - 8,
           top: mousePos.y - 8,
@@ -229,15 +229,15 @@ const Contact = () => {
       />
 
       {/* Hero Section */}
-      <section className='relative py-20 lg:py-32 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 overflow-hidden'>
+      <section className='relative py-20 lg:py-32 bg-white overflow-hidden'>
         {/* Animated background elements */}
         <div className='absolute inset-0'>
-          <div className='absolute top-20 left-10 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse'></div>
+          <div className='absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse'></div>
           <div
-            className='absolute bottom-20 right-20 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl animate-pulse'
+            className='absolute bottom-20 right-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse'
             style={{ animationDelay: "1s" }}></div>
           <div
-            className='absolute top-1/2 left-1/3 w-48 h-48 bg-green-400/10 rounded-full blur-2xl animate-bounce'
+            className='absolute top-1/2 left-1/3 w-48 h-48 bg-primary/5 rounded-full blur-2xl animate-bounce'
             style={{ animationDelay: "2s", animationDuration: "4s" }}></div>
         </div>
 
@@ -245,7 +245,7 @@ const Contact = () => {
         {[...Array(12)].map((_, i) => (
           <div
             key={i}
-            className='absolute w-1 h-1 bg-white/20 rounded-full animate-ping'
+            className='absolute w-1 h-1 bg-primary/20 rounded-full animate-ping'
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -258,20 +258,20 @@ const Contact = () => {
         <div className='container mx-auto px-4 lg:px-8 relative z-10'>
           <div className='text-center max-w-5xl mx-auto'>
             <div className='flex justify-center mb-8'>
-              <div className='flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20'>
-                <MessageSquare className='w-4 h-4 text-blue-300' />
-                <span className='text-sm font-medium text-white/90'>
+              <div className='flex items-center gap-3 bg-white backdrop-blur-sm rounded-full px-6 py-3 border border-slate-200'>
+                <MessageSquare className='w-4 h-4 text-primary' />
+                <span className='text-sm font-medium text-slate-700'>
                   We're Here to Help
                 </span>
-                <div className='w-1 h-1 bg-white/50 rounded-full' />
-                <Heart className='w-4 h-4 text-red-300 animate-pulse' />
-                <span className='text-sm font-medium text-white/90'>
+                <div className='w-1 h-1 bg-slate-400 rounded-full' />
+                <Heart className='w-4 h-4 text-red-500 animate-pulse' />
+                <span className='text-sm font-medium text-slate-700'>
                   24/7 Support
                 </span>
               </div>
             </div>
 
-            <h1 className='text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-8 leading-tight'>
+            <h1 className='text-4xl md:text-5xl lg:text-7xl font-bold text-secondary mb-8 leading-tight'>
               <span
                 className='inline-block animate-bounce'
                 style={{ animationDelay: "0.1s" }}>
@@ -283,15 +283,15 @@ const Contact = () => {
                 Talk
               </span>{" "}
               <span
-                className='inline-block animate-bounce bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent'
+                className='inline-block animate-bounce bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent'
                 style={{ animationDelay: "0.3s" }}>
                 Business
               </span>
             </h1>
 
-            <p className='text-xl md:text-2xl text-blue-100 mb-12 leading-relaxed max-w-4xl mx-auto opacity-0 animate-[fadeInUp_1s_ease-out_0.5s_forwards]'>
+            <p className='text-xl md:text-2xl text-slate-700 mb-12 leading-relaxed max-w-4xl mx-auto opacity-0 animate-[fadeInUp_1s_ease-out_0.5s_forwards]'>
               Whether you need support, have questions, or want to explore how
-              TanzaniaBiz can transform your business, our expert team is ready
+              RAV can transform your business, our expert team is ready
               to help you succeed.
             </p>
 
@@ -300,14 +300,14 @@ const Contact = () => {
               {stats.map((stat, index) => (
                 <div
                   key={index}
-                  className={`relative p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 transition-all duration-500 ${
-                    currentStat === index ? "scale-105 bg-white/20" : ""
+                  className={`relative p-6 rounded-2xl bg-white backdrop-blur-sm border border-slate-200 transition-all duration-500 ${
+                    currentStat === index ? "scale-105 border-primary shadow-lg" : ""
                   }`}
                   style={{
                     animation: `fadeInUp 0.8s ease-out ${index * 0.2}s both`,
                   }}>
                   {currentStat === index && (
-                    <div className='absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-400/20 to-purple-400/20 animate-pulse' />
+                    <div className='absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/20 to-secondary/20 animate-pulse' />
                   )}
                   <stat.icon
                     className={`w-8 h-8 ${
@@ -316,10 +316,10 @@ const Contact = () => {
                       currentStat === index ? "scale-110" : ""
                     }`}
                   />
-                  <div className='text-2xl md:text-3xl font-bold text-white mb-1'>
+                  <div className='text-2xl md:text-3xl font-bold text-secondary mb-1'>
                     {stat.number}
                   </div>
-                  <p className='text-blue-200 text-sm font-medium'>
+                  <p className='text-slate-600 text-sm font-medium'>
                     {stat.label}
                   </p>
                 </div>
@@ -333,13 +333,13 @@ const Contact = () => {
       <section className='py-20 lg:py-32 bg-gradient-to-b from-white to-slate-50'>
         <div className='container mx-auto px-4 lg:px-8'>
           <div className='text-center mb-16'>
-            <div className='inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full mb-6 font-medium'>
+            <div className='inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6 font-medium'>
               <Phone className='w-4 h-4' />
               Multiple Ways to Connect
             </div>
             <h2 className='text-4xl md:text-5xl font-bold text-slate-800 mb-6'>
               Choose Your Preferred
-              <span className='bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>
+              <span className='bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent'>
                 {" "}
                 Contact Method
               </span>
@@ -416,7 +416,7 @@ const Contact = () => {
               <div className='mb-8'>
                 <h3 className='text-3xl md:text-4xl font-bold text-slate-800 mb-4'>
                   Send Us a
-                  <span className='bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>
+                  <span className='bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent'>
                     {" "}
                     Message
                   </span>
@@ -434,7 +434,7 @@ const Contact = () => {
                 </div>
                 <div className='w-full bg-slate-200 rounded-full h-2'>
                   <div
-                    className='bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-500'
+                    className='bg-gradient-to-r from-primary to-secondary h-2 rounded-full transition-all duration-500'
                     style={{ width: `${getFormProgress()}%` }}
                   />
                 </div>
@@ -476,7 +476,7 @@ const Contact = () => {
                           }
                           onFocus={() => setFocusedField("name")}
                           onBlur={() => setFocusedField(null)}
-                          className='h-12 border-slate-200 focus:border-blue-400 focus:ring-blue-400 bg-white transition-all duration-300'
+                          className='h-12 border-slate-200 focus:border-primary focus:ring-primary bg-white transition-all duration-300'
                           required
                         />
                       </div>
@@ -496,7 +496,7 @@ const Contact = () => {
                           }
                           onFocus={() => setFocusedField("email")}
                           onBlur={() => setFocusedField(null)}
-                          className='h-12 border-slate-200 focus:border-blue-400 focus:ring-blue-400 bg-white transition-all duration-300'
+                          className='h-12 border-slate-200 focus:border-primary focus:ring-primary bg-white transition-all duration-300'
                           required
                         />
                       </div>
@@ -576,7 +576,7 @@ const Contact = () => {
                         }
                         onFocus={() => setFocusedField("subject")}
                         onBlur={() => setFocusedField(null)}
-                        className='h-12 border-slate-200 focus:border-blue-400 focus:ring-blue-400 bg-white transition-all duration-300'
+                        className='h-12 border-slate-200 focus:border-primary focus:ring-primary bg-white transition-all duration-300'
                         required
                       />
                     </div>
@@ -604,7 +604,7 @@ const Contact = () => {
                     <Button
                       type='submit'
                       disabled={isSubmitting}
-                      className='w-full h-14 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold text-lg shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed'>
+                      className='w-full h-14 bg-gradient-to-r from-primary to-secondary hover:from-primary hover:to-secondary/90 text-white font-bold text-lg shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed'>
                       {isSubmitting ? (
                         <>
                           <div className='animate-spin w-5 h-5 border-2 border-white border-t-transparent rounded-full mr-2' />
@@ -628,8 +628,8 @@ const Contact = () => {
               {/* Office Hours */}
               <Card className='p-8 bg-white border-slate-200 shadow-xl'>
                 <div className='flex items-center mb-6'>
-                  <div className='w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4'>
-                    <Clock className='w-6 h-6 text-blue-600' />
+                  <div className='w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4'>
+                    <Clock className='w-6 h-6 text-primary' />
                   </div>
                   <h3 className='text-2xl font-bold text-slate-800'>
                     Office Hours
@@ -659,8 +659,8 @@ const Contact = () => {
               {/* FAQ Section */}
               <Card className='p-8 bg-white border-slate-200 shadow-xl'>
                 <div className='flex items-center mb-6'>
-                  <div className='w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4'>
-                    <MessageSquare className='w-6 h-6 text-purple-600' />
+                  <div className='w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mr-4'>
+                    <MessageSquare className='w-6 h-6 text-secondary' />
                   </div>
                   <h3 className='text-2xl font-bold text-slate-800'>
                     Quick Answers
@@ -672,7 +672,7 @@ const Contact = () => {
                       key={index}
                       className='border-b border-slate-100 pb-6 last:border-b-0 last:pb-0'>
                       <h4 className='font-semibold mb-3 text-slate-800 flex items-center'>
-                        <div className='w-2 h-2 bg-blue-500 rounded-full mr-2' />
+                        <div className='w-2 h-2 bg-primary rounded-full mr-2' />
                         {faq.question}
                       </h4>
                       <p className='text-slate-600 leading-relaxed pl-4'>
@@ -685,8 +685,8 @@ const Contact = () => {
 
               {/* Emergency Contact */}
               <div className='relative'>
-                <div className='absolute inset-0 bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl blur-xl opacity-20 animate-pulse' />
-                <Card className='relative bg-gradient-to-r from-red-600 to-orange-600 p-8 text-white border-0 shadow-2xl'>
+                <div className='absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-2xl blur-xl opacity-20 animate-pulse' />
+                <Card className='relative bg-gradient-to-r from-secondary to-primary p-8 text-white border-0 shadow-2xl'>
                   <div className='text-center'>
                     <div className='w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4'>
                       <AlertCircle className='w-8 h-8 text-white animate-pulse' />
@@ -694,7 +694,7 @@ const Contact = () => {
                     <h3 className='text-2xl font-bold mb-4'>
                       Emergency Support
                     </h3>
-                    <p className='text-red-100 mb-6 leading-relaxed'>
+                    <p className='text-white/90 mb-6 leading-relaxed'>
                       For critical business issues that need immediate attention
                     </p>
                     <Button className='bg-white/20 hover:bg-white/30 text-white border border-white/30 hover:border-white/50 font-bold px-8 py-3 transition-all duration-300 hover:scale-105'>
@@ -710,51 +710,51 @@ const Contact = () => {
       </section>
 
       {/* Enhanced CTA */}
-      <section className='py-20 lg:py-32 relative'>
+      <section className='py-20 lg:py-32 relative bg-white'>
         <div className='container mx-auto px-4 lg:px-8'>
           <div className='relative'>
-            <div className='absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-3xl blur-xl opacity-20 animate-pulse' />
-            <div className='relative bg-gradient-to-r from-slate-900 via-blue-900 to-purple-900 rounded-3xl p-12 lg:p-16 text-white overflow-hidden'>
+            <div className='absolute inset-0 bg-gradient-to-r from-primary via-secondary to-primary rounded-3xl blur-xl opacity-20 animate-pulse' />
+            <div className='relative bg-gradient-to-r from-secondary via-primary/90 to-secondary rounded-3xl p-12 lg:p-16 text-white overflow-hidden'>
               <div className='absolute inset-0 opacity-10'>
                 <div className='absolute top-10 right-10 w-32 h-32 bg-white rounded-full blur-3xl animate-pulse' />
                 <div
-                  className='absolute bottom-10 left-10 w-24 h-24 bg-blue-300 rounded-full blur-2xl animate-bounce'
+                  className='absolute bottom-10 left-10 w-24 h-24 bg-primary rounded-full blur-2xl animate-bounce'
                   style={{ animationDuration: "3s" }}
                 />
               </div>
 
               <div className='relative z-10 max-w-4xl mx-auto text-center'>
                 <div className='inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 mb-8 border border-white/20'>
-                  <User className='w-5 h-5 text-blue-300' />
-                  <span className='text-sm font-medium text-blue-100'>
+                  <User className='w-5 h-5 text-white' />
+                  <span className='text-sm font-medium text-white'>
                     Ready to Start?
                   </span>
                 </div>
 
                 <h3 className='text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight'>
                   Ready to Transform Your
-                  <span className='bg-gradient-to-r from-blue-300 to-purple-300 bg-clip-text text-transparent'>
+                  <span className='bg-gradient-to-r from-white to-primary-foreground bg-clip-text text-transparent'>
                     {" "}
                     Business Journey?
                   </span>
                 </h3>
-                <p className='text-xl text-blue-100 mb-10 leading-relaxed max-w-3xl mx-auto'>
+                <p className='text-xl text-white/90 mb-10 leading-relaxed max-w-3xl mx-auto'>
                   Join over 15,000 successful entrepreneurs who trust
-                  TanzaniaBiz to accelerate their business growth. Start your
+                  RAV to accelerate their business growth. Start your
                   free trial today and experience the difference.
                 </p>
 
                 <div className='flex flex-col sm:flex-row gap-6 justify-center'>
                   <Button
                     size='lg'
-                    className='bg-white text-slate-900 hover:bg-blue-50 font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-white/25 transition-all duration-300 hover:scale-105'>
+                    className='bg-white text-secondary hover:bg-slate-50 font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-white/25 transition-all duration-300 hover:scale-105'>
                     <Sparkles className='w-5 h-5 mr-2 animate-spin' />
                     Start Free Trial
                     <ChevronRight className='w-5 h-5 ml-2' />
                   </Button>
                   <Button
                     size='lg'
-                    className='bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm border-2 border-blue-300/50 text-blue-100 hover:bg-blue-500/30 hover:border-blue-300 font-bold px-10 py-4 text-lg transition-all duration-300 hover:scale-105 shadow-lg'>
+                    className='bg-white/10 backdrop-blur-sm border-2 border-white/50 text-white hover:bg-white/20 hover:border-white font-bold px-10 py-4 text-lg transition-all duration-300 hover:scale-105 shadow-lg'>
                     <Calendar className='w-5 h-5 mr-2' />
                     Schedule Demo
                   </Button>
