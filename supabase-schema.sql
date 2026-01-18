@@ -71,14 +71,6 @@ CREATE POLICY "Users can insert own businesses" ON businesses
 CREATE POLICY "Users can update own businesses" ON businesses
   FOR UPDATE USING (auth.uid() = user_id);
 
-CREATE POLICY "Mentors can view mentee businesses" ON businesses
-  FOR SELECT USING (
-    EXISTS (
-      SELECT 1 FROM mentorships m
-      WHERE m.business_id = businesses.id AND m.mentor_id = auth.uid()
-    )
-  );
-
 CREATE POLICY "Admin can view all businesses" ON businesses
   FOR SELECT USING (
     EXISTS (
@@ -110,15 +102,6 @@ CREATE POLICY "Users can manage own business plans" ON business_plans
     EXISTS (
       SELECT 1 FROM businesses b
       WHERE b.id = business_plans.business_id AND b.user_id = auth.uid()
-    )
-  );
-
-CREATE POLICY "Mentors can view mentee business plans" ON business_plans
-  FOR SELECT USING (
-    EXISTS (
-      SELECT 1 FROM businesses b
-      JOIN mentorships m ON m.business_id = b.id
-      WHERE b.id = business_plans.business_id AND m.mentor_id = auth.uid()
     )
   );
 
@@ -200,6 +183,29 @@ CREATE POLICY "Mentors can update own mentorships" ON mentorships
 
 CREATE POLICY "Entrepreneurs can insert mentorships" ON mentorships
   FOR INSERT WITH CHECK (auth.uid() = mentee_id);
+
+-- ============================================
+-- Add mentorship-dependent policies for businesses
+-- ============================================
+CREATE POLICY "Mentors can view mentee businesses" ON businesses
+  FOR SELECT USING (
+    EXISTS (
+      SELECT 1 FROM mentorships m
+      WHERE m.business_id = businesses.id AND m.mentor_id = auth.uid()
+    )
+  );
+
+-- ============================================
+-- Add mentorship-dependent policies for business_plans
+-- ============================================
+CREATE POLICY "Mentors can view mentee business plans" ON business_plans
+  FOR SELECT USING (
+    EXISTS (
+      SELECT 1 FROM businesses b
+      JOIN mentorships m ON m.business_id = b.id
+      WHERE b.id = business_plans.business_id AND m.mentor_id = auth.uid()
+    )
+  );
 
 -- ============================================
 -- MENTOR SESSIONS TABLE
@@ -385,21 +391,3 @@ $$ LANGUAGE plpgsql SECURITY DEFINER;
 CREATE TRIGGER on_auth_user_created
   AFTER INSERT ON auth.users
   FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();
-
--- ============================================
--- SAMPLE DATA (Optional - for testing)
--- ============================================
--- You can uncomment this section to add sample data for testing
-
-/*
--- Insert sample entrepreneur
-INSERT INTO auth.users (id, email) VALUES
-  ('11111111-1111-1111-1111-111111111111', 'entrepreneur@test.com');
-
-INSERT INTO profiles (id, email, full_name, role) VALUES
-  ('11111111-1111-1111-1111-111111111111', 'entrepreneur@test.com', 'John Doe', 'entrepreneur');
-
--- Insert sample business
-INSERT INTO businesses (user_id, business_name, business_type, location, business_score) VALUES
-  ('11111111-1111-1111-1111-111111111111', 'Tech Startup TZ', 'Technology', 'Dar es Salaam', 78);
-*/
