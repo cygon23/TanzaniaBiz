@@ -175,62 +175,93 @@ const Footer = () => {
       </div>
 
       <div className='container mx-auto px-4 lg:px-8 relative z-10'>
-        {/* Newsletter Section */}
+        {/* Newsletter Section - Split Layout */}
         <div className='py-16 border-b border-white/10'>
-          <div className='max-w-4xl mx-auto text-center'>
-            <div className='inline-flex items-center gap-3 bg-gradient-to-r from-primary/10 to-primary/5 backdrop-blur-sm rounded-full px-8 py-4 mb-8 border border-primary/20'>
-              <Mail className='w-5 h-5 text-primary animate-pulse' />
-              <span className='text-white/90 font-medium'>
-                Stay Connected with Africa's Business Revolution
-              </span>
-            </div>
+          <div className='grid lg:grid-cols-2 gap-12 items-center'>
+            {/* Left Side - Ready to Build Your Empire? */}
+            <div>
+              <div className='inline-flex items-center gap-3 bg-gradient-to-r from-primary/10 to-primary/5 backdrop-blur-sm rounded-full px-6 py-3 mb-6 border border-primary/20'>
+                <Sparkles className='w-4 h-4 text-primary animate-pulse' />
+                <span className='text-white/90 font-medium text-sm'>
+                  Join Africa's Business Revolution
+                </span>
+              </div>
 
-            <h3 className='text-3xl md:text-4xl font-bold text-white mb-4'>
-              Get Weekly Business Insights
-            </h3>
-            <p className='text-xl text-white/80 mb-8 max-w-2xl mx-auto'>
-              Join 15,000+ entrepreneurs receiving exclusive market
-              intelligence, funding opportunities, and success strategies.
-            </p>
+              <h3 className='text-3xl md:text-5xl font-bold text-white mb-6 leading-tight'>
+                Ready to Build
+                <br />
+                <span className='bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent'>
+                  Your Empire?
+                </span>
+              </h3>
 
-            <form
-              onSubmit={handleNewsletterSubmit}
-              className='max-w-md mx-auto'>
-              <div className='flex gap-4'>
-                <div className='flex-1 relative'>
-                  <input
-                    type='email'
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder='Enter your email address'
-                    className='w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-white/60 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 backdrop-blur-sm'
-                    required
-                  />
-                </div>
-                <button
-                  type='submit'
-                  disabled={isSubscribed}
-                  className='px-8 py-4 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white font-bold rounded-2xl transition-all duration-300 hover:scale-105 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed'>
-                  {isSubscribed ? (
-                    <>
-                      <Heart className='w-5 h-5' />
-                      Subscribed!
-                    </>
-                  ) : (
-                    <>
-                      <Send className='w-5 h-5' />
-                      Subscribe
-                    </>
-                  )}
+              <p className='text-lg text-white/80 mb-8 leading-relaxed'>
+                Join 15,000+ entrepreneurs who are transforming their business
+                ideas into thriving enterprises across Africa.
+              </p>
+
+              <div className='flex flex-col sm:flex-row gap-4'>
+                <button className='group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white font-bold rounded-2xl shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:scale-105'>
+                  <Rocket className='w-5 h-5 group-hover:animate-bounce' />
+                  Start Your Journey
+                  <ArrowRight className='w-5 h-5 group-hover:translate-x-2 transition-transform duration-300' />
                 </button>
               </div>
-              {isSubscribed && (
-                <div className='mt-4 text-green-400 text-sm flex items-center justify-center gap-2'>
-                  <Heart className='w-4 h-4' />
-                  Welcome to the RAV community!
+            </div>
+
+            {/* Right Side - Newsletter Signup */}
+            <div>
+              <div className='bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8'>
+                <div className='flex items-center gap-3 mb-6'>
+                  <Mail className='w-6 h-6 text-primary' />
+                  <h4 className='text-2xl font-bold text-white'>
+                    Get Weekly Insights
+                  </h4>
                 </div>
-              )}
-            </form>
+
+                <p className='text-white/80 mb-6 leading-relaxed'>
+                  Exclusive market intelligence, funding opportunities, and
+                  success strategies delivered to your inbox.
+                </p>
+
+                <form onSubmit={handleNewsletterSubmit}>
+                  <div className='space-y-4'>
+                    <div className='relative'>
+                      <input
+                        type='email'
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder='Enter your email address'
+                        className='w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-white/60 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 backdrop-blur-sm'
+                        required
+                      />
+                    </div>
+                    <button
+                      type='submit'
+                      disabled={isSubscribed}
+                      className='w-full px-8 py-4 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white font-bold rounded-2xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed'>
+                      {isSubscribed ? (
+                        <>
+                          <Heart className='w-5 h-5' />
+                          Subscribed!
+                        </>
+                      ) : (
+                        <>
+                          <Send className='w-5 h-5' />
+                          Subscribe Now
+                        </>
+                      )}
+                    </button>
+                    {isSubscribed && (
+                      <div className='text-green-400 text-sm flex items-center justify-center gap-2'>
+                        <Heart className='w-4 h-4' />
+                        Welcome to the RAV community!
+                      </div>
+                    )}
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
 

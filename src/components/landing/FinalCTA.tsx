@@ -171,17 +171,17 @@ const FinalCTA = () => {
   return (
     <section
       ref={sectionRef}
-      className='relative py-32 bg-gradient-to-b from-slate-900 via-slate-800 to-black overflow-hidden'>
+      className='relative py-32 bg-white overflow-hidden'>
       {/* Ultra Dynamic Background */}
       <div className='absolute inset-0'>
         {/* Animated mesh gradient */}
-        <div className='absolute inset-0 opacity-30'>
+        <div className='absolute inset-0 opacity-10'>
           <div
             className='w-full h-full bg-gradient-to-br from-primary/20 via-secondary/20 to-primary/10'
             style={{
               background: `radial-gradient(ellipse at ${mousePos.x * 0.1}% ${
                 mousePos.y * 0.1
-              }%, hsl(var(--primary) / 0.3) 0%, hsl(var(--secondary) / 0.2) 50%, hsl(var(--primary) / 0.1) 100%)`,
+              }%, hsl(var(--primary) / 0.1) 0%, hsl(var(--secondary) / 0.05) 50%, hsl(var(--primary) / 0.05) 100%)`,
             }}
           />
         </div>
@@ -190,7 +190,7 @@ const FinalCTA = () => {
         {[...Array(30)].map((_, i) => (
           <div
             key={i}
-            className='absolute opacity-60'
+            className='absolute opacity-40'
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -207,7 +207,7 @@ const FinalCTA = () => {
         {[...Array(5)].map((_, i) => (
           <div
             key={i}
-            className='absolute opacity-20'
+            className='absolute opacity-10'
             style={{
               left: `${20 + i * 15}%`,
               top: `${10 + Math.sin(i) * 40}%`,
@@ -216,19 +216,19 @@ const FinalCTA = () => {
               }s ease-in-out infinite`,
               animationDelay: `${i * 0.4}s`,
             }}>
-            <Lightbulb className='w-8 h-8 text-yellow-400 rotate-45' />
+            <Lightbulb className='w-8 h-8 text-yellow-500 rotate-45' />
           </div>
         ))}
 
         {/* Massive gradient orbs */}
         <div
-          className='absolute -top-40 -left-40 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse'
+          className='absolute -top-40 -left-40 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse'
           style={{ animationDuration: "3s" }}></div>
         <div
-          className='absolute -bottom-40 -right-40 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse'
+          className='absolute -bottom-40 -right-40 w-96 h-96 bg-secondary/5 rounded-full blur-3xl animate-pulse'
           style={{ animationDuration: "4s", animationDelay: "1s" }}></div>
         <div
-          className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-secondary/15 rounded-full blur-3xl animate-pulse'
+          className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-pulse'
           style={{ animationDuration: "5s", animationDelay: "2s" }}></div>
       </div>
 
@@ -236,23 +236,23 @@ const FinalCTA = () => {
         {/* Explosive Header */}
         <div className='text-center mb-16'>
           <div
-            className={`inline-flex items-center gap-3 bg-gradient-to-r from-red-500/20 to-yellow-500/20 backdrop-blur-sm rounded-full px-8 py-4 mb-8 border border-red-500/30 transition-all duration-1000 ${
+            className={`inline-flex items-center gap-3 bg-gradient-to-r from-red-50 to-yellow-50 backdrop-blur-sm rounded-full px-8 py-4 mb-8 border border-red-200 transition-all duration-1000 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}>
-            <Flame className='w-5 h-5 text-red-400 animate-bounce' />
-            <span className='text-red-200 font-medium'>
+            <Flame className='w-5 h-5 text-red-500 animate-bounce' />
+            <span className='text-red-600 font-medium'>
               Limited Time: Explosive Launch Offer!
             </span>
             <Sparkles
-              className='w-5 h-5 text-yellow-400 animate-spin'
+              className='w-5 h-5 text-yellow-500 animate-spin'
               style={{ animationDuration: "2s" }}
             />
           </div>
 
           <h2
-            className={`text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight transition-all duration-1000 delay-200 ${
+            className={`text-5xl md:text-7xl lg:text-8xl font-bold text-secondary mb-8 leading-tight transition-all duration-1000 delay-200 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
@@ -270,24 +270,24 @@ const FinalCTA = () => {
             </span>{" "}
             <br />
             <span
-              className='bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent animate-pulse'
+              className='bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent'
               style={{ animationDelay: "0.3s" }}>
               Your Empire?
             </span>
           </h2>
 
           <p
-            className={`text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed font-medium transition-all duration-1000 delay-400 ${
+            className={`text-2xl text-slate-700 max-w-4xl mx-auto leading-relaxed font-medium transition-all duration-1000 delay-400 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}>
             Join the{" "}
-            <span className='text-yellow-400 font-bold'>
+            <span className='text-green-600 font-bold'>
               15,000+ entrepreneurs
             </span>{" "}
             who've transformed their dreams into
-            <span className='text-green-400 font-bold'>
+            <span className='text-primary font-bold'>
               {" "}
               TSh 500M+ in revenue
             </span>{" "}
@@ -301,10 +301,10 @@ const FinalCTA = () => {
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
           }`}>
           <div className='text-center mb-6'>
-            <h3 className='text-2xl font-bold text-white mb-2'>
+            <h3 className='text-2xl font-bold text-secondary mb-2'>
               🔥 Launch Offer Ends In:
             </h3>
-            <p className='text-red-200'>
+            <p className='text-red-600'>
               Don't miss out on 50% OFF your first year!
             </p>
           </div>
@@ -315,7 +315,7 @@ const FinalCTA = () => {
                 <div className='bg-gradient-to-b from-red-500 to-red-600 text-white text-2xl md:text-3xl font-bold py-4 px-2 rounded-2xl border border-red-400 shadow-lg'>
                   {value.toString().padStart(2, "0")}
                 </div>
-                <div className='text-red-200 text-sm font-medium mt-2 capitalize'>
+                <div className='text-red-600 text-sm font-medium mt-2 capitalize'>
                   {unit}
                 </div>
               </div>
@@ -331,13 +331,13 @@ const FinalCTA = () => {
           {urgencyFeatures.map((feature, index) => (
             <div
               key={index}
-              className='group bg-gradient-to-br from-slate-800/60 to-slate-700/60 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/30 hover:scale-105 transition-all duration-300 text-center'>
-              <div className='w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-slate-700 to-slate-600 border border-white/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300'>
+              className='group bg-white backdrop-blur-sm rounded-2xl p-6 border border-slate-200 hover:border-primary/30 hover:scale-105 transition-all duration-300 text-center shadow-lg'>
+              <div className='w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300'>
                 <feature.icon
                   className={`w-8 h-8 ${feature.color} group-hover:animate-pulse`}
                 />
               </div>
-              <p className='text-white font-semibold text-sm leading-relaxed'>
+              <p className='text-secondary font-semibold text-sm leading-relaxed'>
                 {feature.text}
               </p>
             </div>
@@ -350,10 +350,10 @@ const FinalCTA = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
           }`}>
           <div className='text-center mb-12'>
-            <h3 className='text-3xl md:text-4xl font-bold text-white mb-4'>
+            <h3 className='text-3xl md:text-4xl font-bold text-secondary mb-4'>
               Choose Your Path to Success
             </h3>
-            <p className='text-xl text-blue-200 max-w-2xl mx-auto'>
+            <p className='text-xl text-slate-700 max-w-2xl mx-auto'>
               Select the perfect plan to launch, scale, or dominate your market
             </p>
           </div>
@@ -367,7 +367,7 @@ const FinalCTA = () => {
                 }`}>
                 {offer.popular && (
                   <div className='absolute -top-4 left-1/2 transform -translate-x-1/2 z-10'>
-                    <div className='bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-6 py-2 rounded-full font-bold text-sm flex items-center gap-2'>
+                    <div className='bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-6 py-2 rounded-full font-bold text-sm flex items-center gap-2 shadow-lg'>
                       <Crown className='w-4 h-4' />
                       MOST POPULAR
                     </div>
@@ -378,9 +378,9 @@ const FinalCTA = () => {
                   className={`relative bg-gradient-to-r ${
                     offer.color
                   } p-[2px] rounded-3xl ${
-                    offer.popular ? "shadow-2xl shadow-purple-500/25" : ""
+                    offer.popular ? "shadow-2xl shadow-primary/25" : ""
                   }`}>
-                  <div className='bg-slate-800/95 backdrop-blur-sm rounded-3xl p-8 h-full'>
+                  <div className='bg-white backdrop-blur-sm rounded-3xl p-8 h-full'>
                     {/* Plan Header */}
                     <div className='text-center mb-8'>
                       <div
@@ -388,13 +388,13 @@ const FinalCTA = () => {
                         <Target className='w-10 h-10 text-white' />
                       </div>
 
-                      <h4 className='text-2xl font-bold text-white mb-2'>
+                      <h4 className='text-2xl font-bold text-secondary mb-2'>
                         {offer.title}
                       </h4>
-                      <p className='text-white/80 mb-4'>{offer.subtitle}</p>
+                      <p className='text-slate-600 mb-4'>{offer.subtitle}</p>
 
                       {offer.originalPrice !== offer.price && (
-                        <div className='text-red-400 line-through text-lg mb-2'>
+                        <div className='text-red-500 line-through text-lg mb-2'>
                           {offer.originalPrice}
                         </div>
                       )}
@@ -403,11 +403,11 @@ const FinalCTA = () => {
                           className={`text-4xl font-bold bg-gradient-to-r ${offer.color} bg-clip-text text-transparent`}>
                           {offer.price}
                         </span>
-                        <span className='text-white/80'>{offer.duration}</span>
+                        <span className='text-slate-600'>{offer.duration}</span>
                       </div>
 
                       {offer.price === "FREE" && (
-                        <div className='inline-flex items-center gap-2 bg-green-500/20 text-green-400 px-4 py-2 rounded-full text-sm font-medium border border-green-500/30'>
+                        <div className='inline-flex items-center gap-2 bg-green-50 text-green-600 px-4 py-2 rounded-full text-sm font-medium border border-green-200'>
                           <Gift className='w-4 h-4' />
                           Limited Time Offer
                         </div>
@@ -420,8 +420,8 @@ const FinalCTA = () => {
                         <div
                           key={featureIndex}
                           className='flex items-center gap-3'>
-                          <CheckCircle className='w-5 h-5 text-green-400 flex-shrink-0' />
-                          <span className='text-white/80'>{feature}</span>
+                          <CheckCircle className='w-5 h-5 text-green-500 flex-shrink-0' />
+                          <span className='text-slate-700'>{feature}</span>
                         </div>
                       ))}
                     </div>
@@ -443,7 +443,7 @@ const FinalCTA = () => {
 
                     {offer.popular && (
                       <div className='text-center mt-4'>
-                        <div className='inline-flex items-center gap-2 text-yellow-400 text-sm font-medium'>
+                        <div className='inline-flex items-center gap-2 text-yellow-500 text-sm font-medium'>
                           <Star className='w-4 h-4' fill='currentColor' />
                           Chosen by 70% of our users
                           <Star className='w-4 h-4' fill='currentColor' />
@@ -466,8 +466,8 @@ const FinalCTA = () => {
             {/* Pulsing background effect */}
             <div className='absolute inset-0 bg-gradient-to-r from-primary/20 via-primary/15 to-secondary/20 rounded-3xl blur-xl animate-pulse'></div>
 
-            <div className='relative bg-gradient-to-r from-primary via-primary/90 to-secondary p-[3px] rounded-3xl'>
-              <div className='bg-slate-800/95 backdrop-blur-sm rounded-3xl p-12'>
+            <div className='relative bg-gradient-to-r from-primary via-primary/90 to-secondary p-[3px] rounded-3xl shadow-2xl'>
+              <div className='bg-white backdrop-blur-sm rounded-3xl p-12'>
                 <div className='mb-8'>
                   <div className='flex justify-center gap-2 mb-6'>
                     {[...Array(5)].map((_, i) => (
@@ -480,18 +480,18 @@ const FinalCTA = () => {
                     ))}
                   </div>
 
-                  <h3 className='text-3xl md:text-5xl font-bold text-white mb-6 leading-tight'>
+                  <h3 className='text-3xl md:text-5xl font-bold text-secondary mb-6 leading-tight'>
                     Don't Let Your Dreams Wait Another Day!
                   </h3>
 
-                  <p className='text-xl text-white/80 max-w-3xl mx-auto mb-8 leading-relaxed'>
+                  <p className='text-xl text-slate-700 max-w-3xl mx-auto mb-8 leading-relaxed'>
                     Over{" "}
-                    <span className='text-green-400 font-bold'>
+                    <span className='text-green-600 font-bold'>
                       15,000 entrepreneurs
                     </span>{" "}
                     have already started their journey. Join them and transform
                     your business idea into a{" "}
-                    <span className='text-yellow-400 font-bold'>
+                    <span className='text-primary font-bold'>
                       thriving empire
                     </span>{" "}
                     today!
@@ -499,24 +499,24 @@ const FinalCTA = () => {
 
                   <div className='grid md:grid-cols-3 gap-6 max-w-2xl mx-auto mb-8'>
                     <div className='text-center'>
-                      <div className='text-2xl font-bold text-green-400 mb-1'>
+                      <div className='text-2xl font-bold text-green-600 mb-1'>
                         24 Hours
                       </div>
-                      <div className='text-sm text-white/80'>To Launch</div>
+                      <div className='text-sm text-slate-600'>To Launch</div>
                     </div>
                     <div className='text-center'>
                       <div className='text-2xl font-bold text-primary mb-1'>
                         95% Success
                       </div>
-                      <div className='text-sm text-white/80'>
+                      <div className='text-sm text-slate-600'>
                         Rate Guaranteed
                       </div>
                     </div>
                     <div className='text-center'>
-                      <div className='text-2xl font-bold text-yellow-400 mb-1'>
+                      <div className='text-2xl font-bold text-yellow-600 mb-1'>
                         50% OFF
                       </div>
-                      <div className='text-sm text-white/80'>First Year</div>
+                      <div className='text-sm text-slate-600'>First Year</div>
                     </div>
                   </div>
                 </div>
@@ -533,33 +533,33 @@ const FinalCTA = () => {
                     </div>
                   </button>
 
-                  <div className='flex items-center gap-3 text-white/80'>
-                    <Shield className='w-6 h-6 text-green-400' />
+                  <div className='flex items-center gap-3 text-slate-600'>
+                    <Shield className='w-6 h-6 text-green-500' />
                     <div className='text-left'>
-                      <div className='font-semibold text-white'>Risk-Free Guarantee</div>
+                      <div className='font-semibold text-secondary'>Risk-Free Guarantee</div>
                       <div className='text-sm'>30-day money back</div>
                     </div>
                   </div>
                 </div>
 
                 {/* Social Proof */}
-                <div className='mt-12 pt-8 border-t border-white/10'>
-                  <div className='flex flex-wrap justify-center items-center gap-8 opacity-60'>
+                <div className='mt-12 pt-8 border-t border-slate-200'>
+                  <div className='flex flex-wrap justify-center items-center gap-8'>
                     <div className='flex items-center gap-2'>
-                      <TrendingUp className='w-5 h-5 text-green-400' />
-                      <span className='text-sm text-white/80'>
+                      <TrendingUp className='w-5 h-5 text-green-500' />
+                      <span className='text-sm text-slate-600'>
                         500M+ TSh Generated
                       </span>
                     </div>
                     <div className='flex items-center gap-2'>
                       <Users className='w-5 h-5 text-primary' />
-                      <span className='text-sm text-white/80'>
+                      <span className='text-sm text-slate-600'>
                         15,000+ Active Users
                       </span>
                     </div>
                     <div className='flex items-center gap-2'>
-                      <Award className='w-5 h-5 text-yellow-400' />
-                      <span className='text-sm text-white/80'>
+                      <Award className='w-5 h-5 text-yellow-500' />
+                      <span className='text-sm text-slate-600'>
                         Africa's #1 Platform
                       </span>
                     </div>
@@ -575,16 +575,16 @@ const FinalCTA = () => {
           className={`mt-16 text-center transition-all duration-1000 delay-1400 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}>
-          <p className='text-white/70 text-sm mb-4'>
+          <p className='text-slate-600 text-sm mb-4'>
             Trusted by entrepreneurs across all 26 regions of Tanzania
           </p>
-          <div className='flex flex-wrap justify-center gap-8 items-center opacity-40'>
-            <div className='text-xs text-white/80'>
+          <div className='flex flex-wrap justify-center gap-8 items-center opacity-60'>
+            <div className='text-xs text-slate-600'>
               🏦 Bank of Tanzania Certified
             </div>
-            <div className='text-xs text-white/80'>🛡️ BRELA Compliant</div>
-            <div className='text-xs text-white/80'>📊 TRA Integrated</div>
-            <div className='text-xs text-white/80'>🌍 ISO 27001 Secured</div>
+            <div className='text-xs text-slate-600'>🛡️ BRELA Compliant</div>
+            <div className='text-xs text-slate-600'>📊 TRA Integrated</div>
+            <div className='text-xs text-slate-600'>🌍 ISO 27001 Secured</div>
           </div>
         </div>
       </div>
