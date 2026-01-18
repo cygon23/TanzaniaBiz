@@ -13,36 +13,26 @@ export class AuthService {
     companyName?: string
   ) {
     try {
-      // Create auth user - profile will be auto-created by trigger
       const { data: authData, error: authError } = await supabase.auth.signUp({
         email,
         password,
-        options: {
-          data: {
-            full_name: fullName,
-            role,
-            company_name: companyName,
-          },
-        },
       });
 
       if (authError) throw authError;
       if (!authData.user) throw new Error('User creation failed');
 
-      // Wait a bit for trigger to create profile
-      await new Promise(resolve => setTimeout(resolve, 500));
+      await supabase.from('profiles').upsert({
+        id: authData.user.id,
+        email,
+        full_name: fullName,
+        role,
+        company_name: companyName,
+      }, {
+        onConflict: 'id'
+      });
 
-      // Update company name if provided
-      if (companyName) {
-        await supabase
-          .from('profiles')
-          .update({ company_name: companyName })
-          .eq('id', authData.user.id);
-      }
-
-      // Create role-specific profile
       if (role === 'mentor') {
-        await supabase.from('mentor_profiles').insert({
+        await supabase.from('mentor_profiles').upsert({
           user_id: authData.user.id,
           expertise: [],
           years_experience: 0,
@@ -51,15 +41,19 @@ export class AuthService {
           rating: 0,
           total_mentees: 0,
           active_mentees: 0,
+        }, {
+          onConflict: 'user_id'
         });
       } else if (role === 'company') {
-        await supabase.from('company_profiles').insert({
+        await supabase.from('company_profiles').upsert({
           user_id: authData.user.id,
           industry: 'General',
           total_funding_deployed: 0,
           entrepreneurs_supported: 0,
           success_rate: 0,
           active_programs: 0,
+        }, {
+          onConflict: 'user_id'
         });
       }
 
