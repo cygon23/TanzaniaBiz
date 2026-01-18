@@ -50,7 +50,7 @@ const Header = () => {
             {/* Logo Section */}
             <div className='flex items-center space-x-4'>
               <div className='relative group cursor-pointer'>
-                <img src="/logo.png" alt="TanzaniaBiz" className="h-12 w-auto" />
+                <img src="/logo.png" alt="RAV - Raise Venture Africa" className="h-12 w-auto" />
               </div>
             </div>
 
