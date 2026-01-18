@@ -1,11 +1,11 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { 
-  Home, 
-  User, 
-  FileText, 
-  Users, 
-  TrendingUp, 
-  Settings, 
+import {
+  Home,
+  User,
+  FileText,
+  Users,
+  TrendingUp,
+  Settings,
   Building2,
   Bot,
   BookOpen,
@@ -29,6 +29,8 @@ import {
   SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar";
+import { useAuth } from "@/contexts/AuthContext";
+import { useToast } from "@/hooks/use-toast";
 
 interface SidebarProps {
   userRole: 'entrepreneur' | 'admin' | 'mentor' | 'company';
@@ -71,10 +73,25 @@ export const AppSidebar = ({ userRole }: SidebarProps) => {
   const location = useLocation();
   const navigate = useNavigate();
   const { state } = useSidebar();
+  const { signOut, user } = useAuth();
+  const { toast } = useToast();
 
-  const handleLogout = () => {
-    localStorage.removeItem('demoUser');
-    navigate('/');
+  const handleLogout = async () => {
+    try {
+      await signOut();
+      toast({
+        title: "Logged Out",
+        description: "You have been successfully logged out.",
+      });
+      navigate('/');
+    } catch (error) {
+      console.error('Logout error:', error);
+      toast({
+        title: "Error",
+        description: "Failed to log out. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   const currentItems = navigationItems[userRole] || [];
@@ -100,10 +117,10 @@ export const AppSidebar = ({ userRole }: SidebarProps) => {
           {!isCollapsed && (
             <div className="min-w-0 flex-1">
               <p className="font-medium text-sidebar-foreground capitalize truncate">
-                Demo {userRole}
+                {user?.full_name || `Demo ${userRole}`}
               </p>
               <p className="text-xs text-sidebar-foreground/60 truncate">
-                demo-{userRole}@example.com
+                {user?.email || `demo-${userRole}@example.com`}
               </p>
             </div>
           )}
