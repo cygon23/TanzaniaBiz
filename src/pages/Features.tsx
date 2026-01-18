@@ -33,8 +33,8 @@ const features = [
     title: "AI Business Assistant",
     description:
       "24/7 intelligent guidance with advanced AI in Swahili and English for business transformation.",
-    color: "text-blue-600",
-    bgColor: "bg-blue-50",
+    color: "text-primary",
+    bgColor: "bg-primary/10",
     accent: Sparkles,
     benefits: [
       "Multilingual support",
@@ -48,8 +48,8 @@ const features = [
     title: "Compliance Automation",
     description:
       "Automated compliance system with predictive analytics for BRELA & TRA requirements.",
-    color: "text-green-600",
-    bgColor: "bg-green-50",
+    color: "text-secondary",
+    bgColor: "bg-secondary/10",
     accent: Zap,
     benefits: [
       "BRELA integration",
@@ -62,9 +62,9 @@ const features = [
     icon: Users,
     title: "Expert Mentorship",
     description:
-      "Connect with Tanzania's most successful business leaders through our AI-powered matching.",
-    color: "text-purple-600",
-    bgColor: "bg-purple-50",
+      "Connect with Africa's most successful business leaders through our AI-powered matching.",
+    color: "text-primary",
+    bgColor: "bg-primary/10",
     accent: Rocket,
     benefits: [
       "Expert matching",
@@ -78,8 +78,8 @@ const features = [
     title: "Business Plan Builder",
     description:
       "Generate investor-grade business plans with AI assistance and premium templates.",
-    color: "text-orange-600",
-    bgColor: "bg-orange-50",
+    color: "text-secondary",
+    bgColor: "bg-secondary/10",
     accent: Sparkles,
     benefits: [
       "AI-powered generation",
@@ -92,9 +92,9 @@ const features = [
     icon: TrendingUp,
     title: "Market Intelligence",
     description:
-      "Real-time market analytics with AI-powered predictive insights for Tanzanian opportunities.",
-    color: "text-indigo-600",
-    bgColor: "bg-indigo-50",
+      "Real-time market analytics with AI-powered predictive insights for African opportunities.",
+    color: "text-primary",
+    bgColor: "bg-primary/10",
     accent: Zap,
     benefits: [
       "Real-time data",
@@ -108,8 +108,8 @@ const features = [
     title: "Funding Network",
     description:
       "Access to grants, venture capital, and investment opportunities through our partner network.",
-    color: "text-emerald-600",
-    bgColor: "bg-emerald-50",
+    color: "text-secondary",
+    bgColor: "bg-secondary/10",
     accent: Rocket,
     benefits: [
       "Grant opportunities",
@@ -122,9 +122,9 @@ const features = [
     icon: BookOpen,
     title: "Learning Academy",
     description:
-      "Interactive courses and simulations designed by Tanzania's top financial experts.",
-    color: "text-teal-600",
-    bgColor: "bg-teal-50",
+      "Interactive courses and simulations designed by Africa's top financial experts.",
+    color: "text-primary",
+    bgColor: "bg-primary/10",
     accent: Sparkles,
     benefits: [
       "Expert courses",
@@ -138,8 +138,8 @@ const features = [
     title: "Mobile Experience",
     description:
       "Mobile-first design with offline-first architecture and seamless connectivity.",
-    color: "text-pink-600",
-    bgColor: "bg-pink-50",
+    color: "text-secondary",
+    bgColor: "bg-secondary/10",
     accent: Zap,
     benefits: [
       "Mobile optimized",
@@ -155,31 +155,31 @@ const stats = [
     number: "15,000+",
     label: "Active Entrepreneurs",
     icon: Users,
-    color: "text-blue-600",
+    color: "text-primary",
   },
   {
     number: "95%",
     label: "Success Rate",
     icon: TrendingUp,
-    color: "text-green-600",
+    color: "text-secondary",
   },
   {
     number: "500+",
     label: "Expert Mentors",
     icon: Star,
-    color: "text-purple-600",
+    color: "text-primary",
   },
   {
     number: "100%",
     label: "Compliance Rate",
     icon: Shield,
-    color: "text-orange-600",
+    color: "text-secondary",
   },
 ];
 
 const heroFeatures = [
   { icon: Brain, text: "AI-Powered Insights" },
-  { icon: Globe, text: "Tanzania-Focused" },
+  { icon: Globe, text: "Africa-Focused" },
   { icon: Target, text: "Results-Driven" },
   { icon: Award, text: "Expert-Validated" },
 ];
@@ -236,7 +236,7 @@ const Features = () => {
 
       {/* Dynamic cursor follower */}
       <div
-        className='fixed w-4 h-4 bg-blue-500/20 rounded-full pointer-events-none z-50 transition-all duration-300 ease-out'
+        className='fixed w-4 h-4 bg-primary/20 rounded-full pointer-events-none z-50 transition-all duration-300 ease-out'
         style={{
           left: mousePos.x - 8,
           top: mousePos.y - 8,
@@ -245,15 +245,15 @@ const Features = () => {
       />
 
       {/* Hero Section */}
-      <section className='relative py-20 lg:py-32 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 overflow-hidden'>
+      <section className='relative py-20 lg:py-32 bg-white overflow-hidden'>
         {/* Animated background elements */}
         <div className='absolute inset-0'>
-          <div className='absolute top-20 left-10 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse'></div>
+          <div className='absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse'></div>
           <div
-            className='absolute bottom-20 right-20 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl animate-pulse'
+            className='absolute bottom-20 right-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse'
             style={{ animationDelay: "1s" }}></div>
           <div
-            className='absolute top-1/2 left-1/3 w-48 h-48 bg-green-400/10 rounded-full blur-2xl animate-bounce'
+            className='absolute top-1/2 left-1/3 w-48 h-48 bg-primary/5 rounded-full blur-2xl animate-bounce'
             style={{ animationDelay: "2s", animationDuration: "4s" }}></div>
         </div>
 
@@ -261,7 +261,7 @@ const Features = () => {
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className='absolute w-1 h-1 bg-white/20 rounded-full animate-ping'
+            className='absolute w-1 h-1 bg-primary/20 rounded-full animate-ping'
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -274,22 +274,22 @@ const Features = () => {
         <div className='container mx-auto px-4 lg:px-8 relative z-10'>
           <div className='text-center max-w-5xl mx-auto'>
             <div className='flex justify-center mb-8'>
-              <div className='flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20'>
+              <div className='flex items-center gap-4 bg-white backdrop-blur-sm rounded-full px-6 py-3 border border-slate-200'>
                 {heroFeatures.map((feature, index) => (
                   <div
                     key={index}
-                    className='flex items-center gap-2 text-white/90'>
+                    className='flex items-center gap-2 text-slate-700'>
                     <feature.icon className='w-4 h-4' />
                     <span className='text-sm font-medium'>{feature.text}</span>
                     {index < heroFeatures.length - 1 && (
-                      <div className='w-1 h-1 bg-white/50 rounded-full' />
+                      <div className='w-1 h-1 bg-slate-400 rounded-full' />
                     )}
                   </div>
                 ))}
               </div>
             </div>
 
-            <h1 className='text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-8 leading-tight'>
+            <h1 className='text-4xl md:text-5xl lg:text-7xl font-bold text-secondary mb-8 leading-tight'>
               <span
                 className='inline-block animate-bounce'
                 style={{ animationDelay: "0.1s" }}>
@@ -301,20 +301,20 @@ const Features = () => {
                 Your
               </span>{" "}
               <span
-                className='inline-block animate-bounce bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent'
+                className='inline-block animate-bounce bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent'
                 style={{ animationDelay: "0.3s" }}>
                 Business
               </span>
               <br />
               <span
-                className='inline-block animate-bounce text-3xl md:text-4xl lg:text-5xl text-blue-200'
+                className='inline-block animate-bounce text-3xl md:text-4xl lg:text-5xl text-slate-700'
                 style={{ animationDelay: "0.4s" }}>
                 with AI-Powered Solutions
               </span>
             </h1>
 
-            <p className='text-xl md:text-2xl text-blue-100 mb-12 leading-relaxed max-w-4xl mx-auto opacity-0 animate-[fadeInUp_1s_ease-out_0.5s_forwards]'>
-              The most comprehensive business platform in Tanzania. From AI
+            <p className='text-xl md:text-2xl text-slate-700 mb-12 leading-relaxed max-w-4xl mx-auto opacity-0 animate-[fadeInUp_1s_ease-out_0.5s_forwards]'>
+              The most comprehensive business platform in Africa. From AI
               assistance to expert mentorship, we provide everything you need to
               build, grow, and scale your enterprise.
             </p>
@@ -324,14 +324,14 @@ const Features = () => {
               {stats.map((stat, index) => (
                 <div
                   key={index}
-                  className={`relative p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 transition-all duration-500 ${
-                    currentStat === index ? "scale-105 bg-white/20" : ""
+                  className={`relative p-6 rounded-2xl bg-white backdrop-blur-sm border border-slate-200 transition-all duration-500 ${
+                    currentStat === index ? "scale-105 border-primary shadow-lg" : ""
                   }`}
                   style={{
                     animation: `fadeInUp 0.8s ease-out ${index * 0.2}s both`,
                   }}>
                   {currentStat === index && (
-                    <div className='absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-400/20 to-purple-400/20 animate-pulse' />
+                    <div className='absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/20 to-secondary/20 animate-pulse' />
                   )}
                   <stat.icon
                     className={`w-8 h-8 ${
@@ -340,10 +340,10 @@ const Features = () => {
                       currentStat === index ? "scale-110" : ""
                     }`}
                   />
-                  <div className='text-3xl md:text-4xl font-bold text-white mb-1'>
+                  <div className='text-3xl md:text-4xl font-bold text-secondary mb-1'>
                     <CountUp end={stat.number} />
                   </div>
-                  <p className='text-blue-200 text-sm font-medium'>
+                  <p className='text-slate-600 text-sm font-medium'>
                     {stat.label}
                   </p>
                 </div>
@@ -353,7 +353,7 @@ const Features = () => {
             <div className='flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-[fadeInUp_1s_ease-out_0.8s_forwards]'>
               <Button
                 size='lg'
-                className='bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105'>
+                className='bg-gradient-to-r from-primary to-secondary hover:from-primary hover:to-secondary/90 text-white px-8 py-4 text-lg font-semibold shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:scale-105'>
                 <Sparkles className='w-5 h-5 mr-2 animate-spin' />
                 Start Your Journey
                 <ChevronRight className='w-5 h-5 ml-2 animate-bounce' />
@@ -361,7 +361,7 @@ const Features = () => {
               <Button
                 size='lg'
                 variant='outline'
-                className='border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm font-semibold px-8 py-4 text-lg transition-all duration-300 hover:scale-105'>
+                className='border-2 border-slate-200 text-slate-700 hover:bg-slate-50 backdrop-blur-sm font-semibold px-8 py-4 text-lg transition-all duration-300 hover:scale-105'>
                 <Play className='w-5 h-5 mr-2' />
                 Watch Demo
               </Button>
@@ -374,20 +374,20 @@ const Features = () => {
       <section className='py-20 lg:py-32 bg-gradient-to-b from-white to-slate-50 relative'>
         <div className='container mx-auto px-4 lg:px-8'>
           <div className='text-center mb-20'>
-            <div className='inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full mb-6 font-medium'>
+            <div className='inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6 font-medium'>
               <Lightbulb className='w-4 h-4' />
               Comprehensive Solutions
             </div>
             <h2 className='text-4xl md:text-5xl font-bold text-slate-800 mb-6'>
               Everything You Need to
-              <span className='bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>
+              <span className='bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent'>
                 {" "}
                 Succeed
               </span>
             </h2>
             <p className='text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed'>
               Our platform combines cutting-edge AI technology with deep local
-              expertise to deliver unparalleled business solutions for Tanzanian
+              expertise to deliver unparalleled business solutions for African
               entrepreneurs.
             </p>
           </div>
@@ -408,7 +408,7 @@ const Features = () => {
                 />
 
                 {/* Magic border effect */}
-                <div className='absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 p-[1px]'>
+                <div className='absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 p-[1px]'>
                   <div className='w-full h-full bg-white rounded-lg' />
                 </div>
 
@@ -450,7 +450,7 @@ const Features = () => {
                     {[...Array(6)].map((_, i) => (
                       <div
                         key={i}
-                        className='absolute w-1 h-1 bg-blue-400 rounded-full animate-ping'
+                        className='absolute w-1 h-1 bg-primary rounded-full animate-ping'
                         style={{
                           left: `${20 + Math.random() * 60}%`,
                           top: `${20 + Math.random() * 60}%`,
@@ -466,49 +466,49 @@ const Features = () => {
 
           {/* Enhanced CTA Section */}
           <div className='relative'>
-            <div className='absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-3xl blur-xl opacity-20 animate-pulse' />
-            <div className='relative bg-gradient-to-r from-slate-900 via-blue-900 to-purple-900 rounded-3xl p-12 lg:p-16 text-white overflow-hidden'>
+            <div className='absolute inset-0 bg-gradient-to-r from-primary via-secondary to-primary rounded-3xl blur-xl opacity-20 animate-pulse' />
+            <div className='relative bg-gradient-to-r from-secondary via-primary/90 to-secondary rounded-3xl p-12 lg:p-16 text-white overflow-hidden'>
               {/* Background pattern */}
               <div className='absolute inset-0 opacity-10'>
                 <div className='absolute top-10 right-10 w-32 h-32 bg-white rounded-full blur-3xl animate-pulse' />
                 <div
-                  className='absolute bottom-10 left-10 w-24 h-24 bg-blue-300 rounded-full blur-2xl animate-bounce'
+                  className='absolute bottom-10 left-10 w-24 h-24 bg-primary rounded-full blur-2xl animate-bounce'
                   style={{ animationDuration: "3s" }}
                 />
               </div>
 
               <div className='relative z-10 max-w-4xl mx-auto text-center'>
                 <div className='inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 mb-8 border border-white/20'>
-                  <Rocket className='w-5 h-5 text-blue-300 animate-bounce' />
-                  <span className='text-sm font-medium text-blue-100'>
+                  <Rocket className='w-5 h-5 text-white animate-bounce' />
+                  <span className='text-sm font-medium text-white'>
                     Ready to Launch?
                   </span>
                 </div>
 
                 <h3 className='text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight'>
                   Transform Your Business
-                  <span className='bg-gradient-to-r from-blue-300 to-purple-300 bg-clip-text text-transparent'>
+                  <span className='bg-gradient-to-r from-white to-primary-foreground bg-clip-text text-transparent'>
                     {" "}
                     Today
                   </span>
                 </h3>
-                <p className='text-xl text-blue-100 mb-10 leading-relaxed max-w-3xl mx-auto'>
+                <p className='text-xl text-white/90 mb-10 leading-relaxed max-w-3xl mx-auto'>
                   Join over 15,000 successful entrepreneurs who are already
                   using our AI-powered platform to build, scale, and dominate
-                  their markets across Tanzania.
+                  their markets across Africa.
                 </p>
 
                 <div className='flex flex-col sm:flex-row gap-6 justify-center'>
                   <Button
                     size='lg'
-                    className='bg-white text-slate-900 hover:bg-blue-50 font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-white/25 transition-all duration-300 hover:scale-105'>
+                    className='bg-white text-secondary hover:bg-slate-50 font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-white/25 transition-all duration-300 hover:scale-105'>
                     <Play className='w-5 h-5 mr-2' />
                     Start Free Trial
                     <Sparkles className='w-5 h-5 ml-2 animate-spin' />
                   </Button>
                   <Button
                     size='lg'
-                    className='bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm border-2 border-blue-300/50 text-blue-100 hover:bg-blue-500/30 hover:border-blue-300 font-bold px-10 py-4 text-lg transition-all duration-300 hover:scale-105 shadow-lg'>
+                    className='bg-white/10 backdrop-blur-sm border-2 border-white/50 text-white hover:bg-white/20 hover:border-white font-bold px-10 py-4 text-lg transition-all duration-300 hover:scale-105 shadow-lg'>
                     <Rocket className='w-5 h-5 mr-2' />
                     Schedule Demo
                   </Button>
