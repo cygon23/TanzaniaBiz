@@ -43,7 +43,7 @@ const Testimonials = () => {
       },
       businessType: "Technology",
       joinedDate: "2022",
-      color: "from-blue-500 to-cyan-500",
+      color: "from-primary to-primary/80",
     },
     {
       id: 2,
@@ -61,7 +61,7 @@ const Testimonials = () => {
       },
       businessType: "Logistics",
       joinedDate: "2023",
-      color: "from-green-500 to-emerald-500",
+      color: "from-secondary to-secondary/80",
     },
     {
       id: 3,
@@ -79,7 +79,7 @@ const Testimonials = () => {
       },
       businessType: "Export/Import",
       joinedDate: "2021",
-      color: "from-purple-500 to-pink-500",
+      color: "from-primary to-primary/90",
     },
     {
       id: 4,
@@ -97,7 +97,7 @@ const Testimonials = () => {
       },
       businessType: "AgriTech",
       joinedDate: "2022",
-      color: "from-orange-500 to-red-500",
+      color: "from-secondary to-secondary/90",
     },
     {
       id: 5,
@@ -115,7 +115,7 @@ const Testimonials = () => {
       },
       businessType: "Education Technology",
       joinedDate: "2023",
-      color: "from-indigo-500 to-purple-500",
+      color: "from-primary to-secondary",
     },
   ];
 
@@ -195,7 +195,7 @@ const Testimonials = () => {
   return (
     <section
       ref={sectionRef}
-      className='relative py-32 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 overflow-hidden'>
+      className='relative py-32 bg-white overflow-hidden'>
       {/* Dynamic Background */}
       <div className='absolute inset-0'>
         {/* Floating quotes */}
@@ -243,7 +243,7 @@ const Testimonials = () => {
         {/* Section Header */}
         <div className='text-center mb-20'>
           <div
-            className={`inline-flex items-center gap-3 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 backdrop-blur-sm rounded-full px-8 py-4 mb-8 border border-yellow-500/20 transition-all duration-1000 ${
+            className={`inline-flex items-center gap-3 bg-gradient-to-r from-primary/10 to-primary/5 backdrop-blur-sm rounded-full px-8 py-4 mb-8 border border-primary/20 transition-all duration-1000 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
@@ -252,32 +252,32 @@ const Testimonials = () => {
               className='w-5 h-5 text-yellow-400 animate-spin'
               style={{ animationDuration: "3s" }}
             />
-            <span className='text-yellow-200 font-medium'>
+            <span className='text-secondary font-medium'>
               Real Stories, Real Success, Real Impact
             </span>
-            <Sparkles className='w-5 h-5 text-orange-400 animate-pulse' />
+            <Sparkles className='w-5 h-5 text-primary animate-pulse' />
           </div>
 
           <h2
-            className={`text-4xl md:text-6xl font-bold text-white mb-6 transition-all duration-1000 delay-200 ${
+            className={`text-4xl md:text-6xl font-bold text-secondary mb-6 transition-all duration-1000 delay-200 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}>
             Entrepreneurs Are
             <br />
-            <span className='bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 bg-clip-text text-transparent animate-pulse'>
-              Loving TanzaniaBiz
+            <span className='bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent animate-pulse'>
+              Loving RAV
             </span>
           </h2>
 
           <p
-            className={`text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-400 ${
+            className={`text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-400 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}>
-            From Dar es Salaam to Zanzibar, from Moshi to Mbeya – Tanzanian
+            From Dar es Salaam to Zanzibar, from Moshi to Mbeya – African
             entrepreneurs are building incredible businesses with our platform.
           </p>
         </div>
@@ -295,7 +295,7 @@ const Testimonials = () => {
               onMouseLeave={() => setHoveredStat(null)}>
               <div className='relative mb-6'>
                 <div
-                  className={`w-20 h-20 mx-auto rounded-3xl bg-gradient-to-br from-slate-700/50 to-slate-800/50 border border-white/10 flex items-center justify-center group-hover:border-white/30 transition-all duration-300 backdrop-blur-sm ${
+                  className={`w-20 h-20 mx-auto rounded-3xl bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/20 flex items-center justify-center group-hover:border-primary/40 transition-all duration-300 backdrop-blur-sm ${
                     hoveredStat === index ? "scale-110 rotate-12" : ""
                   }`}>
                   <stat.icon
@@ -303,17 +303,17 @@ const Testimonials = () => {
                   />
                 </div>
                 {hoveredStat === index && (
-                  <div className='absolute inset-0 rounded-3xl bg-gradient-to-r from-yellow-400/20 to-orange-400/20 blur-xl animate-pulse'></div>
+                  <div className='absolute inset-0 rounded-3xl bg-gradient-to-r from-primary/20 to-secondary/20 blur-xl animate-pulse'></div>
                 )}
               </div>
 
-              <div className='text-3xl md:text-4xl font-bold text-white mb-2 group-hover:scale-105 transition-transform duration-300'>
+              <div className='text-3xl md:text-4xl font-bold text-secondary mb-2 group-hover:scale-105 transition-transform duration-300'>
                 {stat.number}
               </div>
-              <div className='text-lg font-semibold text-blue-200 mb-1 group-hover:text-white transition-colors duration-300'>
+              <div className='text-lg font-semibold text-slate-700 mb-1 group-hover:text-secondary transition-colors duration-300'>
                 {stat.label}
               </div>
-              <div className='text-sm text-blue-300 group-hover:text-blue-100 transition-colors duration-300'>
+              <div className='text-sm text-slate-600 group-hover:text-slate-700 transition-colors duration-300'>
                 {stat.description}
               </div>
             </div>
@@ -327,7 +327,7 @@ const Testimonials = () => {
           }`}>
           <div
             className={`relative bg-gradient-to-r ${currentTestimonial.color} p-[2px] rounded-3xl`}>
-            <div className='bg-slate-800/95 backdrop-blur-sm rounded-3xl p-8 md:p-12'>
+            <div className='bg-white backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-slate-100'>
               {/* Navigation Controls */}
               <div className='flex justify-between items-center mb-8'>
                 <div className='flex items-center gap-4'>
@@ -374,19 +374,19 @@ const Testimonials = () => {
                     </div>
                   </div>
 
-                  <h3 className='text-2xl font-bold text-white mb-1'>
+                  <h3 className='text-2xl font-bold text-secondary mb-1'>
                     {currentTestimonial.name}
                   </h3>
-                  <p className='text-lg text-blue-200 mb-2'>
+                  <p className='text-lg text-slate-700 mb-2'>
                     {currentTestimonial.title}
                   </p>
-                  <p className='text-blue-300 font-semibold mb-3'>
+                  <p className='text-slate-600 font-semibold mb-3'>
                     {currentTestimonial.company}
                   </p>
 
                   <div className='flex items-center justify-center md:justify-start gap-2 mb-4'>
-                    <MapPin className='w-4 h-4 text-blue-400' />
-                    <span className='text-blue-300 text-sm'>
+                    <MapPin className='w-4 h-4 text-primary' />
+                    <span className='text-slate-600 text-sm'>
                       {currentTestimonial.location}
                     </span>
                   </div>
@@ -401,9 +401,9 @@ const Testimonials = () => {
                     ))}
                   </div>
 
-                  <div className='inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full border border-white/20'>
-                    <Calendar className='w-4 h-4 text-blue-400' />
-                    <span className='text-blue-200 text-sm'>
+                  <div className='inline-flex items-center gap-2 bg-primary/5 px-4 py-2 rounded-full border border-primary/20'>
+                    <Calendar className='w-4 h-4 text-primary' />
+                    <span className='text-slate-700 text-sm'>
                       Customer since {currentTestimonial.joinedDate}
                     </span>
                   </div>
@@ -412,8 +412,8 @@ const Testimonials = () => {
                 {/* Testimonial Content */}
                 <div className='md:col-span-2'>
                   <div className='relative mb-8'>
-                    <Quote className='w-12 h-12 text-blue-400/30 absolute -top-2 -left-2' />
-                    <p className='text-xl md:text-2xl text-white leading-relaxed font-medium pl-8'>
+                    <Quote className='w-12 h-12 text-primary/20 absolute -top-2 -left-2' />
+                    <p className='text-xl md:text-2xl text-slate-800 leading-relaxed font-medium pl-8'>
                       {currentTestimonial.testimonial}
                     </p>
                   </div>
@@ -424,12 +424,12 @@ const Testimonials = () => {
                       ([key, value], index) => (
                         <div
                           key={key}
-                          className='text-center p-4 rounded-2xl bg-white/5 border border-white/10'>
+                          className='text-center p-4 rounded-2xl bg-slate-50 border border-slate-200'>
                           <div
                             className={`text-2xl font-bold bg-gradient-to-r ${currentTestimonial.color} bg-clip-text text-transparent mb-2`}>
                             {value}
                           </div>
-                          <div className='text-sm text-blue-300 capitalize font-medium'>
+                          <div className='text-sm text-slate-600 capitalize font-medium'>
                             {key === "revenue"
                               ? "Revenue"
                               : key === "growth"
@@ -461,7 +461,7 @@ const Testimonials = () => {
 
                   <div className='mt-6 flex items-center gap-3'>
                     <CheckCircle className='w-5 h-5 text-green-400' />
-                    <span className='text-blue-200 font-medium'>
+                    <span className='text-slate-700 font-medium'>
                       {currentTestimonial.businessType} • Verified Success Story
                     </span>
                   </div>
@@ -536,24 +536,24 @@ const Testimonials = () => {
           className={`text-center transition-all duration-1000 delay-1200 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}>
-          <div className='bg-gradient-to-r from-slate-800/80 to-slate-700/80 backdrop-blur-sm rounded-3xl p-8 border border-white/10 max-w-4xl mx-auto'>
-            <h3 className='text-2xl font-bold text-white mb-4'>
+          <div className='bg-gradient-to-r from-primary/5 to-secondary/5 backdrop-blur-sm rounded-3xl p-8 border border-primary/20 max-w-4xl mx-auto'>
+            <h3 className='text-2xl font-bold text-secondary mb-4'>
               Want to See More Success Stories?
             </h3>
-            <p className='text-blue-200 mb-8 max-w-2xl mx-auto'>
+            <p className='text-slate-700 mb-8 max-w-2xl mx-auto'>
               Watch video testimonials from our entrepreneur community and
-              discover how TanzaniaBiz is transforming businesses across
-              Tanzania.
+              discover how RAV is transforming businesses across
+              Africa.
             </p>
 
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-              <button className='group flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-red-500 via-pink-600 to-purple-600 hover:from-red-600 hover:via-pink-700 hover:to-purple-700 text-white font-bold rounded-2xl shadow-2xl hover:shadow-red-500/25 transition-all duration-300 hover:scale-105'>
+              <button className='group flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-primary via-primary/90 to-secondary hover:from-primary/90 hover:via-primary hover:to-secondary/90 text-white font-bold rounded-2xl shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:scale-105'>
                 <Play className='w-5 h-5 group-hover:animate-bounce' />
                 Watch Video Stories
                 <ArrowRight className='w-5 h-5 group-hover:translate-x-2 transition-transform duration-300' />
               </button>
 
-              <button className='flex items-center justify-center gap-3 px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 transition-all duration-300 rounded-2xl text-white font-medium backdrop-blur-sm'>
+              <button className='flex items-center justify-center gap-3 px-8 py-4 bg-white hover:bg-slate-50 border border-slate-200 hover:border-primary/40 transition-all duration-300 rounded-2xl text-slate-700 font-medium backdrop-blur-sm'>
                 <Heart className='w-5 h-5' />
                 Share Your Success Story
               </button>
