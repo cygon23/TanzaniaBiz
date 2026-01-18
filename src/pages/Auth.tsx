@@ -52,6 +52,8 @@ import {
   Rocket,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/contexts/AuthContext";
+import type { UserRole } from "@/types";
 
 const Auth = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -59,17 +61,26 @@ const Auth = () => {
   const [showResendModal, setShowResendModal] = useState(false);
   const [currentFeature, setCurrentFeature] = useState(0);
   const [currentStat, setCurrentStat] = useState(0);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
     confirmPassword: "",
     firstName: "",
     lastName: "",
-    role: "",
+    role: "" as UserRole | "",
     company: "",
   });
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { signIn, signUp, resetPassword, user } = useAuth();
+
+  // Redirect if already logged in
+  useEffect(() => {
+    if (user) {
+      navigate(`/dashboard/${user.role}`);
+    }
+  }, [user, navigate]);
 
   const features = [
     {
@@ -164,37 +175,43 @@ const Auth = () => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    const role = formData.email.includes("admin")
-      ? "admin"
-      : formData.email.includes("mentor")
-      ? "mentor"
-      : formData.email.includes("company")
-      ? "company"
-      : "entrepreneur";
+    setLoading(true);
 
-    // localStorage.setItem('userRole', role);
-    toast({
-      title: "Login Successful",
-      description: "Welcome back to TanzaniaBiz!",
-    });
-    navigate(`/dashboard/${role}`);
+    try {
+      await signIn(formData.email, formData.password);
+      toast({
+        title: "Login Successful",
+        description: "Welcome back to TanzaniaBiz!",
+      });
+      // Navigation will happen via useEffect when user is set
+    } catch (error: any) {
+      console.error('Login error:', error);
+      toast({
+        title: "Login Failed",
+        description: error.message || "Invalid email or password. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleDemoLogin = (
     role: "entrepreneur" | "admin" | "mentor" | "company"
   ) => {
-    // localStorage.setItem('userRole', role);
     toast({
-      title: "Demo Login Successful",
-      description: `Welcome to TanzaniaBiz as ${role}!`,
+      title: "Demo Login",
+      description: `Demo accounts are not available. Please register to continue.`,
+      variant: "destructive",
     });
-    navigate(`/dashboard/${role}`);
   };
 
-  const handleRegister = (e: React.FormEvent) => {
+  const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validation
     if (formData.password !== formData.confirmPassword) {
       toast({
         title: "Error",
@@ -203,12 +220,86 @@ const Auth = () => {
       });
       return;
     }
-    setShowResendModal(true);
+
+    if (!formData.role) {
+      toast({
+        title: "Error",
+        description: "Please select a role.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (formData.password.length < 6) {
+      toast({
+        title: "Error",
+        description: "Password must be at least 6 characters long.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const fullName = `${formData.firstName} ${formData.lastName}`.trim();
+      await signUp(
+        formData.email,
+        formData.password,
+        fullName,
+        formData.role as UserRole,
+        formData.company || undefined
+      );
+
+      toast({
+        title: "Registration Successful",
+        description: "Please check your email to verify your account.",
+      });
+
+      setShowResendModal(true);
+    } catch (error: any) {
+      console.error('Registration error:', error);
+      toast({
+        title: "Registration Failed",
+        description: error.message || "An error occurred during registration. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleForgotPassword = (e: React.FormEvent) => {
+  const handleForgotPassword = async (e: React.FormEvent) => {
     e.preventDefault();
-    setShowResendModal(true);
+
+    if (!formData.email) {
+      toast({
+        title: "Error",
+        description: "Please enter your email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      await resetPassword(formData.email);
+      toast({
+        title: "Reset Link Sent",
+        description: "Please check your email for password reset instructions.",
+      });
+      setShowResendModal(true);
+    } catch (error: any) {
+      console.error('Reset password error:', error);
+      toast({
+        title: "Error",
+        description: error.message || "Failed to send reset email. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleResendComplete = () => {
@@ -451,9 +542,10 @@ const Auth = () => {
 
                     <Button
                       type='submit'
-                      className='w-full h-12 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300'>
+                      disabled={loading}
+                      className='w-full h-12 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed'>
                       <Sparkles className='w-4 h-4 mr-2' />
-                      Sign In to Dashboard
+                      {loading ? "Signing In..." : "Sign In to Dashboard"}
                     </Button>
 
                     <Button
@@ -662,9 +754,10 @@ const Auth = () => {
 
                     <Button
                       type='submit'
-                      className='w-full h-12 bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300'>
+                      disabled={loading}
+                      className='w-full h-12 bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed'>
                       <Sparkles className='w-4 h-4 mr-2' />
-                      Create Your Account
+                      {loading ? "Creating Account..." : "Create Your Account"}
                     </Button>
                   </form>
                 </TabsContent>
@@ -701,8 +794,9 @@ const Auth = () => {
 
                       <Button
                         type='submit'
-                        className='w-full h-12 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300'>
-                        Send Reset Link
+                        disabled={loading}
+                        className='w-full h-12 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed'>
+                        {loading ? "Sending..." : "Send Reset Link"}
                       </Button>
 
                       <Button

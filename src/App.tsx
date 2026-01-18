@@ -41,6 +41,8 @@ import CompanyImpact from "./pages/dashboard/company/Impact";
 import React, { useState, useEffect } from "react";
 
 import MagicalSiteLoader from "./components/MagicalSiteLoader";
+import { AuthProvider } from "./contexts/AuthContext";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
 
@@ -56,92 +58,196 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
+      <AuthProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
             <Route path='/' element={<Index />} />
 
             {/* Dashboard Routes */}
             <Route
               path='/dashboard/entrepreneur'
-              element={<EntrepreneurDashboard />}
+              element={
+                <ProtectedRoute allowedRoles={['entrepreneur']}>
+                  <EntrepreneurDashboard />
+                </ProtectedRoute>
+              }
             />
             <Route
               path='/dashboard/entrepreneur/ai'
-              element={<AIAssistant />}
+              element={
+                <ProtectedRoute allowedRoles={['entrepreneur']}>
+                  <AIAssistant />
+                </ProtectedRoute>
+              }
             />
             <Route
               path='/dashboard/entrepreneur/business-plan'
-              element={<BusinessPlan />}
+              element={
+                <ProtectedRoute allowedRoles={['entrepreneur']}>
+                  <BusinessPlan />
+                </ProtectedRoute>
+              }
             />
             <Route
               path='/dashboard/entrepreneur/compliance'
-              element={<Compliance />}
+              element={
+                <ProtectedRoute allowedRoles={['entrepreneur']}>
+                  <Compliance />
+                </ProtectedRoute>
+              }
             />
             <Route
               path='/dashboard/entrepreneur/mentorship'
-              element={<Mentorship />}
+              element={
+                <ProtectedRoute allowedRoles={['entrepreneur']}>
+                  <Mentorship />
+                </ProtectedRoute>
+              }
             />
             <Route
               path='/dashboard/entrepreneur/funding'
-              element={<Funding />}
+              element={
+                <ProtectedRoute allowedRoles={['entrepreneur']}>
+                  <Funding />
+                </ProtectedRoute>
+              }
             />
             <Route
               path='/dashboard/entrepreneur/learning'
-              element={<Learning />}
+              element={
+                <ProtectedRoute allowedRoles={['entrepreneur']}>
+                  <Learning />
+                </ProtectedRoute>
+              }
             />
             <Route
               path='/dashboard/entrepreneur/analytics'
-              element={<Analytics />}
+              element={
+                <ProtectedRoute allowedRoles={['entrepreneur']}>
+                  <Analytics />
+                </ProtectedRoute>
+              }
             />
 
             {/* Admin Dashboard Routes */}
-            <Route path='/dashboard/admin' element={<AdminDashboard />} />
-            <Route path='/dashboard/admin/users' element={<AdminUsers />} />
+            <Route
+              path='/dashboard/admin'
+              element={
+                <ProtectedRoute allowedRoles={['admin']}>
+                  <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path='/dashboard/admin/users'
+              element={
+                <ProtectedRoute allowedRoles={['admin']}>
+                  <AdminUsers />
+                </ProtectedRoute>
+              }
+            />
             <Route
               path='/dashboard/admin/companies'
-              element={<AdminCompanies />}
+              element={
+                <ProtectedRoute allowedRoles={['admin']}>
+                  <AdminCompanies />
+                </ProtectedRoute>
+              }
             />
-            <Route path='/dashboard/admin/content' element={<AdminContent />} />
+            <Route
+              path='/dashboard/admin/content'
+              element={
+                <ProtectedRoute allowedRoles={['admin']}>
+                  <AdminContent />
+                </ProtectedRoute>
+              }
+            />
             <Route
               path='/dashboard/admin/analytics'
-              element={<AdminAnalytics />}
+              element={
+                <ProtectedRoute allowedRoles={['admin']}>
+                  <AdminAnalytics />
+                </ProtectedRoute>
+              }
             />
             <Route
               path='/dashboard/admin/compliance'
-              element={<AdminCompliance />}
+              element={
+                <ProtectedRoute allowedRoles={['admin']}>
+                  <AdminCompliance />
+                </ProtectedRoute>
+              }
             />
 
             {/* Mentor Dashboard Routes */}
-            <Route path='/dashboard/mentor' element={<MentorDashboard />} />
+            <Route
+              path='/dashboard/mentor'
+              element={
+                <ProtectedRoute allowedRoles={['mentor']}>
+                  <MentorDashboard />
+                </ProtectedRoute>
+              }
+            />
             <Route
               path='/dashboard/mentor/mentees'
-              element={<MentorMentees />}
+              element={
+                <ProtectedRoute allowedRoles={['mentor']}>
+                  <MentorMentees />
+                </ProtectedRoute>
+              }
             />
             <Route
               path='/dashboard/mentor/sessions'
-              element={<MentorSessions />}
+              element={
+                <ProtectedRoute allowedRoles={['mentor']}>
+                  <MentorSessions />
+                </ProtectedRoute>
+              }
             />
             <Route
               path='/dashboard/mentor/progress'
-              element={<MentorProgress />}
+              element={
+                <ProtectedRoute allowedRoles={['mentor']}>
+                  <MentorProgress />
+                </ProtectedRoute>
+              }
             />
 
             {/* Company Dashboard Routes */}
-            <Route path='/dashboard/company' element={<CompanyDashboard />} />
+            <Route
+              path='/dashboard/company'
+              element={
+                <ProtectedRoute allowedRoles={['company']}>
+                  <CompanyDashboard />
+                </ProtectedRoute>
+              }
+            />
             <Route
               path='/dashboard/company/partnerships'
-              element={<CompanyPartnerships />}
+              element={
+                <ProtectedRoute allowedRoles={['company']}>
+                  <CompanyPartnerships />
+                </ProtectedRoute>
+              }
             />
             <Route
               path='/dashboard/company/funding'
-              element={<CompanyFunding />}
+              element={
+                <ProtectedRoute allowedRoles={['company']}>
+                  <CompanyFunding />
+                </ProtectedRoute>
+              }
             />
             <Route
               path='/dashboard/company/impact'
-              element={<CompanyImpact />}
+              element={
+                <ProtectedRoute allowedRoles={['company']}>
+                  <CompanyImpact />
+                </ProtectedRoute>
+              }
             />
 
             {/* Public Pages */}
@@ -151,13 +257,21 @@ const App = () => {
             <Route path='/contact' element={<Contact />} />
 
             {/* Generic settings route for all roles */}
-            <Route path='/dashboard/:role/settings' element={<Settings />} />
+            <Route
+              path='/dashboard/:role/settings'
+              element={
+                <ProtectedRoute>
+                  <Settings />
+                </ProtectedRoute>
+              }
+            />
 
             {/* Catch-all */}
             <Route path='*' element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
+      </AuthProvider>
     </QueryClientProvider>
   );
 };
