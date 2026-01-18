@@ -101,9 +101,7 @@ export const AppSidebar = ({ userRole }: SidebarProps) => {
     <Sidebar collapsible="icon" className={cn("border-r transition-all duration-300", isCollapsed ? "w-16" : "w-64")}>
       <SidebarHeader className="p-4">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-gradient-hero rounded-lg flex items-center justify-center flex-shrink-0">
-            <Building2 className="w-5 h-5 text-white" />
-          </div>
+          <img src="/logo.png" alt="TanzaniaBiz" className="h-8 w-auto flex-shrink-0" />
           {!isCollapsed && (
             <span className="font-bold text-lg text-sidebar-foreground truncate">TanzaniaBiz</span>
           )}

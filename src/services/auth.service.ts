@@ -13,7 +13,7 @@ export class AuthService {
     companyName?: string
   ) {
     try {
-      // 1. Create auth user
+      // Create auth user - profile will be auto-created by trigger
       const { data: authData, error: authError } = await supabase.auth.signUp({
         email,
         password,
@@ -29,22 +29,20 @@ export class AuthService {
       if (authError) throw authError;
       if (!authData.user) throw new Error('User creation failed');
 
-      // 2. Create profile
-      const { error: profileError } = await supabase.from('profiles').insert({
-        id: authData.user.id,
-        email,
-        full_name: fullName,
-        role,
-        company_name: companyName,
-      });
+      // Wait a bit for trigger to create profile
+      await new Promise(resolve => setTimeout(resolve, 500));
 
-      if (profileError) throw profileError;
+      // Update company name if provided
+      if (companyName) {
+        await supabase
+          .from('profiles')
+          .update({ company_name: companyName })
+          .eq('id', authData.user.id);
+      }
 
-      // 3. Create role-specific profile
-      if (role === 'entrepreneur') {
-        // We'll create a default business later when they set up their profile
-      } else if (role === 'mentor') {
-        const { error: mentorError } = await supabase.from('mentor_profiles').insert({
+      // Create role-specific profile
+      if (role === 'mentor') {
+        await supabase.from('mentor_profiles').insert({
           user_id: authData.user.id,
           expertise: [],
           years_experience: 0,
@@ -54,17 +52,15 @@ export class AuthService {
           total_mentees: 0,
           active_mentees: 0,
         });
-        if (mentorError) throw mentorError;
       } else if (role === 'company') {
-        const { error: companyError } = await supabase.from('company_profiles').insert({
+        await supabase.from('company_profiles').insert({
           user_id: authData.user.id,
-          industry: '',
+          industry: 'General',
           total_funding_deployed: 0,
           entrepreneurs_supported: 0,
           success_rate: 0,
           active_programs: 0,
         });
-        if (companyError) throw companyError;
       }
 
       return { user: authData.user, session: authData.session };
