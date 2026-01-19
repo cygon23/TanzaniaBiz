@@ -4,24 +4,13 @@ import {
   Shield,
   DollarSign,
   Users,
-  BarChart3,
-  FileText,
-  Zap,
-  Globe,
-  Target,
-  Rocket,
-  CheckCircle,
-  ArrowRight,
   Sparkles,
-  MousePointer2,
-  TrendingUp,
-  Award,
-  Clock,
+  ArrowRight,
+  Zap,
 } from "lucide-react";
 
 const Features = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [hoveredCard, setHoveredCard] = useState(null);
   const [activeFeature, setActiveFeature] = useState(0);
   const sectionRef = useRef(null);
 
@@ -29,130 +18,34 @@ const Features = () => {
     {
       icon: Brain,
       title: "AI Business Oracle",
-      subtitle: "Smart Decision Making",
       description:
-        "Our advanced AI analyzes market trends, competitor data, and local regulations to provide personalized business insights tailored for the Tanzanian market.",
-      benefits: [
-        "Market Analysis",
-        "Competitor Intelligence",
-        "Risk Assessment",
-        "Growth Predictions",
-      ],
+        "Advanced AI analyzes market trends and local regulations to provide personalized business insights.",
       color: "from-primary to-primary/80",
-      demo: "Analyze 50,000+ Tanzanian businesses in seconds",
+      gradient: "bg-gradient-to-br from-primary/10 to-primary/5",
     },
     {
       icon: Shield,
       title: "Instant Compliance",
-      subtitle: "Legal Made Simple",
       description:
-        "Automated compliance with TRA, BRELA, and all Tanzanian business regulations. Stay compliant without the paperwork hassle.",
-      benefits: [
-        "TRA Registration",
-        "BRELA Compliance",
-        "License Tracking",
-        "Tax Automation",
-      ],
+        "Automated compliance with TRA, BRELA, and all Tanzanian regulations. Stay compliant effortlessly.",
       color: "from-secondary to-secondary/80",
-      demo: "Complete business registration in 24 hours",
+      gradient: "bg-gradient-to-br from-secondary/10 to-secondary/5",
     },
     {
       icon: DollarSign,
       title: "Smart Funding",
-      subtitle: "Capital Access Network",
       description:
-        "Connect with investors, get loan pre-approvals, and access government grants specifically available for Tanzanian entrepreneurs.",
-      benefits: [
-        "Investor Matching",
-        "Loan Pre-approval",
-        "Grant Applications",
-        "Pitch Deck Builder",
-      ],
+        "Connect with investors and access government grants specifically for Tanzanian entrepreneurs.",
       color: "from-primary to-primary/80",
-      demo: "Access to 500M+ TSh funding opportunities",
+      gradient: "bg-gradient-to-br from-primary/10 to-primary/5",
     },
     {
       icon: Users,
       title: "Elite Network",
-      subtitle: "Community & Mentorship",
       description:
-        "Join Tanzania's most exclusive entrepreneur network with mentorship from successful business leaders and peer-to-peer learning.",
-      benefits: [
-        "Expert Mentorship",
-        "Peer Networks",
-        "Industry Events",
-        "Success Tracking",
-      ],
+        "Join Tanzania's most exclusive entrepreneur network with expert mentorship and peer learning.",
       color: "from-secondary to-secondary/80",
-      demo: "Connect with 1,000+ successful entrepreneurs",
-    },
-  ];
-
-  const platformCapabilities = [
-    {
-      icon: BarChart3,
-      title: "Real-time Analytics",
-      desc: "Live business metrics and insights",
-    },
-    {
-      icon: FileText,
-      title: "Document Automation",
-      desc: "Generate legal documents instantly",
-    },
-    {
-      icon: Globe,
-      title: "Market Intelligence",
-      desc: "Tanzania-specific market data",
-    },
-    {
-      icon: Target,
-      title: "Goal Tracking",
-      desc: "Automated milestone monitoring",
-    },
-    {
-      icon: Zap,
-      title: "Quick Setup",
-      desc: "Launch your business in days, not months",
-    },
-    {
-      icon: Rocket,
-      title: "Scale Fast",
-      desc: "Growth acceleration tools and strategies",
-    },
-  ];
-
-  const processSteps = [
-    {
-      step: "01",
-      title: "Register & Assess",
-      description:
-        "Our AI analyzes your business idea and market potential in minutes",
-      icon: Target,
-      color: "from-primary to-primary/80",
-    },
-    {
-      step: "02",
-      title: "Plan & Validate",
-      description:
-        "Get a customized business plan with market validation and financial projections",
-      icon: FileText,
-      color: "from-primary to-primary/80",
-    },
-    {
-      step: "03",
-      title: "Launch & Comply",
-      description:
-        "Automated business registration and compliance with all Tanzanian requirements",
-      icon: Shield,
-      color: "from-secondary to-secondary/80",
-    },
-    {
-      step: "04",
-      title: "Scale & Succeed",
-      description:
-        "Access funding, mentorship, and growth tools to dominate your market",
-      icon: TrendingUp,
-      color: "from-secondary to-secondary/80",
+      gradient: "bg-gradient-to-br from-secondary/10 to-secondary/5",
     },
   ];
 
@@ -177,7 +70,7 @@ const Features = () => {
     if (isVisible) {
       const interval = setInterval(() => {
         setActiveFeature((prev) => (prev + 1) % mainFeatures.length);
-      }, 5000);
+      }, 4000);
       return () => clearInterval(interval);
     }
   }, [isVisible, mainFeatures.length]);
@@ -186,63 +79,30 @@ const Features = () => {
     <section
       ref={sectionRef}
       className='relative py-32 bg-white overflow-hidden'>
-      {/* Dynamic Background */}
+      {/* Animated Background */}
       <div className='absolute inset-0'>
-        {/* Animated grid */}
-        <div className='absolute inset-0 opacity-5'>
-          <div
-            className='w-full h-full'
-            style={{
-              backgroundImage: `linear-gradient(rgba(221, 118, 42, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(221, 118, 42, 0.1) 1px, transparent 1px)`,
-              backgroundSize: "50px 50px",
-              animation: "drift 20s ease-in-out infinite alternate",
-            }}
-          />
-        </div>
-
-        {/* Floating tech elements */}
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className='absolute opacity-20'
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `techFloat ${
-                8 + Math.random() * 6
-              }s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 5}s`,
-            }}>
-            <div className='w-2 h-2 bg-gradient-to-r from-primary to-primary/80 rounded-full'></div>
-          </div>
-        ))}
-
-        {/* Large gradient orbs */}
+        <div className='absolute top-20 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse'></div>
         <div
-          className='absolute -top-40 -right-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-pulse'
-          style={{ animationDuration: "4s" }}></div>
-        <div
-          className='absolute -bottom-40 -left-40 w-80 h-80 bg-secondary/5 rounded-full blur-3xl animate-pulse'
-          style={{ animationDuration: "6s", animationDelay: "2s" }}></div>
+          className='absolute bottom-20 left-20 w-96 h-96 bg-secondary/5 rounded-full blur-3xl animate-pulse'
+          style={{ animationDelay: "2s" }}></div>
       </div>
 
       <div className='container mx-auto px-4 lg:px-8 relative z-10'>
-        {/* Section Header */}
-        <div className='text-center mb-16'>
+        {/* Header */}
+        <div className='text-center mb-20'>
           <h2
-            className={`text-3xl md:text-5xl font-bold text-secondary mb-4 transition-all duration-1000 delay-200 ${
+            className={`text-4xl md:text-6xl font-bold text-secondary mb-6 transition-all duration-1000 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}>
-            Complete Business
+            Complete Business{" "}
             <span className='bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent'>
-              {" "}Solutions
+              Solutions
             </span>
           </h2>
-
           <p
-            className={`text-lg text-slate-600 max-w-2xl mx-auto transition-all duration-1000 delay-400 ${
+            className={`text-xl text-slate-600 max-w-2xl mx-auto transition-all duration-1000 delay-200 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
@@ -251,290 +111,96 @@ const Features = () => {
           </p>
         </div>
 
-        {/* Main Features Grid */}
-        <div className='grid lg:grid-cols-2 gap-8 mb-20 max-w-7xl mx-auto'>
-          {mainFeatures.map((feature, index) => (
+        {/* Circular Feature Showcase */}
+        <div className='max-w-6xl mx-auto mb-20'>
+          <div className='relative'>
+            {/* Center Circle */}
             <div
-              key={index}
-              className={`group relative transition-all duration-1000 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-20"
-              }`}
-              style={{ transitionDelay: `${600 + index * 200}ms` }}
-              onMouseEnter={() => setHoveredCard(index)}
-              onMouseLeave={() => setHoveredCard(null)}>
-              <div
-                className={`relative p-[2px] rounded-3xl bg-gradient-to-r ${
-                  feature.color
-                } transition-all duration-500 ${
-                  hoveredCard === index || activeFeature === index
-                    ? "scale-105 shadow-2xl shadow-primary/20"
-                    : "scale-100"
-                }`}>
-                <div className='bg-white backdrop-blur-sm rounded-3xl p-8 h-full shadow-lg'>
-                  {/* Feature Header */}
-                  <div className='flex items-start gap-6 mb-6'>
-                    <div
-                      className={`relative w-16 h-16 rounded-2xl bg-gradient-to-r ${
-                        feature.color
-                      } flex items-center justify-center transition-all duration-500 ${
-                        hoveredCard === index
-                          ? "rotate-12 scale-110"
-                          : "rotate-0 scale-100"
-                      }`}>
-                      <feature.icon className='w-8 h-8 text-white' />
-                      {(hoveredCard === index || activeFeature === index) && (
-                        <div className='absolute inset-0 rounded-2xl bg-white/20 animate-ping'></div>
-                      )}
-                    </div>
-
-                    <div className='flex-1'>
-                      <div className='text-sm text-slate-600 font-medium mb-1'>
-                        {feature.subtitle}
-                      </div>
-                      <h3 className='text-2xl font-bold text-secondary mb-2'>
-                        {feature.title}
-                      </h3>
-                      <div
-                        className={`text-sm font-semibold bg-gradient-to-r ${feature.color} bg-clip-text text-transparent`}>
-                        {feature.demo}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Feature Description */}
-                  <p className='text-slate-700 leading-relaxed mb-6'>
-                    {feature.description}
-                  </p>
-
-                  {/* Benefits Grid */}
-                  <div className='grid grid-cols-2 gap-3 mb-6'>
-                    {feature.benefits.map((benefit, benefitIndex) => (
-                      <div
-                        key={benefitIndex}
-                        className={`flex items-center gap-2 p-3 rounded-xl bg-slate-50 border border-slate-200 transition-all duration-300 ${
-                          hoveredCard === index
-                            ? "bg-slate-100 border-primary/30"
-                            : ""
-                        }`}>
-                        <CheckCircle
-                          className={`w-4 h-4 text-green-500 transition-all duration-300 ${
-                            hoveredCard === index ? "animate-bounce" : ""
-                          }`}
-                        />
-                        <span className='text-sm text-slate-700 font-medium'>
-                          {benefit}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Interactive CTA */}
-                  <div
-                    className={`flex items-center justify-between p-4 rounded-xl bg-gradient-to-r ${
-                      feature.color
-                    } bg-opacity-10 border border-slate-200 cursor-pointer transition-all duration-300 ${
-                      hoveredCard === index
-                        ? "bg-opacity-20 border-primary/30"
-                        : ""
-                    }`}>
-                    <span className='text-secondary font-semibold'>
-                      Explore Feature
-                    </span>
-                    <ArrowRight
-                      className={`w-5 h-5 text-primary transition-all duration-300 ${
-                        hoveredCard === index ? "translate-x-2" : ""
-                      }`}
-                    />
-                  </div>
+              className={`w-64 h-64 md:w-80 md:h-80 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 backdrop-blur-sm border-4 border-white shadow-2xl flex items-center justify-center transition-all duration-1000 ${
+                isVisible ? "opacity-100 scale-100" : "opacity-0 scale-50"
+              }`}>
+              <div className='text-center'>
+                <div className='w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-r from-primary to-primary/80 flex items-center justify-center'>
+                  {React.createElement(mainFeatures[activeFeature].icon, {
+                    className: "w-12 h-12 text-white",
+                  })}
                 </div>
+                <h3 className='text-2xl font-bold text-secondary'>
+                  {mainFeatures[activeFeature].title}
+                </h3>
               </div>
-
-              {/* Hover glow effect */}
-              {hoveredCard === index && (
-                <div
-                  className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${feature.color} opacity-20 blur-xl transition-opacity duration-500`}></div>
-              )}
             </div>
-          ))}
-        </div>
 
-        {/* How It Works Process */}
-        <div
-          className={`mb-20 transition-all duration-1000 delay-1200 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-          }`}>
-          <div className='text-center mb-16'>
-            <h3 className='text-3xl md:text-4xl font-bold text-secondary mb-4'>
-              From Idea to{" "}
-              <span className='bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent'>
-                Empire
-              </span>{" "}
-              in 4 Steps
-            </h3>
-            <p className='text-lg text-slate-700 max-w-2xl mx-auto'>
-              Our proven process has helped 15,000+ entrepreneurs build
-              successful businesses
-            </p>
-          </div>
+            {/* Orbiting Feature Cards */}
+            {mainFeatures.map((feature, index) => {
+              const angle = (index * 360) / mainFeatures.length;
+              const radius = 280;
+              const x = Math.cos((angle * Math.PI) / 180) * radius;
+              const y = Math.sin((angle * Math.PI) / 180) * radius;
 
-          <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto'>
-            {processSteps.map((step, index) => (
-              <div key={index} className='group relative'>
-                {/* Connection line (hidden on mobile) */}
-                {index < processSteps.length - 1 && (
-                  <div className='hidden lg:block absolute top-1/2 left-full w-8 h-0.5 bg-gradient-to-r from-primary/20 to-transparent transform -translate-y-1/2 z-10'></div>
-                )}
-
-                <div className='text-center'>
-                  <div className='relative mb-6'>
+              return (
+                <div
+                  key={index}
+                  className={`absolute top-1/2 left-1/2 cursor-pointer transition-all duration-1000 ${
+                    isVisible ? "opacity-100" : "opacity-0"
+                  }`}
+                  style={{
+                    transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
+                    transitionDelay: `${index * 150}ms`,
+                  }}
+                  onClick={() => setActiveFeature(index)}>
+                  <div
+                    className={`group p-6 rounded-2xl ${
+                      feature.gradient
+                    } border-2 backdrop-blur-sm transition-all duration-500 hover:scale-110 hover:shadow-2xl ${
+                      activeFeature === index
+                        ? "border-primary scale-110 shadow-2xl"
+                        : "border-white/50"
+                    }`}>
                     <div
-                      className={`w-20 h-20 mx-auto rounded-2xl bg-gradient-to-r ${step.color} flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg`}>
-                      <step.icon className='w-10 h-10 text-white' />
+                      className={`w-16 h-16 rounded-xl bg-gradient-to-r ${feature.color} flex items-center justify-center mb-4 group-hover:rotate-12 transition-transform duration-300`}>
+                      <feature.icon className='w-8 h-8 text-white' />
                     </div>
-                    <div className='absolute -top-3 -right-3 w-8 h-8 bg-secondary rounded-full flex items-center justify-center shadow-md'>
-                      <span className='text-white font-bold text-sm'>
-                        {step.step}
-                      </span>
-                    </div>
+                    <h4 className='text-lg font-bold text-secondary mb-2 whitespace-nowrap'>
+                      {feature.title}
+                    </h4>
+                    <p className='text-sm text-slate-600 w-48'>
+                      {feature.description}
+                    </p>
                   </div>
-
-                  <h4 className='text-xl font-bold text-secondary mb-4 group-hover:text-primary transition-colors duration-300'>
-                    {step.title}
-                  </h4>
-                  <p className='text-slate-700 leading-relaxed group-hover:text-slate-600 transition-colors duration-300'>
-                    {step.description}
-                  </p>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Platform Capabilities */}
-        <div
-          className={`transition-all duration-1000 delay-1400 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-          }`}>
-          <div className='text-center mb-12'>
-            <h3 className='text-3xl font-bold text-secondary mb-4'>
-              Plus Many More Powerful Tools
-            </h3>
-            <p className='text-lg text-slate-700'>
-              A comprehensive suite designed to accelerate your business growth
-            </p>
+              );
+            })}
           </div>
 
-          <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto'>
-            {platformCapabilities.map((capability, index) => (
-              <div
+          {/* Progress Dots */}
+          <div className='flex justify-center gap-3 mt-12'>
+            {mainFeatures.map((_, index) => (
+              <button
                 key={index}
-                className='group text-center transition-all duration-500 hover:scale-110'>
-                <div className='relative mb-4'>
-                  <div className='w-16 h-16 mx-auto rounded-2xl bg-white border border-slate-200 flex items-center justify-center group-hover:border-primary/50 transition-all duration-300 backdrop-blur-sm shadow-md'>
-                    <capability.icon className='w-8 h-8 text-primary group-hover:animate-pulse' />
-                  </div>
-                  <div className='absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/10 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg'></div>
-                </div>
-
-                <h4 className='text-secondary font-semibold mb-2 group-hover:text-primary transition-colors duration-300'>
-                  {capability.title}
-                </h4>
-                <p className='text-sm text-slate-600 group-hover:text-slate-700 transition-colors duration-300'>
-                  {capability.desc}
-                </p>
-              </div>
+                onClick={() => setActiveFeature(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  activeFeature === index
+                    ? "w-12 bg-primary"
+                    : "w-2 bg-slate-300"
+                }`}
+              />
             ))}
           </div>
         </div>
 
-        {/* Success Guarantee */}
+        {/* CTA */}
         <div
-          className={`mt-20 transition-all duration-1000 delay-1600 ${
+          className={`text-center transition-all duration-1000 delay-800 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}>
-          <div className='bg-gradient-to-r from-primary/10 via-primary/5 to-secondary/10 backdrop-blur-sm rounded-3xl p-8 border border-primary/20 max-w-4xl mx-auto text-center shadow-xl'>
-            <div className='flex justify-center mb-6'>
-              <div className='w-20 h-20 bg-gradient-to-r from-primary to-primary/80 rounded-3xl flex items-center justify-center shadow-lg'>
-                <Award className='w-10 h-10 text-white' />
-              </div>
-            </div>
-
-            <h3 className='text-2xl md:text-3xl font-bold text-secondary mb-4'>
-              95% Success Rate Guarantee
-            </h3>
-            <p className='text-slate-700 mb-8 max-w-2xl mx-auto text-lg leading-relaxed'>
-              Join the 95% of entrepreneurs who achieve their business goals
-              with RAV. Our AI-powered platform and expert guidance
-              ensure your success.
-            </p>
-
-            <div className='grid md:grid-cols-3 gap-6 mb-8'>
-              <div className='flex items-center justify-center gap-3'>
-                <Clock className='w-6 h-6 text-primary' />
-                <div className='text-left'>
-                  <div className='text-secondary font-semibold'>24 Hours</div>
-                  <div className='text-sm text-slate-600'>To Get Started</div>
-                </div>
-              </div>
-              <div className='flex items-center justify-center gap-3'>
-                <Shield className='w-6 h-6 text-green-500' />
-                <div className='text-left'>
-                  <div className='text-secondary font-semibold'>100% Compliant</div>
-                  <div className='text-sm text-slate-600'>
-                    With TZ Regulations
-                  </div>
-                </div>
-              </div>
-              <div className='flex items-center justify-center gap-3'>
-                <TrendingUp className='w-6 h-6 text-primary' />
-                <div className='text-left'>
-                  <div className='text-secondary font-semibold'>500M+ TSh</div>
-                  <div className='text-sm text-slate-600'>Revenue Generated</div>
-                </div>
-              </div>
-            </div>
-
-            <button className='group inline-flex items-center gap-3 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white font-bold px-8 py-4 rounded-2xl shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:scale-105'>
-              <MousePointer2 className='w-5 h-5 group-hover:animate-bounce' />
-              <span className='text-lg'>Try Interactive Demo</span>
-              <div className='w-2 h-2 bg-white rounded-full animate-ping'></div>
-            </button>
-          </div>
+          <button className='group inline-flex items-center gap-3 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white font-bold px-10 py-5 rounded-2xl shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:scale-105'>
+            <Zap className='w-6 h-6 group-hover:animate-bounce' />
+            <span className='text-lg'>Explore All Features</span>
+            <ArrowRight className='w-6 h-6 group-hover:translate-x-2 transition-transform duration-300' />
+          </button>
         </div>
       </div>
-
-      <style>{`
-        @keyframes techFloat {
-          0%,
-          100% {
-            transform: translateY(0px) translateX(0px) rotate(0deg);
-            opacity: 0.2;
-          }
-          25% {
-            transform: translateY(-20px) translateX(10px) rotate(90deg);
-            opacity: 0.4;
-          }
-          50% {
-            transform: translateY(-40px) translateX(-5px) rotate(180deg);
-            opacity: 0.6;
-          }
-          75% {
-            transform: translateY(-20px) translateX(-15px) rotate(270deg);
-            opacity: 0.4;
-          }
-        }
-
-        @keyframes drift {
-          0% {
-            transform: translateX(0px) translateY(0px);
-          }
-          100% {
-            transform: translateX(20px) translateY(-20px);
-          }
-        }
-      `}</style>
     </section>
   );
 };

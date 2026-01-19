@@ -1,63 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import {
-  MapPin,
-  Users,
-  TrendingUp,
-  Award,
-  Calendar,
-  Building2,
   Heart,
-  Lightbulb,
-  ArrowRight,
   Sparkles,
+  ArrowRight,
+  Zap,
+  Target,
+  Globe,
 } from "lucide-react";
 
 const Story = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [activeTimeline, setActiveTimeline] = useState(0);
   const sectionRef = useRef(null);
-
-  const timelineData = [
-    {
-      year: "2024",
-      title: "The Vision Born",
-      description:
-        "A team of economists, technologists, and entrepreneurs identified the gap in Tanzania's business ecosystem.",
-      icon: Lightbulb,
-      color: "from-primary to-primary/80",
-    },
-    {
-      year: "2025 late",
-      title: "Platform Launch",
-      description:
-        "Expect to  Launched with AI-powered tools and local compliance automation for Tanzanian businesses.",
-      icon: Building2,
-      color: "from-secondary to-secondary/80",
-    },
-    {
-      year: "2026/27",
-      title: "Rapid Growth",
-      description:
-        " Expect to Reached 10,000+ entrepreneurs with 90% success rate in business goal achievement.",
-      icon: TrendingUp,
-      color: "from-primary to-primary/90",
-    },
-    {
-      year: "2028/29",
-      title: "Market Leader",
-      description:
-        " Expect to  reach 15,000+ businesses served with 95% success rate, becoming Tanzania's #1 business platform.",
-      icon: Award,
-      color: "from-secondary to-secondary/90",
-    },
-  ];
-
-  const impactStats = [
-    { number: "15,000+", label: "Entrepreneurs Served", icon: Users },
-    { number: "95%", label: "Success Rate", icon: Award },
-    { number: "26", label: "Regions Covered", icon: MapPin },
-    { number: "5M+", label: "TSh Revenue Generated", icon: TrendingUp },
-  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -76,81 +29,29 @@ const Story = () => {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    if (isVisible) {
-      const interval = setInterval(() => {
-        setActiveTimeline((prev) => (prev + 1) % timelineData.length);
-      }, 4000);
-      return () => clearInterval(interval);
-    }
-  }, [isVisible]);
-
   return (
     <section
       ref={sectionRef}
-      className='relative py-32 bg-white overflow-hidden'>
-      {/* Animated Background Elements */}
+      className='relative py-32 bg-gradient-to-br from-white via-slate-50 to-white overflow-hidden'>
+      {/* Animated Background */}
       <div className='absolute inset-0'>
-        {/* Floating geometric shapes */}
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={i}
-            className='absolute opacity-10'
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `float ${6 + Math.random() * 4}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 5}s`,
-            }}>
-            <div
-              className='w-8 h-8 bg-gradient-to-r from-primary/20 to-secondary/20 rotate-45'
-              style={{
-                borderRadius: `${Math.random() * 50}%`,
-              }}
-            />
-          </div>
-        ))}
-
-        {/* Tanzania map silhouette effect */}
-        <div className='absolute top-20 right-10 w-96 h-96 opacity-5'>
-          <svg viewBox='0 0 200 200' className='w-full h-full'>
-            <path
-              d='M50,50 Q100,30 150,50 Q170,100 150,150 Q100,170 50,150 Q30,100 50,50'
-              fill='url(#tanzaniaGradient)'
-              className='animate-pulse'
-            />
-            <defs>
-              <linearGradient
-                id='tanzaniaGradient'
-                x1='0%'
-                y1='0%'
-                x2='100%'
-                y2='100%'>
-                <stop offset='0%' stopColor='hsl(var(--primary))' />
-                <stop offset='100%' stopColor='hsl(var(--secondary))' />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
+        <div className='absolute top-20 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse'></div>
+        <div
+          className='absolute bottom-20 left-20 w-96 h-96 bg-secondary/5 rounded-full blur-3xl animate-pulse'
+          style={{ animationDelay: "2s" }}></div>
       </div>
 
       <div className='container mx-auto px-4 lg:px-8 relative z-10'>
-        {/* Section Header */}
-        <div className='text-center mb-20'>
+        {/* Header */}
+        <div className='text-center mb-16'>
           <div
             className={`inline-flex items-center gap-3 bg-gradient-to-r from-primary/10 to-primary/5 backdrop-blur-sm rounded-full px-8 py-4 mb-8 border border-primary/20 transition-all duration-1000 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}>
-            <Heart className='w-5 h-5 text-red-400 animate-pulse' />
-            <span className='text-secondary font-medium'>
-              Born from Passion, Built for Impact
-            </span>
-            <Sparkles
-              className='w-5 h-5 text-yellow-400 animate-spin'
-              style={{ animationDuration: "3s" }}
-            />
+            <Heart className='w-5 h-5 text-primary animate-pulse' />
+            <span className='text-secondary font-semibold'>The RAV Story</span>
           </div>
 
           <h2
@@ -159,187 +60,92 @@ const Story = () => {
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}>
-            The{" "}
-            <span className='bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent animate-pulse'>
-              RAV
-            </span>{" "}
-            Story
+            Built for{" "}
+            <span className='bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent'>
+              Impact
+            </span>
           </h2>
+        </div>
 
-          <p
-            className={`text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-400 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
+        {/* Main Content */}
+        <div className='max-w-5xl mx-auto'>
+          {/* Mission Statement Card */}
+          <div
+            className={`bg-white/80 backdrop-blur-sm rounded-3xl p-12 border border-slate-200 shadow-xl mb-12 transition-all duration-1000 delay-400 ${
+              isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
             }`}>
-            From a simple observation to Africa's most powerful business
-            transformation platform
-          </p>
-        </div>
-
-        {/* Mission Statement */}
-        <div
-          className={`bg-gradient-to-r from-primary/10 via-primary/5 to-secondary/10 backdrop-blur-sm rounded-3xl p-8 md:p-12 mb-20 border border-primary/20 transition-all duration-1000 delay-600 ${
-            isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
-          }`}>
-          <div className='text-center'>
-            <h3 className='text-3xl md:text-4xl font-bold text-secondary mb-6'>
-              <span className='bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent'>
-                "Africa has incredible entrepreneurial talent, but many
-                promising businesses fail due to lack of access to the right
-                tools, knowledge, and support systems."
-              </span>
-            </h3>
-            <p className='text-lg text-slate-700 max-w-2xl mx-auto'>
-              This powerful observation became the foundation of our mission to
-              level the playing field for African entrepreneurs.
-            </p>
+            <div className='text-center'>
+              <Sparkles className='w-12 h-12 text-primary mx-auto mb-6 animate-spin' style={{ animationDuration: '3s' }} />
+              <p className='text-2xl md:text-3xl font-bold text-secondary mb-6 leading-relaxed'>
+                Empowering African entrepreneurs with AI-powered tools, expert
+                guidance, and a thriving community
+              </p>
+              <p className='text-lg text-slate-600 max-w-3xl mx-auto'>
+                We believe every entrepreneur deserves access to world-class
+                business tools and support. That's why we built RAV.
+              </p>
+            </div>
           </div>
-        </div>
 
-        {/* Interactive Timeline */}
-        <div className='mb-20'>
-          <h3
-            className={`text-3xl font-bold text-secondary text-center mb-12 transition-all duration-1000 delay-800 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
+          {/* Value Props Grid */}
+          <div
+            className={`grid md:grid-cols-3 gap-8 transition-all duration-1000 delay-600 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}>
-            Our Journey to Excellence
-          </h3>
-
-          <div className='relative max-w-4xl mx-auto'>
-            {/* Timeline line */}
-            <div className='absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary via-secondary to-primary opacity-30'></div>
-
-            {timelineData.map((item, index) => (
-              <div
-                key={index}
-                className={`relative flex items-center mb-16 transition-all duration-1000 ${
-                  isVisible
-                    ? "opacity-100 translate-x-0"
-                    : index % 2 === 0
-                    ? "opacity-0 -translate-x-10"
-                    : "opacity-0 translate-x-10"
-                }`}
-                style={{ transitionDelay: `${1000 + index * 200}ms` }}>
-                {/* Timeline item */}
-                <div
-                  className={`flex ${
-                    index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-                  } items-center w-full`}>
-                  <div
-                    className={`w-5/12 ${
-                      index % 2 === 0 ? "text-right pr-8" : "text-left pl-8"
-                    }`}>
-                    <div
-                      className={`group bg-gradient-to-r ${
-                        item.color
-                      } p-[2px] rounded-2xl hover:scale-105 transition-all duration-500 ${
-                        activeTimeline === index ? "scale-105 shadow-2xl" : ""
-                      }`}>
-                      <div className='bg-white backdrop-blur-sm rounded-2xl p-6 border border-slate-100'>
-                        <div className='flex items-center gap-3 mb-3'>
-                          <div
-                            className={`w-12 h-12 rounded-xl bg-gradient-to-r ${item.color} flex items-center justify-center group-hover:rotate-6 transition-transform duration-300`}>
-                            <item.icon className='w-6 h-6 text-white' />
-                          </div>
-                          <div>
-                            <div className='text-2xl font-bold text-secondary'>
-                              {item.year}
-                            </div>
-                            <div className='text-lg font-semibold text-slate-700'>
-                              {item.title}
-                            </div>
-                          </div>
-                        </div>
-                        <p className='text-slate-600 leading-relaxed'>
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Central timeline dot */}
-                  <div className='relative z-10'>
-                    <div
-                      className={`w-6 h-6 rounded-full bg-gradient-to-r ${
-                        item.color
-                      } transition-all duration-500 ${
-                        activeTimeline === index
-                          ? "scale-150 shadow-lg"
-                          : "scale-100"
-                      }`}>
-                      <div className='absolute inset-0 rounded-full animate-ping bg-white/30'></div>
-                    </div>
-                  </div>
-
-                  <div className='w-5/12'></div>
-                </div>
+            <div className='group bg-white/60 backdrop-blur-sm rounded-2xl p-8 border border-slate-200 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2'>
+              <div className='w-14 h-14 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300'>
+                <Zap className='w-7 h-7 text-white' />
               </div>
-            ))}
-          </div>
-        </div>
+              <h3 className='text-xl font-bold text-secondary mb-3'>
+                AI-Powered
+              </h3>
+              <p className='text-slate-600 leading-relaxed'>
+                Cutting-edge artificial intelligence tailored for African
+                markets and businesses
+              </p>
+            </div>
 
-        {/* Impact Statistics */}
-        <div
-          className={`transition-all duration-1000 delay-1400 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}>
-          <h3 className='text-3xl font-bold text-secondary text-center mb-12'>
-            Our Impact Across Africa
-          </h3>
-
-          <div className='grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto'>
-            {impactStats.map((stat, index) => (
-              <div key={index} className='group text-center'>
-                <div className='relative mb-6'>
-                  <div className='w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 border border-primary/10 flex items-center justify-center group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500 backdrop-blur-sm'>
-                    <stat.icon className='w-10 h-10 text-primary group-hover:animate-bounce' />
-                  </div>
-                  <div className='absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl'></div>
-                </div>
-
-                <div className='text-4xl md:text-5xl font-bold text-secondary mb-2 group-hover:scale-110 transition-transform duration-300'>
-                  {stat.number}
-                </div>
-                <div className='text-slate-700 font-medium group-hover:text-secondary transition-colors duration-300'>
-                  {stat.label}
-                </div>
+            <div className='group bg-white/60 backdrop-blur-sm rounded-2xl p-8 border border-slate-200 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2'>
+              <div className='w-14 h-14 bg-gradient-to-br from-secondary to-secondary/80 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300'>
+                <Target className='w-7 h-7 text-white' />
               </div>
-            ))}
-          </div>
-        </div>
+              <h3 className='text-xl font-bold text-secondary mb-3'>
+                Results-Driven
+              </h3>
+              <p className='text-slate-600 leading-relaxed'>
+                Proven strategies and tools that deliver measurable business
+                growth and success
+              </p>
+            </div>
 
-        {/* Call to Action */}
-        <div
-          className={`text-center mt-16 transition-all duration-1000 delay-1600 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}>
-          <div className='inline-flex items-center gap-4 bg-gradient-to-r from-primary via-primary/90 to-secondary hover:from-primary/90 hover:via-primary hover:to-secondary/90 text-white font-bold px-8 py-4 rounded-2xl shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:scale-105 cursor-pointer group'>
-            <span className='text-lg'>Join Our Success Story</span>
-            <ArrowRight className='w-5 h-5 group-hover:translate-x-2 transition-transform duration-300' />
+            <div className='group bg-white/60 backdrop-blur-sm rounded-2xl p-8 border border-slate-200 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2'>
+              <div className='w-14 h-14 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300'>
+                <Globe className='w-7 h-7 text-white' />
+              </div>
+              <h3 className='text-xl font-bold text-secondary mb-3'>
+                Africa-First
+              </h3>
+              <p className='text-slate-600 leading-relaxed'>
+                Built specifically for African entrepreneurs, regulations, and
+                market dynamics
+              </p>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div
+            className={`text-center mt-16 transition-all duration-1000 delay-800 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}>
+            <a
+              href='/about'
+              className='inline-flex items-center gap-3 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white font-bold px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group'>
+              <span className='text-lg'>Learn More About Us</span>
+              <ArrowRight className='w-5 h-5 group-hover:translate-x-2 transition-transform duration-300' />
+            </a>
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0px) rotate(0deg) scale(1);
-          }
-          25% {
-            transform: translateY(-15px) rotate(90deg) scale(1.1);
-          }
-          50% {
-            transform: translateY(-30px) rotate(180deg) scale(0.9);
-          }
-          75% {
-            transform: translateY(-15px) rotate(270deg) scale(1.1);
-          }
-        }
-      `}</style>
     </section>
   );
 };
