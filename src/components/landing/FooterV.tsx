@@ -19,6 +19,7 @@ import {
   Globe,
   ChevronUp,
   Send,
+  Rocket,
 } from "lucide-react";
 
 const Footer = () => {

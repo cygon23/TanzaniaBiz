@@ -1,21 +1,11 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { AuthService } from '@/services/auth.service';
 import type { AuthUser, UserRole } from '@/types';
 
 interface AuthContextType {
   user: AuthUser | null;
   loading: boolean;
-  signUp: (
-    email: string,
-    password: string,
-    fullName: string,
-    role: UserRole,
-    companyName?: string
-  ) => Promise<void>;
-  signIn: (email: string, password: string) => Promise<void>;
-  signOut: () => Promise<void>;
-  resetPassword: (email: string) => Promise<void>;
-  updateProfile: (updates: Partial<AuthUser>) => Promise<void>;
+  demoLogin: (role: UserRole, fullName?: string) => void;
+  signOut: () => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -37,106 +27,41 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check for existing session on mount
-    const initializeAuth = async () => {
+    // Check for existing session in localStorage
+    const storedUser = localStorage.getItem('demo_user');
+    if (storedUser) {
       try {
-        const currentUser = await AuthService.getCurrentUser();
-        setUser(currentUser);
+        setUser(JSON.parse(storedUser));
       } catch (error) {
-        console.error('Error initializing auth:', error);
-      } finally {
-        setLoading(false);
+        console.error('Error parsing stored user:', error);
+        localStorage.removeItem('demo_user');
       }
-    };
-
-    initializeAuth();
-
-    // Listen to auth state changes
-    const { data: authListener } = AuthService.onAuthStateChange((user) => {
-      setUser(user);
-      setLoading(false);
-    });
-
-    return () => {
-      authListener?.subscription.unsubscribe();
-    };
+    }
+    setLoading(false);
   }, []);
 
-  const signUp = async (
-    email: string,
-    password: string,
-    fullName: string,
-    role: UserRole,
-    companyName?: string
-  ) => {
-    setLoading(true);
-    try {
-      await AuthService.signUp(email, password, fullName, role, companyName);
-      const currentUser = await AuthService.getCurrentUser();
-      setUser(currentUser);
-    } catch (error) {
-      console.error('Sign up error:', error);
-      throw error;
-    } finally {
-      setLoading(false);
-    }
+  const demoLogin = (role: UserRole, fullName?: string) => {
+    const demoUser: AuthUser = {
+      id: `demo-${role}-${Date.now()}`,
+      email: `demo.${role}@rav.co.tz`,
+      full_name: fullName || `Demo ${role.charAt(0).toUpperCase() + role.slice(1)}`,
+      role: role,
+    };
+
+    setUser(demoUser);
+    localStorage.setItem('demo_user', JSON.stringify(demoUser));
   };
 
-  const signIn = async (email: string, password: string) => {
-    setLoading(true);
-    try {
-      const { profile } = await AuthService.signIn(email, password);
-      setUser(profile);
-    } catch (error) {
-      console.error('Sign in error:', error);
-      throw error;
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const signOut = async () => {
-    setLoading(true);
-    try {
-      await AuthService.signOut();
-      setUser(null);
-    } catch (error) {
-      console.error('Sign out error:', error);
-      throw error;
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const resetPassword = async (email: string) => {
-    try {
-      await AuthService.resetPassword(email);
-    } catch (error) {
-      console.error('Reset password error:', error);
-      throw error;
-    }
-  };
-
-  const updateProfile = async (updates: Partial<AuthUser>) => {
-    if (!user) return;
-    try {
-      await AuthService.updateProfile(user.id, updates);
-      const updatedUser = await AuthService.getUserProfile(user.id);
-      setUser(updatedUser);
-    } catch (error) {
-      console.error('Update profile error:', error);
-      throw error;
-    }
+  const signOut = () => {
+    setUser(null);
+    localStorage.removeItem('demo_user');
   };
 
   const value: AuthContextType = {
     user,
     loading,
-    signUp,
-    signIn,
+    demoLogin,
     signOut,
-    resetPassword,
-    updateProfile,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
