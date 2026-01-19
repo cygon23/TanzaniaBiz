@@ -50,7 +50,7 @@ const Header = () => {
             {/* Logo Section */}
             <div className='flex items-center space-x-4'>
               <div className='relative group cursor-pointer'>
-                <img src="/logo.png" alt="RAV - Raise Venture Africa" className="h-12 w-auto" />
+                <img src="/logo.png" alt="RAV - Raise Venture Africa" className="h-16 w-auto" />
               </div>
             </div>
 
@@ -62,12 +62,10 @@ const Header = () => {
                   href={item.href}
                   className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 relative overflow-hidden ${
                     item.active
-                      ? isScrolled
-                        ? "text-primary bg-primary/10"
-                        : "text-white bg-white/20"
+                      ? "text-primary bg-primary/10"
                       : isScrolled
                       ? "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
-                      : "text-white/90 hover:text-white hover:bg-white/10"
+                      : "text-secondary hover:text-primary hover:bg-white/10"
                   }`}>
                   <span className='relative z-10'>{item.name}</span>
                   {item.active && (
@@ -83,7 +81,7 @@ const Header = () => {
                 className={`flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                   isScrolled
                     ? "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
-                    : "text-white/80 hover:text-white hover:bg-white/10"
+                    : "text-slate-700 hover:text-secondary hover:bg-white/10"
                 }`}>
                 <Globe className='w-4 h-4 mr-2' />
                 EN
@@ -93,7 +91,7 @@ const Header = () => {
                 className={`p-2 rounded-lg transition-all duration-300 ${
                   isScrolled
                     ? "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
-                    : "text-white/80 hover:text-white hover:bg-white/10"
+                    : "text-slate-700 hover:text-secondary hover:bg-white/10"
                 }`}>
                 <Search className='w-5 h-5' />
               </button>
@@ -102,7 +100,7 @@ const Header = () => {
                 className={`relative p-2 rounded-lg transition-all duration-300 ${
                   isScrolled
                     ? "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
-                    : "text-white/80 hover:text-white hover:bg-white/10"
+                    : "text-slate-700 hover:text-secondary hover:bg-white/10"
                 }`}>
                 <Bell className='w-5 h-5' />
                 <div className='absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full animate-pulse' />
@@ -110,12 +108,11 @@ const Header = () => {
 
               <button
                 onClick={handleDemoLogin}
-                className='group relative bg-primary hover:bg-primary/90 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105'>
-                <div className='absolute inset-0 bg-primary/50 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300' />
+                className='group relative bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white font-bold px-8 py-3 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105'>
                 <div className='relative flex items-center'>
-                  <LogIn className='w-4 h-4 mr-2' />
+                  <LogIn className='w-5 h-5 mr-2' />
                   Get Started
-                  <ArrowRight className='w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200' />
+                  <ArrowRight className='w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200' />
                 </div>
               </button>
             </div>
@@ -126,7 +123,7 @@ const Header = () => {
               className={`lg:hidden p-2 rounded-lg transition-all duration-300 ${
                 isScrolled
                   ? "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
-                  : "text-white hover:bg-white/10"
+                  : "text-secondary hover:bg-white/10"
               }`}>
               {isMenuOpen ? (
                 <X className='w-6 h-6' />

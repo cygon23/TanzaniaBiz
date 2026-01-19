@@ -13,6 +13,7 @@ import {
   Lightbulb,
   Target,
   Users,
+  TrendingUp,
 } from "lucide-react";
 
 const Hero = () => {
@@ -98,26 +99,17 @@ const Hero = () => {
       {/* Main Content */}
       <div className='relative z-10 container mx-auto px-4 lg:px-8 py-20'>
         <div className='max-w-6xl mx-auto text-center'>
-          {/* Revolutionary Badge */}
+          {/* Simple Badge */}
           <div
-            className={`inline-flex items-center gap-3 bg-primary/5 backdrop-blur-sm rounded-full px-8 py-4 mb-12 border border-primary/20 transition-all duration-1000 ${
+            className={`inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 mb-8 border border-slate-200 shadow-sm transition-all duration-1000 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             } mt-16`}>
-            <div className='w-3 h-3 bg-green-400 rounded-full animate-pulse' />
-            <span className='text-secondary font-medium'>
-              Africa's #1 Business Transformation Platform
+            <div className='w-2 h-2 bg-green-500 rounded-full animate-pulse' />
+            <span className='text-secondary font-medium text-sm'>
+              Empowering 15,000+ African Entrepreneurs
             </span>
-            <div className='flex gap-1'>
-              {[...Array(3)].map((_, i) => (
-                <div
-                  key={i}
-                  className='w-1 h-1 bg-primary rounded-full animate-ping'
-                  style={{ animationDelay: `${i * 0.2}s` }}
-                />
-              ))}
-            </div>
           </div>
 
           {/* Simplified Headline */}
@@ -135,45 +127,6 @@ const Hero = () => {
             </h1>
           </div>
 
-          {/* Interactive Feature Pills */}
-          <div
-            className={`flex flex-wrap justify-center gap-4 mb-16 transition-all duration-1000 delay-700 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}>
-            {[
-              {
-                icon: Brain,
-                text: "AI Business Oracle",
-                color: "from-primary to-primary/80",
-              },
-              {
-                icon: Globe,
-                text: "Africa-Focused",
-                color: "from-secondary to-secondary/80",
-              },
-              {
-                icon: Zap,
-                text: "Instant Compliance",
-                color: "from-primary to-primary/80",
-              },
-              {
-                icon: Users,
-                text: "Elite Network",
-                color: "from-secondary to-secondary/80",
-              },
-            ].map((feature, index) => (
-              <div
-                key={index}
-                className={`group flex items-center gap-3 bg-gradient-to-r ${feature.color} p-[1px] rounded-full hover:scale-105 transition-all duration-300 cursor-pointer`}>
-                <div className='flex items-center gap-3 bg-white backdrop-blur-sm rounded-full px-6 py-3'>
-                  <feature.icon className='w-5 h-5 text-primary group-hover:animate-pulse' />
-                  <span className='text-secondary font-medium'>{feature.text}</span>
-                </div>
-              </div>
-            ))}
-          </div>
 
           {/* Revolutionary CTA Section */}
           <div
@@ -207,53 +160,26 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Interactive Success Metrics */}
+          {/* Simplified Success Metrics */}
           <div
-            className={`grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto transition-all duration-1000 delay-1100 ${
+            className={`flex flex-wrap justify-center gap-8 md:gap-12 max-w-3xl mx-auto transition-all duration-1000 delay-1100 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}>
             {[
-              {
-                number: "15,000+",
-                label: "Businesses Launched",
-                icon: Rocket,
-                color: "text-primary",
-              },
-              {
-                number: "95%",
-                label: "Success Rate",
-                icon: Target,
-                color: "text-green-400",
-              },
-              {
-                number: "< 2 weeks",
-                label: "Time to Market",
-                icon: Zap,
-                color: "text-primary",
-              },
-              {
-                number: "500M+",
-                label: "TSh Revenue Generated",
-                icon: Sparkles,
-                color: "text-yellow-400",
-              },
+              { number: "15K+", label: "Entrepreneurs", icon: Users },
+              { number: "95%", label: "Success Rate", icon: Target },
+              { number: "500M+", label: "TSh Generated", icon: TrendingUp },
             ].map((stat, index) => (
-              <div key={index} className='group text-center'>
-                <div className='relative mb-4'>
-                  <div
-                    className={`w-16 h-16 mx-auto rounded-2xl bg-primary/5 border border-primary/20 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
-                    <stat.icon
-                      className={`w-8 h-8 ${stat.color} group-hover:animate-pulse`}
-                    />
+              <div key={index} className='text-center'>
+                <div className='flex items-center justify-center gap-2 mb-2'>
+                  <stat.icon className='w-5 h-5 text-primary' />
+                  <div className='text-3xl font-bold text-secondary'>
+                    {stat.number}
                   </div>
-                  <div className='absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/20 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg' />
                 </div>
-                <div className='text-3xl md:text-4xl font-bold text-secondary mb-2 group-hover:scale-105 transition-transform duration-300'>
-                  {stat.number}
-                </div>
-                <div className='text-slate-700 font-medium group-hover:text-secondary transition-colors duration-300'>
+                <div className='text-slate-600 text-sm font-medium'>
                   {stat.label}
                 </div>
               </div>

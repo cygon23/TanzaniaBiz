@@ -233,132 +233,63 @@ const FinalCTA = () => {
       </div>
 
       <div className='container mx-auto px-4 lg:px-8 relative z-10'>
-        {/* Explosive Header */}
-        <div className='text-center mb-16'>
-          <div
-            className={`inline-flex items-center gap-3 bg-gradient-to-r from-red-50 to-yellow-50 backdrop-blur-sm rounded-full px-8 py-4 mb-8 border border-red-200 transition-all duration-1000 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}>
-            <Flame className='w-5 h-5 text-red-500 animate-bounce' />
-            <span className='text-red-600 font-medium'>
-              Limited Time: Explosive Launch Offer!
-            </span>
-            <Sparkles
-              className='w-5 h-5 text-yellow-500 animate-spin'
-              style={{ animationDuration: "2s" }}
-            />
-          </div>
-
-          <h2
-            className={`text-5xl md:text-7xl lg:text-8xl font-bold text-secondary mb-8 leading-tight transition-all duration-1000 delay-200 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}>
-            <span className='inline-block animate-bounce'>Ready</span>{" "}
-            <span
-              className='inline-block animate-bounce'
-              style={{ animationDelay: "0.1s" }}>
-              to
-            </span>{" "}
-            <span
-              className='inline-block animate-bounce'
-              style={{ animationDelay: "0.2s" }}>
-              Build
-            </span>{" "}
-            <br />
-            <span
-              className='bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent'
-              style={{ animationDelay: "0.3s" }}>
-              Your Empire?
+        {/* Clean CTA */}
+        <div
+          className={`text-center max-w-4xl mx-auto transition-all duration-1000 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}>
+          <h2 className='text-3xl md:text-5xl font-bold text-secondary mb-6 leading-tight'>
+            Start Building Your
+            <span className='bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent'>
+              {" "}Business Today
             </span>
           </h2>
 
-          <p
-            className={`text-2xl text-slate-700 max-w-4xl mx-auto leading-relaxed font-medium transition-all duration-1000 delay-400 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}>
-            Join the{" "}
-            <span className='text-green-600 font-bold'>
-              15,000+ entrepreneurs
-            </span>{" "}
-            who've transformed their dreams into
-            <span className='text-primary font-bold'>
-              {" "}
-              TSh 500M+ in revenue
-            </span>{" "}
-            using RAV!
+          <p className='text-lg text-slate-600 max-w-2xl mx-auto mb-12'>
+            Join 15,000+ entrepreneurs transforming their businesses with RAV
           </p>
-        </div>
 
-        {/* Urgency Countdown */}
-        <div
-          className={`bg-gradient-to-r from-red-500/10 via-orange-500/10 to-yellow-500/10 backdrop-blur-sm rounded-3xl p-8 border border-red-500/20 mb-16 max-w-4xl mx-auto transition-all duration-1000 delay-600 ${
-            isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
-          }`}>
-          <div className='text-center mb-6'>
-            <h3 className='text-2xl font-bold text-secondary mb-2'>
-              🔥 Launch Offer Ends In:
-            </h3>
-            <p className='text-red-600'>
-              Don't miss out on 50% OFF your first year!
-            </p>
-          </div>
-
-          <div className='grid grid-cols-4 gap-4 max-w-md mx-auto'>
-            {Object.entries(countdown).map(([unit, value]) => (
-              <div key={unit} className='text-center'>
-                <div className='bg-gradient-to-b from-red-500 to-red-600 text-white text-2xl md:text-3xl font-bold py-4 px-2 rounded-2xl border border-red-400 shadow-lg'>
-                  {value.toString().padStart(2, "0")}
-                </div>
-                <div className='text-red-600 text-sm font-medium mt-2 capitalize'>
-                  {unit}
-                </div>
+          <div className='flex flex-col sm:flex-row gap-6 justify-center items-center mb-12'>
+            <button
+              onClick={() => handleGetStarted("Free Trial")}
+              className='group relative bg-gradient-to-r from-primary via-primary/90 to-primary/80 hover:from-primary/90 hover:via-primary hover:to-primary text-white font-bold px-10 py-5 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 rounded-xl border-0'>
+              <div className='relative flex items-center gap-3'>
+                <Rocket className='w-6 h-6 group-hover:animate-bounce' />
+                Get Started Free
+                <ArrowRight className='w-6 h-6 group-hover:translate-x-2 transition-transform duration-300' />
               </div>
-            ))}
-          </div>
-        </div>
+            </button>
 
-        {/* Urgency Features */}
-        <div
-          className={`grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 max-w-6xl mx-auto transition-all duration-1000 delay-800 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}>
-          {urgencyFeatures.map((feature, index) => (
-            <div
-              key={index}
-              className='group bg-white backdrop-blur-sm rounded-2xl p-6 border border-slate-200 hover:border-primary/30 hover:scale-105 transition-all duration-300 text-center shadow-lg'>
-              <div className='w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300'>
-                <feature.icon
-                  className={`w-8 h-8 ${feature.color} group-hover:animate-pulse`}
-                />
+            <div className='flex items-center gap-3 text-slate-600'>
+              <Shield className='w-5 h-5 text-green-500' />
+              <div className='text-left'>
+                <div className='font-semibold text-secondary text-sm'>
+                  No Credit Card Required
+                </div>
+                <div className='text-xs'>Start your free trial today</div>
               </div>
-              <p className='text-secondary font-semibold text-sm leading-relaxed'>
-                {feature.text}
-              </p>
             </div>
-          ))}
-        </div>
-
-        {/* Pricing Plans */}
-        <div
-          className={`mb-16 transition-all duration-1000 delay-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-          }`}>
-          <div className='text-center mb-12'>
-            <h3 className='text-3xl md:text-4xl font-bold text-secondary mb-4'>
-              Choose Your Path to Success
-            </h3>
-            <p className='text-xl text-slate-700 max-w-2xl mx-auto'>
-              Select the perfect plan to launch, scale, or dominate your market
-            </p>
           </div>
 
-          <div className='grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto'>
+          {/* Simple Stats */}
+          <div className='flex flex-wrap justify-center gap-8 md:gap-12 pt-8 border-t border-slate-200'>
+            <div className='flex items-center gap-2'>
+              <Users className='w-5 h-5 text-primary' />
+              <span className='text-sm text-slate-600'>15K+ Entrepreneurs</span>
+            </div>
+            <div className='flex items-center gap-2'>
+              <TrendingUp className='w-5 h-5 text-green-500' />
+              <span className='text-sm text-slate-600'>95% Success Rate</span>
+            </div>
+            <div className='flex items-center gap-2'>
+              <Award className='w-5 h-5 text-yellow-500' />
+              <span className='text-sm text-slate-600'>Africa's #1 Platform</span>
+            </div>
+          </div>
+        </div>
+
+
+      <style>{`
             {offers.map((offer, index) => (
               <div
                 key={index}
