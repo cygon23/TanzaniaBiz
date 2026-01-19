@@ -185,7 +185,7 @@ const Features = () => {
   return (
     <section
       ref={sectionRef}
-      className='relative py-32 bg-gradient-to-b from-slate-800 to-slate-900 overflow-hidden'>
+      className='relative py-32 bg-white overflow-hidden'>
       {/* Dynamic Background */}
       <div className='absolute inset-0'>
         {/* Animated grid */}
@@ -193,7 +193,7 @@ const Features = () => {
           <div
             className='w-full h-full'
             style={{
-              backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)`,
+              backgroundImage: `linear-gradient(rgba(221, 118, 42, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(221, 118, 42, 0.1) 1px, transparent 1px)`,
               backgroundSize: "50px 50px",
               animation: "drift 20s ease-in-out infinite alternate",
             }}
@@ -219,10 +219,10 @@ const Features = () => {
 
         {/* Large gradient orbs */}
         <div
-          className='absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-pulse'
+          className='absolute -top-40 -right-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-pulse'
           style={{ animationDuration: "4s" }}></div>
         <div
-          className='absolute -bottom-40 -left-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-pulse'
+          className='absolute -bottom-40 -left-40 w-80 h-80 bg-secondary/5 rounded-full blur-3xl animate-pulse'
           style={{ animationDuration: "6s", animationDelay: "2s" }}></div>
       </div>
 
@@ -236,27 +236,27 @@ const Features = () => {
                 : "opacity-0 translate-y-10"
             }`}>
             <Sparkles className='w-5 h-5 text-primary animate-pulse' />
-            <span className='text-white/90 font-medium'>
+            <span className='text-secondary font-medium'>
               World-Class Technology, Africa-First Approach
             </span>
             <div className='w-2 h-2 bg-primary rounded-full animate-ping'></div>
           </div>
 
           <h2
-            className={`text-4xl md:text-6xl font-bold text-white mb-6 transition-all duration-1000 delay-200 ${
+            className={`text-4xl md:text-6xl font-bold text-secondary mb-6 transition-all duration-1000 delay-200 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}>
             Everything You Need to
             <br />
-            <span className='bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent animate-pulse'>
+            <span className='bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent'>
               Dominate Your Market
             </span>
           </h2>
 
           <p
-            className={`text-xl text-white/80 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-400 ${
+            className={`text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-400 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
@@ -287,7 +287,7 @@ const Features = () => {
                     ? "scale-105 shadow-2xl shadow-primary/20"
                     : "scale-100"
                 }`}>
-                <div className='bg-slate-800/90 backdrop-blur-sm rounded-3xl p-8 h-full'>
+                <div className='bg-white backdrop-blur-sm rounded-3xl p-8 h-full shadow-lg'>
                   {/* Feature Header */}
                   <div className='flex items-start gap-6 mb-6'>
                     <div
@@ -305,10 +305,10 @@ const Features = () => {
                     </div>
 
                     <div className='flex-1'>
-                      <div className='text-sm text-white/80 font-medium mb-1'>
+                      <div className='text-sm text-slate-600 font-medium mb-1'>
                         {feature.subtitle}
                       </div>
-                      <h3 className='text-2xl font-bold text-white mb-2'>
+                      <h3 className='text-2xl font-bold text-secondary mb-2'>
                         {feature.title}
                       </h3>
                       <div
@@ -319,7 +319,7 @@ const Features = () => {
                   </div>
 
                   {/* Feature Description */}
-                  <p className='text-white/80 leading-relaxed mb-6'>
+                  <p className='text-slate-700 leading-relaxed mb-6'>
                     {feature.description}
                   </p>
 
@@ -328,17 +328,17 @@ const Features = () => {
                     {feature.benefits.map((benefit, benefitIndex) => (
                       <div
                         key={benefitIndex}
-                        className={`flex items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/10 transition-all duration-300 ${
+                        className={`flex items-center gap-2 p-3 rounded-xl bg-slate-50 border border-slate-200 transition-all duration-300 ${
                           hoveredCard === index
-                            ? "bg-white/10 border-white/20"
+                            ? "bg-slate-100 border-primary/30"
                             : ""
                         }`}>
                         <CheckCircle
-                          className={`w-4 h-4 text-green-400 transition-all duration-300 ${
+                          className={`w-4 h-4 text-green-500 transition-all duration-300 ${
                             hoveredCard === index ? "animate-bounce" : ""
                           }`}
                         />
-                        <span className='text-sm text-white/80 font-medium'>
+                        <span className='text-sm text-slate-700 font-medium'>
                           {benefit}
                         </span>
                       </div>
@@ -349,16 +349,16 @@ const Features = () => {
                   <div
                     className={`flex items-center justify-between p-4 rounded-xl bg-gradient-to-r ${
                       feature.color
-                    } bg-opacity-10 border border-white/10 cursor-pointer transition-all duration-300 ${
+                    } bg-opacity-10 border border-slate-200 cursor-pointer transition-all duration-300 ${
                       hoveredCard === index
-                        ? "bg-opacity-20 border-white/30"
+                        ? "bg-opacity-20 border-primary/30"
                         : ""
                     }`}>
-                    <span className='text-white font-semibold'>
+                    <span className='text-secondary font-semibold'>
                       Explore Feature
                     </span>
                     <ArrowRight
-                      className={`w-5 h-5 text-white transition-all duration-300 ${
+                      className={`w-5 h-5 text-primary transition-all duration-300 ${
                         hoveredCard === index ? "translate-x-2" : ""
                       }`}
                     />
@@ -381,14 +381,14 @@ const Features = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
           }`}>
           <div className='text-center mb-16'>
-            <h3 className='text-3xl md:text-4xl font-bold text-white mb-4'>
+            <h3 className='text-3xl md:text-4xl font-bold text-secondary mb-4'>
               From Idea to{" "}
               <span className='bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent'>
                 Empire
               </span>{" "}
               in 4 Steps
             </h3>
-            <p className='text-lg text-white/80 max-w-2xl mx-auto'>
+            <p className='text-lg text-slate-700 max-w-2xl mx-auto'>
               Our proven process has helped 15,000+ entrepreneurs build
               successful businesses
             </p>
@@ -399,26 +399,26 @@ const Features = () => {
               <div key={index} className='group relative'>
                 {/* Connection line (hidden on mobile) */}
                 {index < processSteps.length - 1 && (
-                  <div className='hidden lg:block absolute top-1/2 left-full w-8 h-0.5 bg-gradient-to-r from-white/20 to-transparent transform -translate-y-1/2 z-10'></div>
+                  <div className='hidden lg:block absolute top-1/2 left-full w-8 h-0.5 bg-gradient-to-r from-primary/20 to-transparent transform -translate-y-1/2 z-10'></div>
                 )}
 
                 <div className='text-center'>
                   <div className='relative mb-6'>
                     <div
-                      className={`w-20 h-20 mx-auto rounded-2xl bg-gradient-to-r ${step.color} flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
+                      className={`w-20 h-20 mx-auto rounded-2xl bg-gradient-to-r ${step.color} flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg`}>
                       <step.icon className='w-10 h-10 text-white' />
                     </div>
-                    <div className='absolute -top-3 -right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center'>
-                      <span className='text-black font-bold text-sm'>
+                    <div className='absolute -top-3 -right-3 w-8 h-8 bg-secondary rounded-full flex items-center justify-center shadow-md'>
+                      <span className='text-white font-bold text-sm'>
                         {step.step}
                       </span>
                     </div>
                   </div>
 
-                  <h4 className='text-xl font-bold text-white mb-4 group-hover:text-primary transition-colors duration-300'>
+                  <h4 className='text-xl font-bold text-secondary mb-4 group-hover:text-primary transition-colors duration-300'>
                     {step.title}
                   </h4>
-                  <p className='text-white/80 leading-relaxed group-hover:text-white transition-colors duration-300'>
+                  <p className='text-slate-700 leading-relaxed group-hover:text-slate-600 transition-colors duration-300'>
                     {step.description}
                   </p>
                 </div>
@@ -433,10 +433,10 @@ const Features = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
           }`}>
           <div className='text-center mb-12'>
-            <h3 className='text-3xl font-bold text-white mb-4'>
+            <h3 className='text-3xl font-bold text-secondary mb-4'>
               Plus Many More Powerful Tools
             </h3>
-            <p className='text-lg text-white/80'>
+            <p className='text-lg text-slate-700'>
               A comprehensive suite designed to accelerate your business growth
             </p>
           </div>
@@ -447,16 +447,16 @@ const Features = () => {
                 key={index}
                 className='group text-center transition-all duration-500 hover:scale-110'>
                 <div className='relative mb-4'>
-                  <div className='w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-slate-700 to-slate-800 border border-white/10 flex items-center justify-center group-hover:border-primary/50 transition-all duration-300 backdrop-blur-sm'>
+                  <div className='w-16 h-16 mx-auto rounded-2xl bg-white border border-slate-200 flex items-center justify-center group-hover:border-primary/50 transition-all duration-300 backdrop-blur-sm shadow-md'>
                     <capability.icon className='w-8 h-8 text-primary group-hover:animate-pulse' />
                   </div>
                   <div className='absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/10 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg'></div>
                 </div>
 
-                <h4 className='text-white font-semibold mb-2 group-hover:text-primary transition-colors duration-300'>
+                <h4 className='text-secondary font-semibold mb-2 group-hover:text-primary transition-colors duration-300'>
                   {capability.title}
                 </h4>
-                <p className='text-sm text-white/80 group-hover:text-white/90 transition-colors duration-300'>
+                <p className='text-sm text-slate-600 group-hover:text-slate-700 transition-colors duration-300'>
                   {capability.desc}
                 </p>
               </div>
@@ -469,17 +469,17 @@ const Features = () => {
           className={`mt-20 transition-all duration-1000 delay-1600 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}>
-          <div className='bg-gradient-to-r from-primary/10 via-primary/5 to-secondary/10 backdrop-blur-sm rounded-3xl p-8 border border-white/10 max-w-4xl mx-auto text-center'>
+          <div className='bg-gradient-to-r from-primary/10 via-primary/5 to-secondary/10 backdrop-blur-sm rounded-3xl p-8 border border-primary/20 max-w-4xl mx-auto text-center shadow-xl'>
             <div className='flex justify-center mb-6'>
-              <div className='w-20 h-20 bg-gradient-to-r from-primary to-primary/80 rounded-3xl flex items-center justify-center'>
+              <div className='w-20 h-20 bg-gradient-to-r from-primary to-primary/80 rounded-3xl flex items-center justify-center shadow-lg'>
                 <Award className='w-10 h-10 text-white' />
               </div>
             </div>
 
-            <h3 className='text-2xl md:text-3xl font-bold text-white mb-4'>
+            <h3 className='text-2xl md:text-3xl font-bold text-secondary mb-4'>
               95% Success Rate Guarantee
             </h3>
-            <p className='text-white/80 mb-8 max-w-2xl mx-auto text-lg leading-relaxed'>
+            <p className='text-slate-700 mb-8 max-w-2xl mx-auto text-lg leading-relaxed'>
               Join the 95% of entrepreneurs who achieve their business goals
               with RAV. Our AI-powered platform and expert guidance
               ensure your success.
@@ -489,15 +489,15 @@ const Features = () => {
               <div className='flex items-center justify-center gap-3'>
                 <Clock className='w-6 h-6 text-primary' />
                 <div className='text-left'>
-                  <div className='text-white font-semibold'>24 Hours</div>
-                  <div className='text-sm text-white/80'>To Get Started</div>
+                  <div className='text-secondary font-semibold'>24 Hours</div>
+                  <div className='text-sm text-slate-600'>To Get Started</div>
                 </div>
               </div>
               <div className='flex items-center justify-center gap-3'>
-                <Shield className='w-6 h-6 text-green-400' />
+                <Shield className='w-6 h-6 text-green-500' />
                 <div className='text-left'>
-                  <div className='text-white font-semibold'>100% Compliant</div>
-                  <div className='text-sm text-white/80'>
+                  <div className='text-secondary font-semibold'>100% Compliant</div>
+                  <div className='text-sm text-slate-600'>
                     With TZ Regulations
                   </div>
                 </div>
@@ -505,8 +505,8 @@ const Features = () => {
               <div className='flex items-center justify-center gap-3'>
                 <TrendingUp className='w-6 h-6 text-primary' />
                 <div className='text-left'>
-                  <div className='text-white font-semibold'>500M+ TSh</div>
-                  <div className='text-sm text-white/80'>Revenue Generated</div>
+                  <div className='text-secondary font-semibold'>500M+ TSh</div>
+                  <div className='text-sm text-slate-600'>Revenue Generated</div>
                 </div>
               </div>
             </div>

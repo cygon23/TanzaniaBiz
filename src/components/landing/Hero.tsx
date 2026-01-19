@@ -120,54 +120,19 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Revolutionary Headline */}
+          {/* Simplified Headline */}
           <div className='mb-12'>
             <h1
-              className={`text-5xl md:text-7xl lg:text-8xl font-bold text-secondary mb-8 leading-tight transition-all duration-1000 delay-300 ${
+              className={`text-6xl md:text-8xl lg:text-9xl font-bold text-secondary mb-8 leading-tight transition-all duration-1000 delay-300 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
               }`}>
-              <span
-                className='inline-block animate-bounce'
-                style={{ animationDelay: "0.1s" }}>
-                Transform
-              </span>{" "}
-              <span
-                className='inline-block animate-bounce'
-                style={{ animationDelay: "0.2s" }}>
-                Your
-              </span>{" "}
-              <br />
-              <span
-                key={currentWord}
-                className='inline-block animate-bounce bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent animate-pulse'
-                style={{ animationDelay: "0.3s" }}>
-                {dynamicWords[currentWord]}
-              </span>{" "}
-              <span
-                className='inline-block animate-bounce text-secondary'
-                style={{ animationDelay: "0.4s" }}>
-                Into
-              </span>
-              <br />
-              <span
-                className='inline-block animate-bounce bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent'
-                style={{ animationDelay: "0.5s" }}>
-                Reality
+              Build Your{" "}
+              <span className='bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent'>
+                Empire
               </span>
             </h1>
-
-            <p
-              className={`text-xl md:text-2xl text-slate-700 max-w-4xl mx-auto leading-relaxed transition-all duration-1000 delay-500 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}>
-              The most advanced AI-powered business ecosystem in Africa. From
-              idea validation to market domination, we provide everything you
-              need to build, scale, and revolutionize your business.
-            </p>
           </div>
 
           {/* Interactive Feature Pills */}
