@@ -2,110 +2,16 @@ import React, { useState, useEffect, useRef } from "react";
 import {
   Rocket,
   ArrowRight,
-  Sparkles,
-  Zap,
-  Crown,
-  Star,
   Users,
   TrendingUp,
   Shield,
-  Clock,
-  CheckCircle,
-  Gift,
-  Target,
-  Flame,
-  Lightbulb,
   Award,
 } from "lucide-react";
 
 const FinalCTA = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [countdown, setCountdown] = useState({
-    days: 7,
-    hours: 12,
-    minutes: 30,
-    seconds: 45,
-  });
-  const [activeOffer, setActiveOffer] = useState(0);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const sectionRef = useRef(null);
-
-  const offers = [
-    {
-      title: "Entrepreneur Pro",
-      subtitle: "Perfect for Startups",
-      originalPrice: "TSh 50,000/month",
-      price: "FREE",
-      duration: "for 3 months",
-      features: [
-        "AI Business Oracle",
-        "Instant Compliance Tools",
-        "Market Intelligence",
-        "Expert Mentorship",
-        "Funding Network Access",
-      ],
-      color: "from-primary to-primary/80",
-      popular: false,
-    },
-    {
-      title: "Scale Master",
-      subtitle: "For Growing Businesses",
-      originalPrice: "TSh 150,000/month",
-      price: "TSh 75,000",
-      duration: "/month",
-      features: [
-        "Everything in Entrepreneur Pro",
-        "Advanced Analytics Dashboard",
-        "Priority Investor Matching",
-        "1-on-1 Strategic Sessions",
-        "Custom Market Reports",
-        "White-glove Compliance",
-      ],
-      color: "from-secondary to-secondary/80",
-      popular: true,
-    },
-    {
-      title: "Empire Builder",
-      subtitle: "For Established Companies",
-      originalPrice: "TSh 300,000/month",
-      price: "TSh 200,000",
-      duration: "/month",
-      features: [
-        "Everything in Scale Master",
-        "Dedicated Success Manager",
-        "Custom AI Models",
-        "Exclusive Investor Events",
-        "International Expansion Support",
-        "24/7 Priority Support",
-        "Custom Integrations",
-      ],
-      color: "from-primary to-primary/90",
-      popular: false,
-    },
-  ];
-
-  const urgencyFeatures = [
-    {
-      icon: Clock,
-      text: "Limited Time: 50% Off First Year",
-      color: "text-primary",
-    },
-    {
-      icon: Users,
-      text: "Join 15,000+ Successful Entrepreneurs",
-      color: "text-primary",
-    },
-    {
-      icon: Award,
-      text: "95% Success Rate Guarantee",
-      color: "text-green-400",
-    },
-    {
-      icon: Lightbulb,
-      text: "Launch Your Business in 24 Hours",
-      color: "text-yellow-400",
-    },
-  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -122,35 +28,6 @@ const FinalCTA = () => {
     }
 
     return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (isVisible) {
-      const interval = setInterval(() => {
-        setActiveOffer((prev) => (prev + 1) % offers.length);
-      }, 5000);
-      return () => clearInterval(interval);
-    }
-  }, [isVisible]);
-
-  // Countdown timer effect
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCountdown((prev) => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 };
-        } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
-        } else if (prev.hours > 0) {
-          return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        } else if (prev.days > 0) {
-          return { days: prev.days - 1, hours: 23, minutes: 59, seconds: 59 };
-        }
-        return prev;
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
   }, []);
 
   useEffect(() => {
@@ -200,23 +77,6 @@ const FinalCTA = () => {
               animationDelay: `${Math.random() * 3}s`,
             }}>
             <div className='w-2 h-2 bg-gradient-to-r from-primary to-primary/80 rounded-full animate-pulse'></div>
-          </div>
-        ))}
-
-        {/* Lightning bolts */}
-        {[...Array(5)].map((_, i) => (
-          <div
-            key={i}
-            className='absolute opacity-10'
-            style={{
-              left: `${20 + i * 15}%`,
-              top: `${10 + Math.sin(i) * 40}%`,
-              animation: `lightning ${
-                2 + Math.random() * 2
-              }s ease-in-out infinite`,
-              animationDelay: `${i * 0.4}s`,
-            }}>
-            <Lightbulb className='w-8 h-8 text-yellow-500 rotate-45' />
           </div>
         ))}
 
@@ -307,20 +167,6 @@ const FinalCTA = () => {
           75% {
             transform: translateY(-30px) translateX(-20px) scale(1.2);
             opacity: 0.8;
-          }
-        }
-
-        @keyframes lightning {
-          0%,
-          90%,
-          100% {
-            opacity: 0.2;
-            transform: scale(1) rotate(45deg);
-          }
-          10%,
-          20% {
-            opacity: 1;
-            transform: scale(1.2) rotate(45deg);
           }
         }
       `}</style>
