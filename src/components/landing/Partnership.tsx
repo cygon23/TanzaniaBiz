@@ -3,143 +3,40 @@ import {
   Handshake,
   Building2,
   GraduationCap,
-  Heart,
-  Briefcase,
-  Users,
   Globe,
   TrendingUp,
-  Award,
   ArrowRight,
-  Mail,
-  Phone,
-  MapPin,
-  CheckCircle,
-  Star,
-  Rocket,
-  Target,
-  Zap,
+  Sparkles,
 } from "lucide-react";
 
 const Partnership = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [activePartnerType, setActivePartnerType] = useState(0);
-  const [hoveredBenefit, setHoveredBenefit] = useState(null);
   const sectionRef = useRef(null);
 
-  const partnershipTypes = [
+  const partners = [
     {
-      id: "corporate",
-      title: "Corporate Partners",
-      subtitle: "Strategic Business Alliances",
-      description:
-        "Join forces with Tanzania's leading business platform to expand your reach and impact.",
       icon: Building2,
+      title: "Corporate Partners",
+      description: "Strategic alliances with leading businesses",
       color: "from-primary to-primary/80",
-      benefits: [
-        "Access to 15,000+ verified businesses",
-        "Co-branded marketing opportunities",
-        "Revenue sharing programs",
-        "Priority feature integration",
-      ],
-      examples: [
-        "Banks & Financial Institutions",
-        "Technology Companies",
-        "Consulting Firms",
-        "Service Providers",
-      ],
     },
     {
-      id: "investors",
-      title: "Investors & VCs",
-      subtitle: "Fund the Future",
-      description:
-        "Connect with high-potential Tanzanian startups and established businesses seeking growth capital.",
       icon: TrendingUp,
+      title: "Investors & VCs",
+      description: "Fund high-potential African startups",
       color: "from-secondary to-secondary/80",
-      benefits: [
-        "Pre-vetted investment opportunities",
-        "Detailed business analytics",
-        "Direct entrepreneur access",
-        "Portfolio management tools",
-      ],
-      examples: [
-        "Venture Capital Firms",
-        "Angel Investors",
-        "Development Finance",
-        "Impact Investors",
-      ],
     },
     {
-      id: "education",
-      title: "Educational Partners",
-      subtitle: "Building Tomorrow's Leaders",
-      description:
-        "Collaborate with us to provide real-world business education and mentorship programs.",
       icon: GraduationCap,
+      title: "Educational",
+      description: "Build tomorrow's business leaders",
       color: "from-primary to-primary/90",
-      benefits: [
-        "Student internship programs",
-        "Curriculum integration",
-        "Research partnerships",
-        "Graduate job placement",
-      ],
-      examples: [
-        "Universities",
-        "Business Schools",
-        "Training Institutes",
-        "Certification Bodies",
-      ],
     },
     {
-      id: "government",
-      title: "Government & NGOs",
-      subtitle: "Driving Economic Growth",
-      description:
-        "Partner with us to accelerate economic development and job creation across Tanzania.",
       icon: Globe,
+      title: "Government & NGOs",
+      description: "Drive economic growth together",
       color: "from-secondary to-secondary/90",
-      benefits: [
-        "Economic impact reporting",
-        "Job creation tracking",
-        "Policy recommendations",
-        "Community outreach programs",
-      ],
-      examples: [
-        "Government Agencies",
-        "Development Partners",
-        "NGOs",
-        "International Organizations",
-      ],
-    },
-  ];
-
-  const supporterBenefits = [
-    {
-      icon: Heart,
-      title: "Community Impact",
-      description:
-        "Help create thousands of jobs and strengthen Tanzania's economy",
-      metric: "15,000+ businesses supported",
-    },
-    {
-      icon: Star,
-      title: "Brand Recognition",
-      description: "Get recognized as a champion of Tanzanian entrepreneurship",
-      metric: "1M+ entrepreneur network reach",
-    },
-    {
-      icon: Target,
-      title: "Market Access",
-      description:
-        "Direct access to Tanzania's most dynamic business ecosystem",
-      metric: "26 regions covered",
-    },
-    {
-      icon: Rocket,
-      title: "Innovation Leader",
-      description:
-        "Be associated with Tanzania's most innovative business platform",
-      metric: "95% success rate",
     },
   ];
 
@@ -160,110 +57,46 @@ const Partnership = () => {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    if (isVisible) {
-      const interval = setInterval(() => {
-        setActivePartnerType((prev) => (prev + 1) % partnershipTypes.length);
-      }, 6000);
-      return () => clearInterval(interval);
-    }
-  }, [isVisible]);
-
-  const handlePartnershipInquiry = (type) => {
-    // In a real app, this would open a contact form or navigate to a partnership page
-    console.log(`Partnership inquiry for: ${type}`);
-  };
-
   return (
     <section
       ref={sectionRef}
-      className='relative py-32 bg-white overflow-hidden'>
-      {/* Dynamic Background */}
+      className='relative py-32 bg-gradient-to-br from-slate-50 via-white to-slate-50 overflow-hidden'>
+      {/* Animated Background */}
       <div className='absolute inset-0'>
-        {/* Connection lines animation */}
-        <svg
-          className='absolute inset-0 w-full h-full opacity-5'
-          viewBox='0 0 1000 1000'>
-          {[...Array(15)].map((_, i) => (
-            <g key={i}>
-              <line
-                x1={Math.random() * 1000}
-                y1={Math.random() * 1000}
-                x2={Math.random() * 1000}
-                y2={Math.random() * 1000}
-                stroke='url(#connectionGradient)'
-                strokeWidth='1'
-                className='animate-pulse'
-                style={{
-                  animationDelay: `${i * 0.3}s`,
-                  animationDuration: `${3 + Math.random() * 2}s`,
-                }}
-              />
-              <circle
-                cx={Math.random() * 1000}
-                cy={Math.random() * 1000}
-                r='3'
-                fill='#DD762A'
-                className='animate-ping'
-                style={{ animationDelay: `${i * 0.2}s` }}
-              />
-            </g>
-          ))}
-          <defs>
-            <linearGradient
-              id='connectionGradient'
-              x1='0%'
-              y1='0%'
-              x2='100%'
-              y2='100%'>
-              <stop offset='0%' stopColor='#DD762A' />
-              <stop offset='50%' stopColor='#23110C' />
-              <stop offset='100%' stopColor='#DD762A' />
-            </linearGradient>
-          </defs>
-        </svg>
-
-        {/* Floating partnership icons */}
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={i}
-            className='absolute opacity-10'
-            style={{
-              left: `${10 + i * 12}%`,
-              top: `${20 + Math.sin(i) * 30}%`,
-              animation: `partnerFloat ${
-                6 + Math.random() * 4
-              }s ease-in-out infinite`,
-              animationDelay: `${i * 0.8}s`,
-            }}>
-            <Handshake className='w-12 h-12 text-primary rotate-12' />
-          </div>
-        ))}
-
-        {/* Gradient orbs */}
-        <div className='absolute top-1/4 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-pulse'></div>
+        <div className='absolute top-20 left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse'></div>
         <div
-          className='absolute bottom-1/4 right-10 w-64 h-64 bg-secondary/10 rounded-full blur-3xl animate-pulse'
+          className='absolute bottom-20 right-20 w-96 h-96 bg-secondary/5 rounded-full blur-3xl animate-pulse'
           style={{ animationDelay: "2s" }}></div>
       </div>
 
       <div className='container mx-auto px-4 lg:px-8 relative z-10'>
-        {/* Section Header */}
-        <div className='text-center mb-16'>
-          <h2
-            className={`text-3xl md:text-5xl font-bold text-secondary mb-4 transition-all duration-1000 delay-200 ${
+        {/* Header */}
+        <div className='text-center mb-20'>
+          <div
+            className={`inline-flex items-center gap-3 bg-gradient-to-r from-primary/10 to-primary/5 backdrop-blur-sm rounded-full px-8 py-4 mb-8 border border-primary/20 transition-all duration-1000 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}>
-            Partner with
-            <span className='bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent'>
-              {" "}Africa's Future
+            <Handshake className='w-5 h-5 text-primary' />
+            <span className='text-secondary font-semibold'>
+              Partnership Opportunities
+            </span>
+          </div>
+
+          <h2
+            className={`text-4xl md:text-6xl font-bold text-secondary mb-6 transition-all duration-1000 delay-200 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}>
+            Partner with{" "}
+            <span className='bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent'>
+              Africa's Future
             </span>
           </h2>
-
           <p
-            className={`text-lg text-slate-600 max-w-2xl mx-auto transition-all duration-1000 delay-400 ${
+            className={`text-xl text-slate-600 max-w-2xl mx-auto transition-all duration-1000 delay-400 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
@@ -272,232 +105,101 @@ const Partnership = () => {
           </p>
         </div>
 
-        {/* Partnership Types Showcase */}
-        <div className='mb-20'>
-          {/* Partnership Navigation */}
-          <div
-            className={`flex flex-wrap justify-center gap-4 mb-12 transition-all duration-1000 delay-600 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}>
-            {partnershipTypes.map((type, index) => (
-              <button
-                key={type.id}
-                onClick={() => setActivePartnerType(index)}
-                className={`group flex items-center gap-3 px-6 py-3 rounded-2xl border transition-all duration-300 ${
-                  activePartnerType === index
-                    ? `bg-gradient-to-r ${type.color} text-white border-transparent shadow-lg`
-                    : "bg-white text-slate-700 border-slate-200 hover:border-primary/30 hover:bg-slate-50"
-                }`}>
-                <type.icon
-                  className={`w-5 h-5 transition-all duration-300 ${
-                    activePartnerType === index ? "animate-bounce" : ""
+        {/* Partnership Wave Design */}
+        <div className='max-w-6xl mx-auto mb-16'>
+          <div className='relative'>
+            {/* Connecting Wave Line */}
+            <svg
+              className={`absolute top-1/2 left-0 w-full h-32 -translate-y-1/2 transition-all duration-1500 ${
+                isVisible ? "opacity-100" : "opacity-0"
+              }`}
+              viewBox='0 0 1200 100'
+              preserveAspectRatio='none'>
+              <path
+                d='M0,50 Q300,20 600,50 T1200,50'
+                stroke='url(#gradient)'
+                strokeWidth='2'
+                fill='none'
+                className='animate-pulse'
+              />
+              <defs>
+                <linearGradient id='gradient' x1='0%' y1='0%' x2='100%' y2='0%'>
+                  <stop offset='0%' stopColor='#DD762A' stopOpacity='0.3' />
+                  <stop offset='50%' stopColor='#DD762A' stopOpacity='0.6' />
+                  <stop offset='100%' stopColor='#23110C' stopOpacity='0.3' />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            {/* Partner Cards */}
+            <div className='grid md:grid-cols-4 gap-8 relative z-10'>
+              {partners.map((partner, index) => (
+                <div
+                  key={index}
+                  className={`group transition-all duration-1000 ${
+                    isVisible
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-20"
                   }`}
-                />
-                <span className='font-medium'>{type.title}</span>
-              </button>
-            ))}
-          </div>
-
-          {/* Active Partnership Display */}
-          <div
-            className={`transition-all duration-1000 delay-800 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}>
-            {partnershipTypes.map((type, index) => (
-              <div
-                key={type.id}
-                className={`transition-all duration-500 ${
-                  activePartnerType === index
-                    ? "opacity-100 scale-100"
-                    : "opacity-0 scale-95 absolute"
-                }`}>
-                {activePartnerType === index && (
-                  <div
-                    className={`bg-gradient-to-r ${type.color} p-[2px] rounded-3xl max-w-4xl mx-auto`}>
-                    <div className='bg-white backdrop-blur-sm rounded-3xl p-8'>
-                      <div className='flex items-start gap-6 mb-8'>
-                        <div
-                          className={`w-20 h-20 rounded-2xl bg-gradient-to-r ${type.color} flex items-center justify-center`}>
-                          <type.icon className='w-10 h-10 text-white' />
-                        </div>
-                        <div className='flex-1'>
-                          <div className='text-sm text-primary font-medium mb-2'>
-                            {type.subtitle}
-                          </div>
-                          <h3 className='text-3xl font-bold text-secondary mb-4'>
-                            {type.title}
-                          </h3>
-                          <p className='text-slate-700 text-lg leading-relaxed'>
-                            {type.description}
-                          </p>
-                        </div>
+                  style={{ transitionDelay: `${600 + index * 150}ms` }}>
+                  <div className='relative'>
+                    {/* Card */}
+                    <div className='bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border border-slate-200'>
+                      {/* Icon */}
+                      <div
+                        className={`w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-r ${partner.color} flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
+                        <partner.icon className='w-10 h-10 text-white' />
                       </div>
 
-                      <div className='grid md:grid-cols-2 gap-8'>
-                        {/* Benefits */}
-                        <div>
-                          <h4 className='text-xl font-bold text-secondary mb-4'>
-                            Partnership Benefits
-                          </h4>
-                          <div className='space-y-3'>
-                            {type.benefits.map((benefit, benefitIndex) => (
-                              <div
-                                key={benefitIndex}
-                                className='flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200 hover:bg-slate-100 hover:border-primary/30 transition-all duration-300'>
-                                <CheckCircle className='w-5 h-5 text-green-500 flex-shrink-0' />
-                                <span className='text-slate-700 font-medium'>
-                                  {benefit}
-                                </span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
+                      {/* Content */}
+                      <h3 className='text-xl font-bold text-secondary mb-3 text-center'>
+                        {partner.title}
+                      </h3>
+                      <p className='text-slate-600 text-sm text-center leading-relaxed'>
+                        {partner.description}
+                      </p>
 
-                        {/* Examples */}
-                        <div>
-                          <h4 className='text-xl font-bold text-secondary mb-4'>
-                            Perfect For
-                          </h4>
-                          <div className='space-y-3'>
-                            {type.examples.map((example, exampleIndex) => (
-                              <div
-                                key={exampleIndex}
-                                className='flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-slate-50 to-primary/5 border border-slate-200'>
-                                <Star className='w-5 h-5 text-yellow-500 flex-shrink-0' />
-                                <span className='text-slate-700 font-medium'>
-                                  {example}
-                                </span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
+                      {/* Hover Glow */}
+                      <div
+                        className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${partner.color} opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500`}></div>
+                    </div>
 
-                      <div className='mt-8 flex flex-col sm:flex-row gap-4'>
-                        <button
-                          onClick={() => handlePartnershipInquiry(type.id)}
-                          className={`flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r ${type.color} hover:shadow-lg hover:scale-105 transition-all duration-300 rounded-2xl text-white font-bold`}>
-                          <Mail className='w-5 h-5' />
-                          Start Partnership Discussion
-                          <ArrowRight className='w-5 h-5' />
-                        </button>
-                        <button className='flex items-center justify-center gap-3 px-8 py-4 bg-white hover:bg-slate-50 border border-slate-200 hover:border-primary/40 transition-all duration-300 rounded-2xl text-slate-700 font-medium backdrop-blur-sm'>
-                          <Phone className='w-5 h-5' />
-                          Schedule a Call
-                        </button>
-                      </div>
+                    {/* Connection Dot */}
+                    <div
+                      className={`absolute -bottom-4 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r ${partner.color} shadow-lg transition-all duration-500 group-hover:scale-150`}>
+                      <div className='absolute inset-0 rounded-full bg-white/30 animate-ping'></div>
                     </div>
                   </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Why Support Us */}
-        <div
-          className={`transition-all duration-1000 delay-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}>
-          <div className='text-center mb-12'>
-            <h3 className='text-3xl font-bold text-secondary mb-4'>
-              Why Support RAV?
-            </h3>
-            <p className='text-lg text-slate-700 max-w-2xl mx-auto'>
-              When you partner with us, you're not just supporting a platform –
-              you're investing in Africa's economic future.
-            </p>
-          </div>
-
-          <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto'>
-            {supporterBenefits.map((benefit, index) => (
-              <div
-                key={index}
-                className='group text-center transition-all duration-500 hover:scale-105'
-                onMouseEnter={() => setHoveredBenefit(index)}
-                onMouseLeave={() => setHoveredBenefit(null)}>
-                <div className='relative mb-6'>
-                  <div
-                    className={`w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 border border-slate-200 flex items-center justify-center group-hover:border-primary/50 transition-all duration-300 backdrop-blur-sm ${
-                      hoveredBenefit === index ? "scale-110 rotate-6" : ""
-                    }`}>
-                    <benefit.icon className='w-10 h-10 text-primary group-hover:animate-pulse' />
-                  </div>
-                  {hoveredBenefit === index && (
-                    <div className='absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/20 to-secondary/20 blur-lg animate-pulse'></div>
-                  )}
                 </div>
-
-                <h4 className='text-xl font-bold text-secondary mb-3 group-hover:text-primary transition-colors duration-300'>
-                  {benefit.title}
-                </h4>
-                <p className='text-slate-700 mb-4 leading-relaxed group-hover:text-slate-600 transition-colors duration-300'>
-                  {benefit.description}
-                </p>
-                <div className='text-sm font-bold text-primary bg-primary/10 px-4 py-2 rounded-full border border-primary/20'>
-                  {benefit.metric}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Contact CTA */}
-        <div
-          className={`text-center mt-20 transition-all duration-1000 delay-1200 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}>
-          <div className='bg-gradient-to-r from-slate-50 to-slate-100 backdrop-blur-sm rounded-3xl p-8 border border-slate-200 max-w-4xl mx-auto'>
-            <h3 className='text-2xl font-bold text-secondary mb-4'>
-              Ready to Build Africa's Future Together?
-            </h3>
-            <p className='text-slate-700 mb-8 max-w-2xl mx-auto'>
-              Join our growing network of partners, supporters, and
-              collaborators who are making a real impact on Africa's business
-              landscape.
-            </p>
-
-            <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-              <button className='group flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-primary via-primary/90 to-primary/80 hover:from-primary hover:via-primary hover:to-primary/90 text-white font-bold rounded-2xl shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:scale-105'>
-                <Handshake className='w-5 h-5 group-hover:animate-bounce' />
-                Become a Partner
-                <ArrowRight className='w-5 h-5 group-hover:translate-x-2 transition-transform duration-300' />
-              </button>
-
-              <button className='flex items-center justify-center gap-3 px-8 py-4 bg-white hover:bg-slate-50 border border-slate-200 hover:border-primary/40 transition-all duration-300 rounded-2xl text-slate-700 font-medium backdrop-blur-sm'>
-                <MapPin className='w-5 h-5' />
-                Visit Our Office in Dar es Salaam
-              </button>
+              ))}
             </div>
           </div>
         </div>
-      </div>
 
-      <style>{`
-        @keyframes partnerFloat {
-          0%,
-          100% {
-            transform: translateY(0px) rotate(12deg) scale(1);
-            opacity: 0.1;
-          }
-          25% {
-            transform: translateY(-15px) rotate(25deg) scale(1.1);
-            opacity: 0.2;
-          }
-          50% {
-            transform: translateY(-30px) rotate(12deg) scale(0.9);
-            opacity: 0.15;
-          }
-          75% {
-            transform: translateY(-15px) rotate(-5deg) scale(1.1);
-            opacity: 0.2;
-          }
-        }
-      `}</style>
+        {/* CTA Card */}
+        <div
+          className={`max-w-4xl mx-auto transition-all duration-1000 delay-1000 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+          }`}>
+          <div className='bg-gradient-to-r from-primary/10 via-primary/5 to-secondary/10 backdrop-blur-sm rounded-3xl p-12 border border-primary/20 shadow-xl text-center'>
+            <Sparkles className='w-12 h-12 text-primary mx-auto mb-6 animate-spin' style={{ animationDuration: '3s' }} />
+            <h3 className='text-3xl font-bold text-secondary mb-6'>
+              Ready to Make an Impact?
+            </h3>
+            <p className='text-lg text-slate-600 mb-8 max-w-2xl mx-auto'>
+              Join our mission to empower 100,000+ African entrepreneurs and
+              transform the continent's business ecosystem
+            </p>
+            <a
+              href='/contact'
+              className='inline-flex items-center gap-3 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white font-bold px-10 py-5 rounded-2xl shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:scale-105 group'>
+              <Handshake className='w-6 h-6 group-hover:animate-bounce' />
+              <span className='text-lg'>Become a Partner</span>
+              <ArrowRight className='w-6 h-6 group-hover:translate-x-2 transition-transform duration-300' />
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

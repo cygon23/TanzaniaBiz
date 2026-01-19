@@ -5,8 +5,7 @@ import {
   Globe,
   Building2,
   User,
-  LogIn,
-  ArrowRight,
+  Rocket,
   Search,
   Bell,
 } from "lucide-react";
@@ -109,10 +108,9 @@ const Header = () => {
               <button
                 onClick={handleDemoLogin}
                 className='group relative bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white font-bold px-8 py-3 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105'>
-                <div className='relative flex items-center'>
-                  <LogIn className='w-5 h-5 mr-2' />
+                <div className='relative flex items-center gap-2'>
+                  <Rocket className='w-5 h-5 group-hover:animate-bounce' />
                   Get Started
-                  <ArrowRight className='w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200' />
                 </div>
               </button>
             </div>
@@ -172,10 +170,9 @@ const Header = () => {
                 </div>
                 <button
                   onClick={handleDemoLogin}
-                  className='w-full bg-primary hover:bg-primary/90 text-white font-semibold px-6 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center'>
-                  <LogIn className='w-5 h-5 mr-2' />
+                  className='w-full bg-primary hover:bg-primary/90 text-white font-semibold px-6 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2'>
+                  <Rocket className='w-5 h-5' />
                   Get Started
-                  <ArrowRight className='w-5 h-5 ml-2' />
                 </button>
               </div>
             </div>

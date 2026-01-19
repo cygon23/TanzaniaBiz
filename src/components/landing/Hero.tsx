@@ -99,32 +99,30 @@ const Hero = () => {
       {/* Main Content */}
       <div className='relative z-10 container mx-auto px-4 lg:px-8 py-20'>
         <div className='max-w-6xl mx-auto text-center'>
-          {/* Simple Badge */}
-          <div
-            className={`inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 mb-8 border border-slate-200 shadow-sm transition-all duration-1000 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            } mt-16`}>
-            <div className='w-2 h-2 bg-green-500 rounded-full animate-pulse' />
-            <span className='text-secondary font-medium text-sm'>
-              Empowering 15,000+ African Entrepreneurs
-            </span>
-          </div>
-
-          {/* Simplified Headline */}
-          <div className='mb-12'>
+          {/* Animated Headline with Word Rotation */}
+          <div className='mb-12 mt-24'>
             <h1
               className={`text-6xl md:text-8xl lg:text-9xl font-bold text-secondary mb-8 leading-tight transition-all duration-1000 delay-300 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
               }`}>
-              Build Your{" "}
-              <span className='bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent'>
-                Empire
+              Transform Your{" "}
+              <span className='relative inline-block'>
+                <span className='bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent animate-pulse'>
+                  {dynamicWords[currentWord]}
+                </span>
+                <span className='absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary to-primary/40 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500'></span>
               </span>
             </h1>
+            <p
+              className={`text-xl md:text-2xl text-slate-600 max-w-2xl mx-auto mb-12 transition-all duration-1000 delay-500 ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}>
+              Africa's most powerful AI-driven platform for entrepreneurs
+            </p>
           </div>
 
 
