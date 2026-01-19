@@ -228,41 +228,26 @@ const Features = () => {
 
       <div className='container mx-auto px-4 lg:px-8 relative z-10'>
         {/* Section Header */}
-        <div className='text-center mb-20'>
-          <div
-            className={`inline-flex items-center gap-3 bg-gradient-to-r from-primary/10 to-primary/5 backdrop-blur-sm rounded-full px-8 py-4 mb-8 border border-primary/20 transition-all duration-1000 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}>
-            <Sparkles className='w-5 h-5 text-primary animate-pulse' />
-            <span className='text-secondary font-medium'>
-              World-Class Technology, Africa-First Approach
-            </span>
-            <div className='w-2 h-2 bg-primary rounded-full animate-ping'></div>
-          </div>
-
+        <div className='text-center mb-16'>
           <h2
-            className={`text-4xl md:text-6xl font-bold text-secondary mb-6 transition-all duration-1000 delay-200 ${
+            className={`text-3xl md:text-5xl font-bold text-secondary mb-4 transition-all duration-1000 delay-200 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}>
-            Everything You Need to
-            <br />
+            Complete Business
             <span className='bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent'>
-              Dominate Your Market
+              {" "}Solutions
             </span>
           </h2>
 
           <p
-            className={`text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-400 ${
+            className={`text-lg text-slate-600 max-w-2xl mx-auto transition-all duration-1000 delay-400 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}>
-            A complete business ecosystem designed specifically for African
-            entrepreneurs, powered by cutting-edge AI and local expertise.
+            Everything you need to launch, grow, and scale your business
           </p>
         </div>
 

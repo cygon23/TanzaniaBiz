@@ -241,38 +241,21 @@ const Testimonials = () => {
 
       <div className='container mx-auto px-4 lg:px-8 relative z-10'>
         {/* Section Header */}
-        <div className='text-center mb-20'>
-          <div
-            className={`inline-flex items-center gap-3 bg-gradient-to-r from-primary/10 to-primary/5 backdrop-blur-sm rounded-full px-8 py-4 mb-8 border border-primary/20 transition-all duration-1000 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}>
-            <Star
-              className='w-5 h-5 text-yellow-400 animate-spin'
-              style={{ animationDuration: "3s" }}
-            />
-            <span className='text-secondary font-medium'>
-              Real Stories, Real Success, Real Impact
-            </span>
-            <Sparkles className='w-5 h-5 text-primary animate-pulse' />
-          </div>
-
+        <div className='text-center mb-16'>
           <h2
-            className={`text-4xl md:text-6xl font-bold text-secondary mb-6 transition-all duration-1000 delay-200 ${
+            className={`text-3xl md:text-5xl font-bold text-secondary mb-4 transition-all duration-1000 delay-200 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}>
-            Entrepreneurs Are
-            <br />
-            <span className='bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent animate-pulse'>
-              Loving RAV
+            Success
+            <span className='bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent'>
+              {" "}Stories
             </span>
           </h2>
 
           <p
-            className={`text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-400 ${
+            className={`text-lg text-slate-600 max-w-2xl mx-auto transition-all duration-1000 delay-400 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
