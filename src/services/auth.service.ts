@@ -13,14 +13,24 @@ export class AuthService {
     companyName?: string
   ) {
     try {
+      // Pass user metadata so the trigger can create the profile automatically
       const { data: authData, error: authError } = await supabase.auth.signUp({
         email,
         password,
+        options: {
+          data: {
+            full_name: fullName,
+            role: role,
+            company_name: companyName,
+          },
+        },
       });
 
       if (authError) throw authError;
       if (!authData.user) throw new Error('User creation failed');
 
+      // The trigger will create the profile automatically
+      // This is a failsafe in case the trigger didn't fire or failed
       await supabase.from('profiles').upsert({
         id: authData.user.id,
         email,
@@ -28,7 +38,8 @@ export class AuthService {
         role,
         company_name: companyName,
       }, {
-        onConflict: 'id'
+        onConflict: 'id',
+        ignoreDuplicates: false,
       });
 
       if (role === 'mentor') {
